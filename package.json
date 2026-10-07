@@ -12,7 +12,7 @@
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate": "node --experimental-strip-types scripts/validate-data.ts",
+    "validate": "vitest run src/data/validate.test.ts",
     "data:fetch": "node scripts/fetch-sources.mjs",
     "data:build": "node scripts/build-data.mjs",
     "check:links": "node scripts/check-links.mjs"

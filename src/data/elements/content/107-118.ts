@@ -1,0 +1,225 @@
+import type { ElementContent } from '../../types';
+
+const ONLY_ATOMS =
+  'Só foram produzidos alguns átomos, que decaem em frações de segundo ou poucos minutos. Não há risco para o público; o elemento só existe dentro de aceleradores de partículas.';
+
+/** Conteúdo educativo — elementos 107 a 118 (superpesados). */
+export const CONTENT_107_118: ElementContent[] = [
+  {
+    z: 107,
+    discoveryStory: [
+      'Em 1976, a equipe de Yuri Oganessian, em Dubna, relatou indícios do elemento 107, produzido bombardeando bismuto com crômio-54, mas a evidência foi considerada insuficiente.',
+      'Em 1981, no centro de pesquisa de íons pesados GSI, em Darmstadt (Alemanha), Peter Armbruster, Gottfried Münzenberg e equipe usaram a mesma reação: bombardearam bismuto-209 com núcleos de crômio-54 acelerados. Um separador de velocidade (SHIP) afastava os raros núcleos produzidos do feixe intenso.',
+      'Eles detectaram seis átomos do bóhrio-262 e reconstruíram sua cadeia de decaimentos alfa até núcleos conhecidos. A IUPAC atribuiu a descoberta ao GSI; o nome foi oficializado em 1997.',
+    ],
+    nameOrigin: 'Em homenagem a Niels Bohr, físico dinamarquês que propôs o modelo atômico com níveis de energia.',
+    symbolOrigin: 'Bh são a primeira e a terceira letras de bohrium. O nome inicialmente proposto era "nielsbóhrio" (Ns).',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Pesquisa básica; experimentos de química com átomos isolados mostraram comportamento parecido com o do rênio.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'O GSI descobriu seis elementos: do 107 ao 112.',
+      'Em 2000, cientistas estudaram a química do bóhrio usando apenas seis átomos.',
+    ],
+    extraSources: ['iupac-twg-1993', 'iupac-names-1997'],
+  },
+  {
+    z: 108,
+    discoveryStory: [
+      'Em 1984, no GSI de Darmstadt, a equipe de Peter Armbruster e Gottfried Münzenberg bombardeou chumbo-208 com núcleos de ferro-58.',
+      'Ao longo de dias de irradiação, detectaram três átomos do hássio-265, com meia-vida de cerca de 2 milissegundos, identificados por sua cadeia de decaimentos alfa.',
+      'Em 2001, uma colaboração internacional fez o primeiro experimento químico com o hássio e mostrou que ele forma um tetróxido volátil, como o ósmio — confirmando sua posição no grupo 8.',
+    ],
+    nameOrigin: 'Do latim Hassia, nome do estado alemão de Hesse, onde fica Darmstadt.',
+    symbolOrigin: 'Hs são a primeira e a terceira letras de hassium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Pesquisa básica sobre a estrutura dos núcleos e a química dos elementos superpesados.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'O hássio-270 tem um núcleo especialmente estável por ter números "mágicos" deformados de prótons e nêutrons.',
+      'Foi o elemento mais pesado a ter sua química estudada no início dos anos 2000.',
+    ],
+    extraSources: ['iupac-twg-1993', 'iupac-names-1997'],
+  },
+  {
+    z: 109,
+    discoveryStory: [
+      'Em 29 de agosto de 1982, no GSI de Darmstadt, a equipe de Peter Armbruster e Gottfried Münzenberg bombardeou bismuto-209 com núcleos de ferro-58.',
+      'Após cerca de uma semana de irradiação, detectaram um único átomo do meitnério-266. Ele decaiu cerca de 5 milissegundos depois de chegar ao detector, emitindo uma partícula alfa, e a sequência de decaimentos permitiu identificá-lo.',
+      'Mesmo com apenas um átomo, a confiança na identificação era alta, porque a cadeia de decaimentos levava a núcleos conhecidos. O nome foi oficializado em 1997.',
+    ],
+    nameOrigin: 'Em homenagem a Lise Meitner, física austríaca que, com Otto Frisch, explicou a fissão nuclear em 1939.',
+    symbolOrigin: 'Mt são a primeira e a quinta letras de meitnerium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica. Suas propriedades químicas ainda não foram medidas; prevê-se que seja semelhante ao irídio.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Lise Meitner não recebeu o Nobel pela explicação da fissão; o meitnério é visto como uma reparação histórica.',
+      'É um dos dois elementos que homenageiam mulheres (o outro é o cúrio).',
+    ],
+    extraSources: ['iupac-twg-1993', 'iupac-names-1997'],
+  },
+  {
+    z: 110,
+    discoveryStory: [
+      'Durante anos, vários laboratórios tentaram sem sucesso produzir o elemento 110. Em 9 de novembro de 1994, no GSI de Darmstadt, a equipe de Sigurd Hofmann, com Peter Armbruster e Gottfried Münzenberg, bombardeou chumbo-208 com núcleos de níquel-62.',
+      'Foram necessários bilhões de bilhões de íons de níquel disparados ao longo de dias para produzir um único átomo do darmstádtio-269, que durou menos de um milésimo de segundo.',
+      'A IUPAC reconheceu a descoberta em 2001 e o nome foi aprovado em 2003.',
+    ],
+    nameOrigin: 'De Darmstadt, cidade alemã onde fica o GSI.',
+    symbolOrigin: 'Ds são a primeira e a sexta letras de darmstadtium (Da e Dt foram evitados).',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica. Prevê-se que seja quimicamente semelhante à platina.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'O primeiro átomo foi detectado às 16h39 de 9 de novembro de 1994.',
+      'Seu isótopo mais estável conhecido, o darmstádtio-281, tem meia-vida de cerca de 14 segundos.',
+    ],
+    extraSources: ['iupac-jwp-2001', 'iupac-jwp-2003', 'iupac-name-110'],
+  },
+  {
+    z: 111,
+    discoveryStory: [
+      'Em dezembro de 1994, apenas um mês após o elemento 110, a mesma equipe do GSI bombardeou bismuto-209 com níquel-64.',
+      'Detectaram três átomos do roentgênio-272, com meia-vida de cerca de 1,5 milissegundo. Experimentos posteriores no GSI (2000) e no RIKEN, no Japão, confirmaram o resultado.',
+      'A IUPAC reconheceu a descoberta em 2003 e aprovou o nome em 2004.',
+    ],
+    nameOrigin: 'Em homenagem a Wilhelm Conrad Röntgen, que descobriu os raios X em 1895 e recebeu o primeiro Prêmio Nobel de Física (1901).',
+    symbolOrigin: 'Rg são a primeira e a quinta letras de roentgenium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica. Está abaixo do ouro na tabela, e prevê-se que seja um metal nobre.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Fica na mesma coluna do cobre, da prata e do ouro.',
+      'Antes do nome oficial, era chamado de "unununium" (Uuu), nome sistemático da IUPAC.',
+    ],
+    extraSources: ['iupac-jwp-2003', 'iupac-name-111'],
+  },
+  {
+    z: 112,
+    discoveryStory: [
+      'Em 9 de fevereiro de 1996, a equipe do GSI liderada por Sigurd Hofmann bombardeou chumbo-208 com núcleos de zinco-70.',
+      'Detectaram um átomo do copernício-277, que durou menos de um milésimo de segundo. Um segundo evento atribuído em 1996 foi depois descartado após uma revisão dos dados, mas novos experimentos no GSI (2000–2004) e no RIKEN (2004) confirmaram a descoberta.',
+      'A IUPAC reconheceu o GSI como descobridor em 2009. Experimentos de química mostraram que o copernício é muito volátil, parecido com o mercúrio.',
+    ],
+    nameOrigin: 'Em homenagem a Nicolau Copérnico, astrônomo que propôs o modelo heliocêntrico — por analogia entre os elétrons ao redor do núcleo e os planetas ao redor do Sol.',
+    symbolOrigin: 'Cn são a primeira e a sexta letras de copernicium. O símbolo Cp foi rejeitado porque já fora usado para o cassiopeio (antigo nome do lutécio).',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica, incluindo estudos sobre efeitos relativísticos nos elétrons.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Cálculos sugerem que ele poderia ser líquido ou até gasoso à temperatura ambiente, por efeitos relativísticos.',
+      'O nome foi anunciado em 19 de fevereiro de 2010, aniversário de Copérnico.',
+    ],
+    extraSources: ['iupac-jwp-2009', 'iupac-name-112'],
+  },
+  {
+    z: 113,
+    discoveryStory: [
+      'A equipe de Kosuke Morita, no RIKEN Nishina Center (Wakō, Japão), bombardeou bismuto-209 com núcleos de zinco-70 acelerados a cerca de 10% da velocidade da luz. A reação é extremamente rara.',
+      'Depois de meses de feixe, em 23 de julho de 2004, detectaram o primeiro átomo do nihônio-278. Outros dois átomos vieram em 2005 e 2012. O terceiro foi decisivo: sua cadeia de decaimentos passou por isótopos bem conhecidos de bóhrio e dúbnio, comprovando a identidade.',
+      'Uma colaboração Dubna–Livermore também havia observado o elemento 113 como produto do decaimento do 115 em 2003–2004. Em 2015, a IUPAC atribuiu a descoberta ao RIKEN — a primeira de um elemento na Ásia.',
+    ],
+    nameOrigin: 'De Nihon, uma das formas de dizer "Japão" em japonês ("terra do sol nascente").',
+    symbolOrigin: 'Nh são a primeira e a terceira letras de nihonium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Foram necessários cerca de nove anos de experimentos para obter três átomos.',
+      'Antes do nome, era chamado de "ununtrium" (Uut).',
+    ],
+    extraSources: ['iupac-jwp-2016-113-117', 'iupac-names-2016'],
+  },
+  {
+    z: 114,
+    discoveryStory: [
+      'Físicos previam desde os anos 1960 uma "ilha de estabilidade": núcleos superpesados com certos números de prótons e nêutrons durariam mais. O elemento 114 era um dos alvos.',
+      'No fim de 1998, a equipe de Yuri Oganessian no JINR (Dubna), em colaboração com o Laboratório Nacional Lawrence Livermore (EUA), bombardeou plutônio-244 com núcleos de cálcio-48, um isótopo raro e rico em nêutrons. Detectaram um átomo atribuído ao elemento 114, com vida relativamente longa.',
+      'Experimentos posteriores, até 2004, produziram vários átomos de isótopos do fleróvio e confirmaram a descoberta. A IUPAC a reconheceu em 2011, e o nome foi aprovado em 2012.',
+    ],
+    nameOrigin: 'Em homenagem ao Laboratório Flerov de Reações Nucleares, do JINR, e a seu fundador, o físico Georgy Flerov.',
+    symbolOrigin: 'Fl são as duas primeiras letras de flerovium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Pesquisa sobre a "ilha de estabilidade" e sobre a química dos superpesados.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Experimentos de química indicam que pode ser um metal volátil, talvez o menos reativo do seu grupo.',
+      'Seus isótopos vivem segundos — muito mais que vizinhos mais leves, um indício da "ilha de estabilidade".',
+    ],
+    extraSources: ['iupac-jwp-2011', 'iupac-names-2012'],
+  },
+  {
+    z: 115,
+    discoveryStory: [
+      'Entre julho e agosto de 2003, a colaboração entre o JINR (Dubna) e o Laboratório Nacional Lawrence Livermore bombardeou amerício-243 com núcleos de cálcio-48.',
+      'Detectaram quatro átomos do elemento 115. Cada um decaiu emitindo partículas alfa em uma cadeia que passava pelo elemento 113 e terminava em fissão espontânea. Os resultados foram publicados em 2004.',
+      'Experimentos seguintes, com a participação do Oak Ridge National Laboratory e da Universidade Vanderbilt, confirmaram a descoberta. A IUPAC a reconheceu em 2015 e aprovou o nome em 2016.',
+    ],
+    nameOrigin: 'Da região de Moscou (Moscóvia), onde fica Dubna.',
+    symbolOrigin: 'Mc são a primeira e a terceira letras de moscovium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Antes do nome, era chamado de "ununpentium" (Uup).',
+      'Alegações fora da ciência de que o elemento 115 serviria como "combustível de discos voadores" não têm qualquer base: ele dura menos de um segundo.',
+    ],
+    extraSources: ['iupac-jwp-2016-113-117', 'iupac-names-2016'],
+  },
+  {
+    z: 116,
+    discoveryStory: [
+      'Em julho de 2000, a colaboração JINR–Livermore, em Dubna, bombardeou cúrio-248 com núcleos de cálcio-48.',
+      'Detectaram um átomo do elemento 116, que decaiu emitindo uma partícula alfa e se transformou em fleróvio (114) — ligando as duas descobertas.',
+      'Mais eventos foram observados nos anos seguintes. A IUPAC reconheceu a descoberta em 2011, junto com a do fleróvio, e aprovou o nome em 2012.',
+    ],
+    nameOrigin: 'Do Laboratório Nacional Lawrence Livermore (EUA), parceiro da descoberta — por sua vez nomeado a partir da cidade de Livermore, na Califórnia.',
+    symbolOrigin: 'Lv são a primeira e a terceira letras de livermorium.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Está na mesma coluna do oxigênio e do enxofre, mas deve se comportar como um metal.',
+      'Antes do nome, era chamado de "ununhexium" (Uuh).',
+    ],
+    extraSources: ['iupac-jwp-2011', 'iupac-names-2012'],
+  },
+  {
+    z: 117,
+    discoveryStory: [
+      'O tenesso exigia um alvo raríssimo: berquélio-249. Em 2008–2009, o reator de alto fluxo HFIR do Oak Ridge National Laboratory (EUA) produziu 22 miligramas desse isótopo, que foram purificados e levados a Dubna.',
+      'Entre 2009 e 2010, a colaboração entre o JINR, Oak Ridge, Livermore, a Universidade Vanderbilt e a Universidade do Tennessee bombardeou o alvo com núcleos de cálcio-48 por cerca de 150 dias.',
+      'Em abril de 2010, anunciaram seis átomos do elemento 117, identificados por suas cadeias de decaimento. A IUPAC reconheceu a descoberta em 2015 e aprovou o nome em 2016.',
+    ],
+    nameOrigin: 'Do estado americano do Tennessee, sede do Oak Ridge National Laboratory, da Universidade Vanderbilt e da Universidade do Tennessee. A terminação "-ine" (em inglês) segue a dos halogênios.',
+    symbolOrigin: 'Ts são a primeira e a última letras de tennessine.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'É o elemento mais recentemente descoberto (2010).',
+      'Embora esteja na coluna dos halogênios, deve ter propriedades mais metálicas que eles.',
+    ],
+    extraSources: ['iupac-jwp-2016-113-117', 'iupac-names-2016', 'oganessian-2010-ts'],
+  },
+  {
+    z: 118,
+    discoveryStory: [
+      'Em 1999, um grupo de Berkeley anunciou o elemento 118, mas a alegação foi retratada em 2001, quando se descobriu que os dados haviam sido fabricados por um dos pesquisadores.',
+      'Em 2002, a colaboração JINR–Livermore, em Dubna, bombardeou califórnio-249 com núcleos de cálcio-48. Observou um átomo do oganessônio-294; mais dois foram obtidos em 2005. Para isso, cerca de 10¹⁹ íons de cálcio foram disparados contra o alvo.',
+      'Os resultados foram publicados em 2006. Em 2015, a IUPAC reconheceu a descoberta, completando o sétimo período da tabela periódica, e em 2016 aprovou o nome.',
+    ],
+    nameOrigin: 'Em homenagem ao físico russo-armênio Yuri Oganessian, pioneiro na síntese de elementos superpesados. A terminação "-on" segue a dos gases nobres (neon, argon...).',
+    symbolOrigin: 'Og são as duas primeiras letras de oganesson.',
+    nature: { text: 'É totalmente sintético e só pode ser produzido em aceleradores de partículas.', where: ['apenas-laboratorio'] },
+    uses: [{ area: 'ciencia', text: 'Apenas pesquisa básica.' }],
+    hazards: { level: 'baixo', flags: ['radioativo'], text: ONLY_ATOMS },
+    curiosities: [
+      'Está na coluna dos gases nobres, mas cálculos com efeitos relativísticos sugerem que poderia ser sólido à temperatura ambiente e bem mais reativo.',
+      'Com ele, a tabela periódica ficou com sete períodos completos.',
+      'É o elemento com maior número atômico e maior massa conhecidos.',
+    ],
+    extraSources: ['iupac-jwp-2016-118', 'iupac-names-2016', 'oganessian-2006-og'],
+  },
+];

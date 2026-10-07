@@ -33,6 +33,8 @@ const decodeEntities = (s) =>
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
+    .replace(/&plusmn;/g, '±')
+    .replace(/&minus;/g, '−')
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
     .replace(/&[a-z]+;/g, ' ');
 
@@ -66,6 +68,7 @@ async function parseCiaaw() {
     const raw = row[3];
     if (!raw || raw === '—') continue;
     const [value, uncertainty] = raw.split('±').map((s) => s.trim());
+    if (!Number.isFinite(Number(value))) throw new Error(`CIAAW: valor abreviado ilegível para Z=${z}: "${raw}"`);
     result.set(z, { abridged: value, abridgedUncertainty: uncertainty ?? null });
   }
   for (const row of standard) {
@@ -433,7 +436,13 @@ async function main() {
       oceanicAbundance: pv.oceanic,
       stableIsotopeCount: stableCount,
       pubchemYearDiscovered: row.YearDiscovered || null,
-      links: pv.links,
+      links: {
+        ciaaw: pv.links.ciaaw,
+        // O LANL migrou a tabela para um novo domínio (os links antigos redirecionam).
+        lanl: `https://www.lanl.gov/science-engineering/periodic-table/element/${row.Name.toLowerCase()}`,
+        nist: pv.links.nist,
+        pubchem: pv.links.pubchem,
+      },
     });
 
     isotopes[z] = selectIsotopes(z, nuclides, nist);
