@@ -1,0 +1,5472 @@
+[
+ {
+  "atomicNumber": 1,
+  "symbol": "H",
+  "nameEn": "Hydrogen",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 1.008,
+   "display": "1.0080",
+   "uncertainty": "0.0002",
+   "standard": "[1.007 84, 1.008 11]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "1s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 31,
+   "empirical": 25,
+   "vanDerWaals": 120
+  },
+  "ionizationEnergy": 13.598,
+  "electronAffinity": 0.754,
+  "oxidationStates": [
+   "+1",
+   "-1"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 13.81,
+  "boilingPoint": 20.28,
+  "density": 0.00008988,
+  "crustalAbundance": 1400,
+  "oceanicAbundance": 108000,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1766",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/hydrogen.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/hydrogen",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=1",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/1"
+  }
+ },
+ {
+  "atomicNumber": 2,
+  "symbol": "He",
+  "nameEn": "Helium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 4.0026,
+   "display": "4.0026",
+   "uncertainty": "0.0001",
+   "standard": "4.002 602(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "1s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 28,
+   "empirical": null,
+   "vanDerWaals": 140
+  },
+  "ionizationEnergy": 24.587,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 0.95,
+  "boilingPoint": 4.22,
+  "density": 0.0001785,
+  "crustalAbundance": 0.008,
+  "oceanicAbundance": 0.000007,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1868",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/helium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/helium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=2",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/2"
+  }
+ },
+ {
+  "atomicNumber": 3,
+  "symbol": "Li",
+  "nameEn": "Lithium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 6.94,
+   "display": "6.94",
+   "uncertainty": "0.06",
+   "standard": "[6.938, 6.997]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.98,
+  "radii": {
+   "covalent": 128,
+   "empirical": 145,
+   "vanDerWaals": 182
+  },
+  "ionizationEnergy": 5.392,
+  "electronAffinity": 0.618,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 453.65,
+  "boilingPoint": 1615,
+  "density": 0.534,
+  "crustalAbundance": 20,
+  "oceanicAbundance": 0.18,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1817",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/lithium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/lithium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=3",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/3"
+  }
+ },
+ {
+  "atomicNumber": 4,
+  "symbol": "Be",
+  "nameEn": "Beryllium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 9.0122,
+   "display": "9.0122",
+   "uncertainty": "0.0001",
+   "standard": "9.012 1831(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.57,
+  "radii": {
+   "covalent": 96,
+   "empirical": 105,
+   "vanDerWaals": 153
+  },
+  "ionizationEnergy": 9.323,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1560,
+  "boilingPoint": 2744,
+  "density": 1.85,
+  "crustalAbundance": 2.8,
+  "oceanicAbundance": 0.0000056,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1798",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/beryllium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/beryllium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=4",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/4"
+  }
+ },
+ {
+  "atomicNumber": 5,
+  "symbol": "B",
+  "nameEn": "Boron",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 10.81,
+   "display": "10.81",
+   "uncertainty": "0.02",
+   "standard": "[10.806, 10.821]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2 2p1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.04,
+  "radii": {
+   "covalent": 84,
+   "empirical": 85,
+   "vanDerWaals": 192
+  },
+  "ionizationEnergy": 8.298,
+  "electronAffinity": 0.277,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2348,
+  "boilingPoint": 4273,
+  "density": 2.37,
+  "crustalAbundance": 10,
+  "oceanicAbundance": 4.44,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1808",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/boron.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/boron",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=5",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/5"
+  }
+ },
+ {
+  "atomicNumber": 6,
+  "symbol": "C",
+  "nameEn": "Carbon",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 12.011,
+   "display": "12.011",
+   "uncertainty": "0.002",
+   "standard": "[12.0096, 12.0116]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2 2p2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.55,
+  "radii": {
+   "covalent": 76,
+   "empirical": 70,
+   "vanDerWaals": 170
+  },
+  "ionizationEnergy": 11.26,
+  "electronAffinity": 1.263,
+  "oxidationStates": [
+   "+4",
+   "+2",
+   "-4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 3823,
+  "boilingPoint": 4098,
+  "density": 2.267,
+  "crustalAbundance": 200,
+  "oceanicAbundance": 28,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/carbon.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/carbon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=6",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/6"
+  }
+ },
+ {
+  "atomicNumber": 7,
+  "symbol": "N",
+  "nameEn": "Nitrogen",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 14.007,
+   "display": "14.007",
+   "uncertainty": "0.001",
+   "standard": "[14.006 43, 14.007 28]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He] 2s2 2p3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 3.04,
+  "radii": {
+   "covalent": 71,
+   "empirical": 65,
+   "vanDerWaals": 155
+  },
+  "ionizationEnergy": 14.534,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+5",
+   "+4",
+   "+3",
+   "+2",
+   "+1",
+   "-1",
+   "-2",
+   "-3"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 63.15,
+  "boilingPoint": 77.36,
+  "density": 0.0012506,
+  "crustalAbundance": 19,
+  "oceanicAbundance": 0.5,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1772",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/nitrogen.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/nitrogen",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=7",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/7"
+  }
+ },
+ {
+  "atomicNumber": 8,
+  "symbol": "O",
+  "nameEn": "Oxygen",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 15.999,
+   "display": "15.999",
+   "uncertainty": "0.001",
+   "standard": "[15.999 03, 15.999 77]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2 2p4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 3.44,
+  "radii": {
+   "covalent": 66,
+   "empirical": 60,
+   "vanDerWaals": 152
+  },
+  "ionizationEnergy": 13.618,
+  "electronAffinity": 1.461,
+  "oxidationStates": [
+   "-2"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 54.36,
+  "boilingPoint": 90.2,
+  "density": 0.001429,
+  "crustalAbundance": 461000,
+  "oceanicAbundance": 857000,
+  "stableIsotopeCount": 3,
+  "pubchemYearDiscovered": "1774",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/oxygen.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/oxygen",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=8",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/8"
+  }
+ },
+ {
+  "atomicNumber": 9,
+  "symbol": "F",
+  "nameEn": "Fluorine",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 18.998,
+   "display": "18.998",
+   "uncertainty": "0.001",
+   "standard": "18.998 403 162(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2 2p5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 3.98,
+  "radii": {
+   "covalent": 57,
+   "empirical": 50,
+   "vanDerWaals": 135
+  },
+  "ionizationEnergy": 17.423,
+  "electronAffinity": 3.339,
+  "oxidationStates": [
+   "-1"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 53.53,
+  "boilingPoint": 85.03,
+  "density": 0.001696,
+  "crustalAbundance": 585,
+  "oceanicAbundance": 1.3,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1670",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/fluorine.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/fluorine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=9",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/9"
+  }
+ },
+ {
+  "atomicNumber": 10,
+  "symbol": "Ne",
+  "nameEn": "Neon",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 20.18,
+   "display": "20.180",
+   "uncertainty": "0.001",
+   "standard": "20.1797(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[He]2s2 2p6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 58,
+   "empirical": null,
+   "vanDerWaals": 154
+  },
+  "ionizationEnergy": 21.565,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 24.56,
+  "boilingPoint": 27.07,
+  "density": 0.0008999,
+  "crustalAbundance": 0.005,
+  "oceanicAbundance": 0.00012,
+  "stableIsotopeCount": 3,
+  "pubchemYearDiscovered": "1898",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/neon.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/neon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=10",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/10"
+  }
+ },
+ {
+  "atomicNumber": 11,
+  "symbol": "Na",
+  "nameEn": "Sodium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 22.99,
+   "display": "22.990",
+   "uncertainty": "0.001",
+   "standard": "22.989 769 28(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.93,
+  "radii": {
+   "covalent": 166,
+   "empirical": 180,
+   "vanDerWaals": 227
+  },
+  "ionizationEnergy": 5.139,
+  "electronAffinity": 0.548,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 370.95,
+  "boilingPoint": 1156,
+  "density": 0.97,
+  "crustalAbundance": 23600,
+  "oceanicAbundance": 10800,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1807",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/sodium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/sodium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=11",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/11"
+  }
+ },
+ {
+  "atomicNumber": 12,
+  "symbol": "Mg",
+  "nameEn": "Magnesium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 24.305,
+   "display": "24.305",
+   "uncertainty": "0.002",
+   "standard": "[24.304, 24.307]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.31,
+  "radii": {
+   "covalent": 141,
+   "empirical": 150,
+   "vanDerWaals": 173
+  },
+  "ionizationEnergy": 7.646,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 923,
+  "boilingPoint": 1363,
+  "density": 1.74,
+  "crustalAbundance": 23300,
+  "oceanicAbundance": 1290,
+  "stableIsotopeCount": 3,
+  "pubchemYearDiscovered": "1808",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/magnesium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/magnesium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=12",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/12"
+  }
+ },
+ {
+  "atomicNumber": 13,
+  "symbol": "Al",
+  "nameEn": "Aluminum",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 26.982,
+   "display": "26.982",
+   "uncertainty": "0.001",
+   "standard": "26.981 5384(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.61,
+  "radii": {
+   "covalent": 121,
+   "empirical": 125,
+   "vanDerWaals": 184
+  },
+  "ionizationEnergy": 5.986,
+  "electronAffinity": 0.441,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 933.437,
+  "boilingPoint": 2792,
+  "density": 2.7,
+  "crustalAbundance": 82300,
+  "oceanicAbundance": 0.002,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/aluminium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/aluminum",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=13",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/13"
+  }
+ },
+ {
+  "atomicNumber": 14,
+  "symbol": "Si",
+  "nameEn": "Silicon",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 28.085,
+   "display": "28.085",
+   "uncertainty": "0.001",
+   "standard": "[28.084, 28.086]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.9,
+  "radii": {
+   "covalent": 111,
+   "empirical": 110,
+   "vanDerWaals": 210
+  },
+  "ionizationEnergy": 8.152,
+  "electronAffinity": 1.385,
+  "oxidationStates": [
+   "+4",
+   "+2",
+   "-4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1687,
+  "boilingPoint": 3538,
+  "density": 2.3296,
+  "crustalAbundance": 282000,
+  "oceanicAbundance": 2.2,
+  "stableIsotopeCount": 3,
+  "pubchemYearDiscovered": "1854",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/silicon.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/silicon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=14",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/14"
+  }
+ },
+ {
+  "atomicNumber": 15,
+  "symbol": "P",
+  "nameEn": "Phosphorus",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 30.974,
+   "display": "30.974",
+   "uncertainty": "0.001",
+   "standard": "30.973 761 998(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.19,
+  "radii": {
+   "covalent": 107,
+   "empirical": 100,
+   "vanDerWaals": 180
+  },
+  "ionizationEnergy": 10.487,
+  "electronAffinity": 0.746,
+  "oxidationStates": [
+   "+5",
+   "+3",
+   "-3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 317.3,
+  "boilingPoint": 553.65,
+  "density": 1.82,
+  "crustalAbundance": 1050,
+  "oceanicAbundance": 0.06,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1669",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/phosphorus.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/phosphorus",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=15",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/15"
+  }
+ },
+ {
+  "atomicNumber": 16,
+  "symbol": "S",
+  "nameEn": "Sulfur",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 32.06,
+   "display": "32.06",
+   "uncertainty": "0.02",
+   "standard": "[32.059, 32.076]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.58,
+  "radii": {
+   "covalent": 105,
+   "empirical": 100,
+   "vanDerWaals": 180
+  },
+  "ionizationEnergy": 10.36,
+  "electronAffinity": 2.077,
+  "oxidationStates": [
+   "+6",
+   "+4",
+   "-2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 388.36,
+  "boilingPoint": 717.75,
+  "density": 2.067,
+  "crustalAbundance": 350,
+  "oceanicAbundance": 905,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/sulfur.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/sulfur",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=16",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/16"
+  }
+ },
+ {
+  "atomicNumber": 17,
+  "symbol": "Cl",
+  "nameEn": "Chlorine",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 35.45,
+   "display": "35.45",
+   "uncertainty": "0.01",
+   "standard": "[35.446, 35.457]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 3.16,
+  "radii": {
+   "covalent": 102,
+   "empirical": 100,
+   "vanDerWaals": 175
+  },
+  "ionizationEnergy": 12.968,
+  "electronAffinity": 3.617,
+  "oxidationStates": [
+   "+7",
+   "+5",
+   "+1",
+   "-1"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 171.65,
+  "boilingPoint": 239.11,
+  "density": 0.003214,
+  "crustalAbundance": 145,
+  "oceanicAbundance": 19400,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1774",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/chlorine.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/chlorine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=17",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/17"
+  }
+ },
+ {
+  "atomicNumber": 18,
+  "symbol": "Ar",
+  "nameEn": "Argon",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 39.95,
+   "display": "39.95",
+   "uncertainty": "0.16",
+   "standard": "[39.792, 39.963]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ne]3s2 3p6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 106,
+   "empirical": null,
+   "vanDerWaals": 188
+  },
+  "ionizationEnergy": 15.76,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 83.8,
+  "boilingPoint": 87.3,
+  "density": 0.0017837,
+  "crustalAbundance": 3.5,
+  "oceanicAbundance": 0.45,
+  "stableIsotopeCount": 3,
+  "pubchemYearDiscovered": "1894",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/argon.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/argon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=18",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/18"
+  }
+ },
+ {
+  "atomicNumber": 19,
+  "symbol": "K",
+  "nameEn": "Potassium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 39.098,
+   "display": "39.098",
+   "uncertainty": "0.001",
+   "standard": "39.0983(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.82,
+  "radii": {
+   "covalent": 203,
+   "empirical": 220,
+   "vanDerWaals": 275
+  },
+  "ionizationEnergy": 4.341,
+  "electronAffinity": 0.501,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 336.53,
+  "boilingPoint": 1032,
+  "density": 0.89,
+  "crustalAbundance": 20900,
+  "oceanicAbundance": 399,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1807",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/potassium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/potassium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=19",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/19"
+  }
+ },
+ {
+  "atomicNumber": 20,
+  "symbol": "Ca",
+  "nameEn": "Calcium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 40.078,
+   "display": "40.078",
+   "uncertainty": "0.004",
+   "standard": "40.078(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1,
+  "radii": {
+   "covalent": 176,
+   "empirical": 180,
+   "vanDerWaals": 231
+  },
+  "ionizationEnergy": 6.113,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1115,
+  "boilingPoint": 1757,
+  "density": 1.54,
+  "crustalAbundance": 41500,
+  "oceanicAbundance": 412,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/calcium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/calcium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=20",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/20"
+  }
+ },
+ {
+  "atomicNumber": 21,
+  "symbol": "Sc",
+  "nameEn": "Scandium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 44.956,
+   "display": "44.956",
+   "uncertainty": "0.001",
+   "standard": "44.955 907(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.36,
+  "radii": {
+   "covalent": 170,
+   "empirical": 160,
+   "vanDerWaals": 211
+  },
+  "ionizationEnergy": 6.561,
+  "electronAffinity": 0.188,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1814,
+  "boilingPoint": 3109,
+  "density": 2.99,
+  "crustalAbundance": 22,
+  "oceanicAbundance": 6e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1879",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/scandium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/scandium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=21",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/21"
+  }
+ },
+ {
+  "atomicNumber": 22,
+  "symbol": "Ti",
+  "nameEn": "Titanium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 47.867,
+   "display": "47.867",
+   "uncertainty": "0.001",
+   "standard": "47.867(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.54,
+  "radii": {
+   "covalent": 160,
+   "empirical": 140,
+   "vanDerWaals": 187
+  },
+  "ionizationEnergy": 6.828,
+  "electronAffinity": 0.079,
+  "oxidationStates": [
+   "+4",
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1941,
+  "boilingPoint": 3560,
+  "density": 4.5,
+  "crustalAbundance": 5650,
+  "oceanicAbundance": 0.001,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1791",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/titanium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/titanium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=22",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/22"
+  }
+ },
+ {
+  "atomicNumber": 23,
+  "symbol": "V",
+  "nameEn": "Vanadium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 50.942,
+   "display": "50.942",
+   "uncertainty": "0.001",
+   "standard": "50.9415(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.63,
+  "radii": {
+   "covalent": 153,
+   "empirical": 135,
+   "vanDerWaals": 179
+  },
+  "ionizationEnergy": 6.746,
+  "electronAffinity": 0.525,
+  "oxidationStates": [
+   "+5",
+   "+4",
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2183,
+  "boilingPoint": 3680,
+  "density": 6,
+  "crustalAbundance": 120,
+  "oceanicAbundance": 0.0025,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1801",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/vanadium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/vanadium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=23",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/23"
+  }
+ },
+ {
+  "atomicNumber": 24,
+  "symbol": "Cr",
+  "nameEn": "Chromium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 51.996,
+   "display": "51.996",
+   "uncertainty": "0.001",
+   "standard": "51.9961(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]3d5 4s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.66,
+  "radii": {
+   "covalent": 139,
+   "empirical": 140,
+   "vanDerWaals": 189
+  },
+  "ionizationEnergy": 6.767,
+  "electronAffinity": 0.666,
+  "oxidationStates": [
+   "+6",
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2180,
+  "boilingPoint": 2944,
+  "density": 7.15,
+  "crustalAbundance": 102,
+  "oceanicAbundance": 0.0003,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1797",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/chromium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/chromium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=24",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/24"
+  }
+ },
+ {
+  "atomicNumber": 25,
+  "symbol": "Mn",
+  "nameEn": "Manganese",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 54.938,
+   "display": "54.938",
+   "uncertainty": "0.001",
+   "standard": "54.938 043(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.55,
+  "radii": {
+   "covalent": 139,
+   "empirical": 140,
+   "vanDerWaals": 197
+  },
+  "ionizationEnergy": 7.434,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+7",
+   "+4",
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1519,
+  "boilingPoint": 2334,
+  "density": 7.3,
+  "crustalAbundance": 950,
+  "oceanicAbundance": 0.0002,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1774",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/manganese.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/manganese",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=25",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/25"
+  }
+ },
+ {
+  "atomicNumber": 26,
+  "symbol": "Fe",
+  "nameEn": "Iron",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 55.845,
+   "display": "55.845",
+   "uncertainty": "0.002",
+   "standard": "55.845(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.83,
+  "radii": {
+   "covalent": 132,
+   "empirical": 140,
+   "vanDerWaals": 194
+  },
+  "ionizationEnergy": 7.902,
+  "electronAffinity": 0.163,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1811,
+  "boilingPoint": 3134,
+  "density": 7.874,
+  "crustalAbundance": 56300,
+  "oceanicAbundance": 0.002,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/iron.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/iron",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=26",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/26"
+  }
+ },
+ {
+  "atomicNumber": 27,
+  "symbol": "Co",
+  "nameEn": "Cobalt",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 58.933,
+   "display": "58.933",
+   "uncertainty": "0.001",
+   "standard": "58.933 194(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d7",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.88,
+  "radii": {
+   "covalent": 126,
+   "empirical": 135,
+   "vanDerWaals": 192
+  },
+  "ionizationEnergy": 7.881,
+  "electronAffinity": 0.661,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1768,
+  "boilingPoint": 3200,
+  "density": 8.86,
+  "crustalAbundance": 25,
+  "oceanicAbundance": 0.00002,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1735",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/cobalt.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/cobalt",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=27",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/27"
+  }
+ },
+ {
+  "atomicNumber": 28,
+  "symbol": "Ni",
+  "nameEn": "Nickel",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 58.693,
+   "display": "58.693",
+   "uncertainty": "0.001",
+   "standard": "58.6934(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d8",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.91,
+  "radii": {
+   "covalent": 124,
+   "empirical": 135,
+   "vanDerWaals": 163
+  },
+  "ionizationEnergy": 7.64,
+  "electronAffinity": 1.156,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1728,
+  "boilingPoint": 3186,
+  "density": 8.912,
+  "crustalAbundance": 84,
+  "oceanicAbundance": 0.00056,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1751",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/nickel.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/nickel",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=28",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/28"
+  }
+ },
+ {
+  "atomicNumber": 29,
+  "symbol": "Cu",
+  "nameEn": "Copper",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 63.546,
+   "display": "63.546",
+   "uncertainty": "0.003",
+   "standard": "63.546(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s1 3d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.9,
+  "radii": {
+   "covalent": 132,
+   "empirical": 135,
+   "vanDerWaals": 140
+  },
+  "ionizationEnergy": 7.726,
+  "electronAffinity": 1.228,
+  "oxidationStates": [
+   "+2",
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1357.77,
+  "boilingPoint": 2835,
+  "density": 8.933,
+  "crustalAbundance": 60,
+  "oceanicAbundance": 0.00025,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/copper.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/copper",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=29",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/29"
+  }
+ },
+ {
+  "atomicNumber": 30,
+  "symbol": "Zn",
+  "nameEn": "Zinc",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 65.38,
+   "display": "65.38",
+   "uncertainty": "0.02",
+   "standard": "65.38(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.65,
+  "radii": {
+   "covalent": 122,
+   "empirical": 135,
+   "vanDerWaals": 139
+  },
+  "ionizationEnergy": 9.394,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 692.68,
+  "boilingPoint": 1180,
+  "density": 7.134,
+  "crustalAbundance": 70,
+  "oceanicAbundance": 0.0049,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1746",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/zinc.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/zinc",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=30",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/30"
+  }
+ },
+ {
+  "atomicNumber": 31,
+  "symbol": "Ga",
+  "nameEn": "Gallium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 69.723,
+   "display": "69.723",
+   "uncertainty": "0.001",
+   "standard": "69.723(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.81,
+  "radii": {
+   "covalent": 122,
+   "empirical": 130,
+   "vanDerWaals": 187
+  },
+  "ionizationEnergy": 5.999,
+  "electronAffinity": 0.3,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 302.91,
+  "boilingPoint": 2477,
+  "density": 5.91,
+  "crustalAbundance": 19,
+  "oceanicAbundance": 0.00003,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1875",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/gallium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/gallium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=31",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/31"
+  }
+ },
+ {
+  "atomicNumber": 32,
+  "symbol": "Ge",
+  "nameEn": "Germanium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 72.63,
+   "display": "72.630",
+   "uncertainty": "0.008",
+   "standard": "72.630(8)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.01,
+  "radii": {
+   "covalent": 120,
+   "empirical": 125,
+   "vanDerWaals": 211
+  },
+  "ionizationEnergy": 7.9,
+  "electronAffinity": 1.35,
+  "oxidationStates": [
+   "+4",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1211.4,
+  "boilingPoint": 3106,
+  "density": 5.323,
+  "crustalAbundance": 1.5,
+  "oceanicAbundance": 0.00005,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1886",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/germanium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/germanium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=32",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/32"
+  }
+ },
+ {
+  "atomicNumber": 33,
+  "symbol": "As",
+  "nameEn": "Arsenic",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 74.922,
+   "display": "74.922",
+   "uncertainty": "0.001",
+   "standard": "74.921 595(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.18,
+  "radii": {
+   "covalent": 119,
+   "empirical": 115,
+   "vanDerWaals": 185
+  },
+  "ionizationEnergy": 9.815,
+  "electronAffinity": 0.81,
+  "oxidationStates": [
+   "+5",
+   "+3",
+   "-3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1090,
+  "boilingPoint": 887,
+  "density": 5.776,
+  "crustalAbundance": 1.8,
+  "oceanicAbundance": 3.7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/arsenic.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/arsenic",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=33",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/33"
+  }
+ },
+ {
+  "atomicNumber": 34,
+  "symbol": "Se",
+  "nameEn": "Selenium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 78.971,
+   "display": "78.971",
+   "uncertainty": "0.008",
+   "standard": "78.971(8)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.55,
+  "radii": {
+   "covalent": 120,
+   "empirical": 115,
+   "vanDerWaals": 190
+  },
+  "ionizationEnergy": 9.752,
+  "electronAffinity": 2.021,
+  "oxidationStates": [
+   "+6",
+   "+4",
+   "-2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 493.65,
+  "boilingPoint": 958,
+  "density": 4.809,
+  "crustalAbundance": 0.05,
+  "oceanicAbundance": 0.0002,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1817",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/selenium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/selenium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=34",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/34"
+  }
+ },
+ {
+  "atomicNumber": 35,
+  "symbol": "Br",
+  "nameEn": "Bromine",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 79.904,
+   "display": "79.904",
+   "uncertainty": "0.003",
+   "standard": "[79.901, 79.907]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.96,
+  "radii": {
+   "covalent": 120,
+   "empirical": 115,
+   "vanDerWaals": 183
+  },
+  "ionizationEnergy": 11.814,
+  "electronAffinity": 3.365,
+  "oxidationStates": [
+   "+5",
+   "+1",
+   "-1"
+  ],
+  "standardState": "liquid",
+  "standardStatePredicted": false,
+  "meltingPoint": 265.95,
+  "boilingPoint": 331.95,
+  "density": 3.11,
+  "crustalAbundance": 2.4,
+  "oceanicAbundance": 67.3,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1826",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/bromine.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/bromine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=35",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/35"
+  }
+ },
+ {
+  "atomicNumber": 36,
+  "symbol": "Kr",
+  "nameEn": "Krypton",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 83.798,
+   "display": "83.798",
+   "uncertainty": "0.002",
+   "standard": "83.798(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Ar]4s2 3d10 4p6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 3,
+  "radii": {
+   "covalent": 116,
+   "empirical": null,
+   "vanDerWaals": 202
+  },
+  "ionizationEnergy": 14,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 115.79,
+  "boilingPoint": 119.93,
+  "density": 0.003733,
+  "crustalAbundance": 0.0001,
+  "oceanicAbundance": 0.00021,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1898",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/krypton.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/krypton",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=36",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/36"
+  }
+ },
+ {
+  "atomicNumber": 37,
+  "symbol": "Rb",
+  "nameEn": "Rubidium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 85.468,
+   "display": "85.468",
+   "uncertainty": "0.001",
+   "standard": "85.4678(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.82,
+  "radii": {
+   "covalent": 220,
+   "empirical": 235,
+   "vanDerWaals": 303
+  },
+  "ionizationEnergy": 4.177,
+  "electronAffinity": 0.468,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 312.46,
+  "boilingPoint": 961,
+  "density": 1.53,
+  "crustalAbundance": 90,
+  "oceanicAbundance": 0.12,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1861",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/rubidium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/rubidium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=37",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/37"
+  }
+ },
+ {
+  "atomicNumber": 38,
+  "symbol": "Sr",
+  "nameEn": "Strontium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 87.62,
+   "display": "87.62",
+   "uncertainty": "0.01",
+   "standard": "87.62(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.95,
+  "radii": {
+   "covalent": 195,
+   "empirical": 200,
+   "vanDerWaals": 249
+  },
+  "ionizationEnergy": 5.695,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1050,
+  "boilingPoint": 1655,
+  "density": 2.64,
+  "crustalAbundance": 370,
+  "oceanicAbundance": 7.9,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1790",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/strontium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/strontium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=38",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/38"
+  }
+ },
+ {
+  "atomicNumber": 39,
+  "symbol": "Y",
+  "nameEn": "Yttrium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 88.906,
+   "display": "88.906",
+   "uncertainty": "0.001",
+   "standard": "88.905 838(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.22,
+  "radii": {
+   "covalent": 190,
+   "empirical": 180,
+   "vanDerWaals": 219
+  },
+  "ionizationEnergy": 6.217,
+  "electronAffinity": 0.307,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1795,
+  "boilingPoint": 3618,
+  "density": 4.47,
+  "crustalAbundance": 33,
+  "oceanicAbundance": 0.000013,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1794",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/yttrium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/yttrium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=39",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/39"
+  }
+ },
+ {
+  "atomicNumber": 40,
+  "symbol": "Zr",
+  "nameEn": "Zirconium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 91.222,
+   "display": "91.222",
+   "uncertainty": "0.003",
+   "standard": "91.222(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.33,
+  "radii": {
+   "covalent": 175,
+   "empirical": 155,
+   "vanDerWaals": 186
+  },
+  "ionizationEnergy": 6.634,
+  "electronAffinity": 0.426,
+  "oxidationStates": [
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2128,
+  "boilingPoint": 4682,
+  "density": 6.52,
+  "crustalAbundance": 165,
+  "oceanicAbundance": 0.00003,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1789",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/zirconium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/zirconium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=40",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/40"
+  }
+ },
+ {
+  "atomicNumber": 41,
+  "symbol": "Nb",
+  "nameEn": "Niobium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 92.906,
+   "display": "92.906",
+   "uncertainty": "0.001",
+   "standard": "92.906 37(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1 4d4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.6,
+  "radii": {
+   "covalent": 164,
+   "empirical": 145,
+   "vanDerWaals": 207
+  },
+  "ionizationEnergy": 6.759,
+  "electronAffinity": 0.893,
+  "oxidationStates": [
+   "+5",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2750,
+  "boilingPoint": 5017,
+  "density": 8.57,
+  "crustalAbundance": 20,
+  "oceanicAbundance": 0.00001,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1801",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/niobium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/niobium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=41",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/41"
+  }
+ },
+ {
+  "atomicNumber": 42,
+  "symbol": "Mo",
+  "nameEn": "Molybdenum",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 95.95,
+   "display": "95.95",
+   "uncertainty": "0.01",
+   "standard": "95.95(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1 4d5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.16,
+  "radii": {
+   "covalent": 154,
+   "empirical": 145,
+   "vanDerWaals": 209
+  },
+  "ionizationEnergy": 7.092,
+  "electronAffinity": 0.746,
+  "oxidationStates": [
+   "+6"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2896,
+  "boilingPoint": 4912,
+  "density": 10.2,
+  "crustalAbundance": 1.2,
+  "oceanicAbundance": 0.01,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1778",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/molybdenum.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/molybdenum",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=42",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/42"
+  }
+ },
+ {
+  "atomicNumber": 43,
+  "symbol": "Tc",
+  "nameEn": "Technetium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 97,
+   "display": "[97]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 97,
+    "halfLifeText": "4.21(16) Ma",
+    "halfLife": {
+     "value": 4.21,
+     "unit": "My",
+     "seconds": 132854658460000,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 98,
+     "halfLifeText": "4.2(3) Ma",
+     "halfLife": {
+      "value": 4.2,
+      "unit": "My",
+      "seconds": 132539089200000,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Kr]5s2 4d5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.9,
+  "radii": {
+   "covalent": 147,
+   "empirical": 135,
+   "vanDerWaals": 209
+  },
+  "ionizationEnergy": 7.28,
+  "electronAffinity": 0.55,
+  "oxidationStates": [
+   "+7",
+   "+6",
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2430,
+  "boilingPoint": 4538,
+  "density": 11,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1937",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/technetium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=43",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/43"
+  }
+ },
+ {
+  "atomicNumber": 44,
+  "symbol": "Ru",
+  "nameEn": "Ruthenium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 101.07,
+   "display": "101.07",
+   "uncertainty": "0.02",
+   "standard": "101.07(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1 4d7",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 146,
+   "empirical": 130,
+   "vanDerWaals": 207
+  },
+  "ionizationEnergy": 7.361,
+  "electronAffinity": 1.05,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2607,
+  "boilingPoint": 4423,
+  "density": 12.1,
+  "crustalAbundance": 0.001,
+  "oceanicAbundance": 7e-7,
+  "stableIsotopeCount": 7,
+  "pubchemYearDiscovered": "1827",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/ruthenium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/ruthenium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=44",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/44"
+  }
+ },
+ {
+  "atomicNumber": 45,
+  "symbol": "Rh",
+  "nameEn": "Rhodium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 102.91,
+   "display": "102.91",
+   "uncertainty": "0.01",
+   "standard": "102.905 49(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1 4d8",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.28,
+  "radii": {
+   "covalent": 142,
+   "empirical": 135,
+   "vanDerWaals": 195
+  },
+  "ionizationEnergy": 7.459,
+  "electronAffinity": 1.137,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2237,
+  "boilingPoint": 3968,
+  "density": 12.4,
+  "crustalAbundance": 0.001,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1803",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/rhodium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/rhodium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=45",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/45"
+  }
+ },
+ {
+  "atomicNumber": 46,
+  "symbol": "Pd",
+  "nameEn": "Palladium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 106.42,
+   "display": "106.42",
+   "uncertainty": "0.01",
+   "standard": "106.42(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]4d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 139,
+   "empirical": 140,
+   "vanDerWaals": 202
+  },
+  "ionizationEnergy": 8.337,
+  "electronAffinity": 0.557,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1828.05,
+  "boilingPoint": 3236,
+  "density": 12,
+  "crustalAbundance": 0.015,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1803",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/palladium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/palladium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=46",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/46"
+  }
+ },
+ {
+  "atomicNumber": 47,
+  "symbol": "Ag",
+  "nameEn": "Silver",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 107.87,
+   "display": "107.87",
+   "uncertainty": "0.01",
+   "standard": "107.8682(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s1 4d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.93,
+  "radii": {
+   "covalent": 145,
+   "empirical": 160,
+   "vanDerWaals": 172
+  },
+  "ionizationEnergy": 7.576,
+  "electronAffinity": 1.302,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1234.93,
+  "boilingPoint": 2435,
+  "density": 10.501,
+  "crustalAbundance": 0.075,
+  "oceanicAbundance": 0.00004,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/silver.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/silver",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=47",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/47"
+  }
+ },
+ {
+  "atomicNumber": 48,
+  "symbol": "Cd",
+  "nameEn": "Cadmium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 112.41,
+   "display": "112.41",
+   "uncertainty": "0.01",
+   "standard": "112.414(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.69,
+  "radii": {
+   "covalent": 144,
+   "empirical": 155,
+   "vanDerWaals": 158
+  },
+  "ionizationEnergy": 8.994,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 594.22,
+  "boilingPoint": 1040,
+  "density": 8.69,
+  "crustalAbundance": 0.15,
+  "oceanicAbundance": 0.00011,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1817",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/cadmium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/cadmium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=48",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/48"
+  }
+ },
+ {
+  "atomicNumber": 49,
+  "symbol": "In",
+  "nameEn": "Indium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 114.82,
+   "display": "114.82",
+   "uncertainty": "0.01",
+   "standard": "114.818(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.78,
+  "radii": {
+   "covalent": 142,
+   "empirical": 155,
+   "vanDerWaals": 193
+  },
+  "ionizationEnergy": 5.786,
+  "electronAffinity": 0.3,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 429.75,
+  "boilingPoint": 2345,
+  "density": 7.31,
+  "crustalAbundance": 0.25,
+  "oceanicAbundance": 0.02,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1863",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/indium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/indium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=49",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/49"
+  }
+ },
+ {
+  "atomicNumber": 50,
+  "symbol": "Sn",
+  "nameEn": "Tin",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 118.71,
+   "display": "118.71",
+   "uncertainty": "0.01",
+   "standard": "118.710(7)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.96,
+  "radii": {
+   "covalent": 139,
+   "empirical": 145,
+   "vanDerWaals": 217
+  },
+  "ionizationEnergy": 7.344,
+  "electronAffinity": 1.2,
+  "oxidationStates": [
+   "+4",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 505.08,
+  "boilingPoint": 2875,
+  "density": 7.287,
+  "crustalAbundance": 2.3,
+  "oceanicAbundance": 0.000004,
+  "stableIsotopeCount": 10,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/tin.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/tin",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=50",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/50"
+  }
+ },
+ {
+  "atomicNumber": 51,
+  "symbol": "Sb",
+  "nameEn": "Antimony",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 121.76,
+   "display": "121.76",
+   "uncertainty": "0.01",
+   "standard": "121.760(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.05,
+  "radii": {
+   "covalent": 139,
+   "empirical": 145,
+   "vanDerWaals": 206
+  },
+  "ionizationEnergy": 8.64,
+  "electronAffinity": 1.07,
+  "oxidationStates": [
+   "+5",
+   "+3",
+   "-3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 903.78,
+  "boilingPoint": 1860,
+  "density": 6.685,
+  "crustalAbundance": 0.2,
+  "oceanicAbundance": 0.00024,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/antimony.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/antimony",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=51",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/51"
+  }
+ },
+ {
+  "atomicNumber": 52,
+  "symbol": "Te",
+  "nameEn": "Tellurium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 127.6,
+   "display": "127.60",
+   "uncertainty": "0.03",
+   "standard": "127.60(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.1,
+  "radii": {
+   "covalent": 138,
+   "empirical": 140,
+   "vanDerWaals": 206
+  },
+  "ionizationEnergy": 9.01,
+  "electronAffinity": 1.971,
+  "oxidationStates": [
+   "+6",
+   "+4",
+   "-2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 722.66,
+  "boilingPoint": 1261,
+  "density": 6.232,
+  "crustalAbundance": 0.001,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1782",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/tellurium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/tellurium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=52",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/52"
+  }
+ },
+ {
+  "atomicNumber": 53,
+  "symbol": "I",
+  "nameEn": "Iodine",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 126.9,
+   "display": "126.90",
+   "uncertainty": "0.01",
+   "standard": "126.904 47(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.66,
+  "radii": {
+   "covalent": 139,
+   "empirical": 140,
+   "vanDerWaals": 198
+  },
+  "ionizationEnergy": 10.451,
+  "electronAffinity": 3.059,
+  "oxidationStates": [
+   "+7",
+   "+5",
+   "+1",
+   "-1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 386.85,
+  "boilingPoint": 457.55,
+  "density": 4.93,
+  "crustalAbundance": 0.45,
+  "oceanicAbundance": 0.06,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1811",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/iodine.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/iodine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=53",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/53"
+  }
+ },
+ {
+  "atomicNumber": 54,
+  "symbol": "Xe",
+  "nameEn": "Xenon",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 131.29,
+   "display": "131.29",
+   "uncertainty": "0.01",
+   "standard": "131.293(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Kr]5s2 4d10 5p6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.6,
+  "radii": {
+   "covalent": 140,
+   "empirical": null,
+   "vanDerWaals": 216
+  },
+  "ionizationEnergy": 12.13,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 161.36,
+  "boilingPoint": 165.03,
+  "density": 0.005887,
+  "crustalAbundance": 0.00003,
+  "oceanicAbundance": 0.00005,
+  "stableIsotopeCount": 8,
+  "pubchemYearDiscovered": "1898",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/xenon.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/xenon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=54",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/54"
+  }
+ },
+ {
+  "atomicNumber": 55,
+  "symbol": "Cs",
+  "nameEn": "Cesium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 132.91,
+   "display": "132.91",
+   "uncertainty": "0.01",
+   "standard": "132.905 451 96(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.79,
+  "radii": {
+   "covalent": 244,
+   "empirical": 260,
+   "vanDerWaals": 343
+  },
+  "ionizationEnergy": 3.894,
+  "electronAffinity": 0.472,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 301.59,
+  "boilingPoint": 944,
+  "density": 1.93,
+  "crustalAbundance": 3,
+  "oceanicAbundance": 0.0003,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1860",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/caesium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/cesium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=55",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/55"
+  }
+ },
+ {
+  "atomicNumber": 56,
+  "symbol": "Ba",
+  "nameEn": "Barium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 137.33,
+   "display": "137.33",
+   "uncertainty": "0.01",
+   "standard": "137.327(7)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.89,
+  "radii": {
+   "covalent": 215,
+   "empirical": 215,
+   "vanDerWaals": 268
+  },
+  "ionizationEnergy": 5.212,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1000,
+  "boilingPoint": 2170,
+  "density": 3.62,
+  "crustalAbundance": 425,
+  "oceanicAbundance": 0.013,
+  "stableIsotopeCount": 7,
+  "pubchemYearDiscovered": "1808",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/barium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/barium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=56",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/56"
+  }
+ },
+ {
+  "atomicNumber": 57,
+  "symbol": "La",
+  "nameEn": "Lanthanum",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 138.91,
+   "display": "138.91",
+   "uncertainty": "0.01",
+   "standard": "138.905 47(7)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 5d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.1,
+  "radii": {
+   "covalent": 207,
+   "empirical": 195,
+   "vanDerWaals": 240
+  },
+  "ionizationEnergy": 5.577,
+  "electronAffinity": 0.5,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1191,
+  "boilingPoint": 3737,
+  "density": 6.15,
+  "crustalAbundance": 39,
+  "oceanicAbundance": 0.0000034,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1839",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/lanthanum.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/lanthanum",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=57",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/57"
+  }
+ },
+ {
+  "atomicNumber": 58,
+  "symbol": "Ce",
+  "nameEn": "Cerium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 140.12,
+   "display": "140.12",
+   "uncertainty": "0.01",
+   "standard": "140.116(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f1 5d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.12,
+  "radii": {
+   "covalent": 204,
+   "empirical": 185,
+   "vanDerWaals": 235
+  },
+  "ionizationEnergy": 5.539,
+  "electronAffinity": 0.5,
+  "oxidationStates": [
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1071,
+  "boilingPoint": 3697,
+  "density": 6.77,
+  "crustalAbundance": 66.5,
+  "oceanicAbundance": 0.0000012,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1803",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/cerium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/cerium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=58",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/58"
+  }
+ },
+ {
+  "atomicNumber": 59,
+  "symbol": "Pr",
+  "nameEn": "Praseodymium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 140.91,
+   "display": "140.91",
+   "uncertainty": "0.01",
+   "standard": "140.907 66(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.13,
+  "radii": {
+   "covalent": 203,
+   "empirical": 185,
+   "vanDerWaals": 239
+  },
+  "ionizationEnergy": 5.464,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1204,
+  "boilingPoint": 3793,
+  "density": 6.77,
+  "crustalAbundance": 9.2,
+  "oceanicAbundance": 6.4e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1885",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/praseodymium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/praseodymium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=59",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/59"
+  }
+ },
+ {
+  "atomicNumber": 60,
+  "symbol": "Nd",
+  "nameEn": "Neodymium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 144.24,
+   "display": "144.24",
+   "uncertainty": "0.01",
+   "standard": "144.242(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.14,
+  "radii": {
+   "covalent": 201,
+   "empirical": 185,
+   "vanDerWaals": 229
+  },
+  "ionizationEnergy": 5.525,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1294,
+  "boilingPoint": 3347,
+  "density": 7.01,
+  "crustalAbundance": 41.5,
+  "oceanicAbundance": 0.0000028,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1885",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/neodymium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/neodymium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=60",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/60"
+  }
+ },
+ {
+  "atomicNumber": 61,
+  "symbol": "Pm",
+  "nameEn": "Promethium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 145,
+   "display": "[145]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 145,
+    "halfLifeText": "17.7(4) a",
+    "halfLife": {
+     "value": 17.7,
+     "unit": "y",
+     "seconds": 558557590.1999999,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Xe]6s2 4f5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 199,
+   "empirical": 185,
+   "vanDerWaals": 236
+  },
+  "ionizationEnergy": 5.55,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1315,
+  "boilingPoint": 3273,
+  "density": 7.26,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1945",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/promethium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=61",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/61"
+  }
+ },
+ {
+  "atomicNumber": 62,
+  "symbol": "Sm",
+  "nameEn": "Samarium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 150.36,
+   "display": "150.36",
+   "uncertainty": "0.02",
+   "standard": "150.36(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.17,
+  "radii": {
+   "covalent": 198,
+   "empirical": 185,
+   "vanDerWaals": 229
+  },
+  "ionizationEnergy": 5.644,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1347,
+  "boilingPoint": 2067,
+  "density": 7.52,
+  "crustalAbundance": 7.05,
+  "oceanicAbundance": 4.5e-7,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1879",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/samarium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/samarium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=62",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/62"
+  }
+ },
+ {
+  "atomicNumber": 63,
+  "symbol": "Eu",
+  "nameEn": "Europium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 151.96,
+   "display": "151.96",
+   "uncertainty": "0.01",
+   "standard": "151.964(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f7",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 198,
+   "empirical": 185,
+   "vanDerWaals": 233
+  },
+  "ionizationEnergy": 5.67,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1095,
+  "boilingPoint": 1802,
+  "density": 5.24,
+  "crustalAbundance": 2,
+  "oceanicAbundance": 1.3e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1901",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/europium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/europium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=63",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/63"
+  }
+ },
+ {
+  "atomicNumber": 64,
+  "symbol": "Gd",
+  "nameEn": "Gadolinium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 157.25,
+   "display": "157.25",
+   "uncertainty": "0.01",
+   "standard": "157.249(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f7 5d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.2,
+  "radii": {
+   "covalent": 196,
+   "empirical": 180,
+   "vanDerWaals": 237
+  },
+  "ionizationEnergy": 6.15,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1586,
+  "boilingPoint": 3546,
+  "density": 7.9,
+  "crustalAbundance": 6.2,
+  "oceanicAbundance": 7e-7,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1880",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/gadolinium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/gadolinium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=64",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/64"
+  }
+ },
+ {
+  "atomicNumber": 65,
+  "symbol": "Tb",
+  "nameEn": "Terbium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 158.93,
+   "display": "158.93",
+   "uncertainty": "0.01",
+   "standard": "158.925 354(7)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f9",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 194,
+   "empirical": 175,
+   "vanDerWaals": 221
+  },
+  "ionizationEnergy": 5.864,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1629,
+  "boilingPoint": 3503,
+  "density": 8.23,
+  "crustalAbundance": 1.2,
+  "oceanicAbundance": 1.4e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1843",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/terbium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/terbium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=65",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/65"
+  }
+ },
+ {
+  "atomicNumber": 66,
+  "symbol": "Dy",
+  "nameEn": "Dysprosium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 162.5,
+   "display": "162.50",
+   "uncertainty": "0.01",
+   "standard": "162.500(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.22,
+  "radii": {
+   "covalent": 192,
+   "empirical": 175,
+   "vanDerWaals": 229
+  },
+  "ionizationEnergy": 5.939,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1685,
+  "boilingPoint": 2840,
+  "density": 8.55,
+  "crustalAbundance": 5.2,
+  "oceanicAbundance": 9.1e-7,
+  "stableIsotopeCount": 7,
+  "pubchemYearDiscovered": "1886",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/dysprosium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/dysprosium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=66",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/66"
+  }
+ },
+ {
+  "atomicNumber": 67,
+  "symbol": "Ho",
+  "nameEn": "Holmium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 164.93,
+   "display": "164.93",
+   "uncertainty": "0.01",
+   "standard": "164.930 329(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f11",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.23,
+  "radii": {
+   "covalent": 192,
+   "empirical": 175,
+   "vanDerWaals": 216
+  },
+  "ionizationEnergy": 6.022,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1747,
+  "boilingPoint": 2973,
+  "density": 8.8,
+  "crustalAbundance": 1.3,
+  "oceanicAbundance": 2.2e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1878",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/holmium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/holmium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=67",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/67"
+  }
+ },
+ {
+  "atomicNumber": 68,
+  "symbol": "Er",
+  "nameEn": "Erbium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 167.26,
+   "display": "167.26",
+   "uncertainty": "0.01",
+   "standard": "167.259(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f12",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.24,
+  "radii": {
+   "covalent": 189,
+   "empirical": 175,
+   "vanDerWaals": 235
+  },
+  "ionizationEnergy": 6.108,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1802,
+  "boilingPoint": 3141,
+  "density": 9.07,
+  "crustalAbundance": 3.5,
+  "oceanicAbundance": 8.7e-7,
+  "stableIsotopeCount": 6,
+  "pubchemYearDiscovered": "1843",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/erbium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/erbium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=68",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/68"
+  }
+ },
+ {
+  "atomicNumber": 69,
+  "symbol": "Tm",
+  "nameEn": "Thulium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 168.93,
+   "display": "168.93",
+   "uncertainty": "0.01",
+   "standard": "168.934 219(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f13",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.25,
+  "radii": {
+   "covalent": 190,
+   "empirical": 175,
+   "vanDerWaals": 227
+  },
+  "ionizationEnergy": 6.184,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1818,
+  "boilingPoint": 2223,
+  "density": 9.32,
+  "crustalAbundance": 0.52,
+  "oceanicAbundance": 1.7e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1879",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/thulium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/thulium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=69",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/69"
+  }
+ },
+ {
+  "atomicNumber": 70,
+  "symbol": "Yb",
+  "nameEn": "Ytterbium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 173.05,
+   "display": "173.05",
+   "uncertainty": "0.02",
+   "standard": "173.045(10)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 187,
+   "empirical": 175,
+   "vanDerWaals": 242
+  },
+  "ionizationEnergy": 6.254,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1092,
+  "boilingPoint": 1469,
+  "density": 6.9,
+  "crustalAbundance": 3.2,
+  "oceanicAbundance": 8.2e-7,
+  "stableIsotopeCount": 7,
+  "pubchemYearDiscovered": "1878",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/ytterbium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/ytterbium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=70",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/70"
+  }
+ },
+ {
+  "atomicNumber": 71,
+  "symbol": "Lu",
+  "nameEn": "Lutetium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 174.97,
+   "display": "174.97",
+   "uncertainty": "0.01",
+   "standard": "174.966 69(5)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.27,
+  "radii": {
+   "covalent": 187,
+   "empirical": 175,
+   "vanDerWaals": 221
+  },
+  "ionizationEnergy": 5.426,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1936,
+  "boilingPoint": 3675,
+  "density": 9.84,
+  "crustalAbundance": 0.8,
+  "oceanicAbundance": 1.5e-7,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1907",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/lutetium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/lutetium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=71",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/71"
+  }
+ },
+ {
+  "atomicNumber": 72,
+  "symbol": "Hf",
+  "nameEn": "Hafnium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 178.49,
+   "display": "178.49",
+   "uncertainty": "0.01",
+   "standard": "178.486(6)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": 175,
+   "empirical": 155,
+   "vanDerWaals": 212
+  },
+  "ionizationEnergy": 6.825,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2506,
+  "boilingPoint": 4876,
+  "density": 13.3,
+  "crustalAbundance": 3,
+  "oceanicAbundance": 0.000007,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1923",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/hafnium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/hafnium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=72",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/72"
+  }
+ },
+ {
+  "atomicNumber": 73,
+  "symbol": "Ta",
+  "nameEn": "Tantalum",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 180.95,
+   "display": "180.95",
+   "uncertainty": "0.01",
+   "standard": "180.947 88(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.5,
+  "radii": {
+   "covalent": 170,
+   "empirical": 145,
+   "vanDerWaals": 217
+  },
+  "ionizationEnergy": 7.89,
+  "electronAffinity": 0.322,
+  "oxidationStates": [
+   "+5"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 3290,
+  "boilingPoint": 5731,
+  "density": 16.4,
+  "crustalAbundance": 2,
+  "oceanicAbundance": 0.000002,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1802",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/tantalum.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/tantalum",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=73",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/73"
+  }
+ },
+ {
+  "atomicNumber": 74,
+  "symbol": "W",
+  "nameEn": "Tungsten",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 183.84,
+   "display": "183.84",
+   "uncertainty": "0.01",
+   "standard": "183.84(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.36,
+  "radii": {
+   "covalent": 162,
+   "empirical": 135,
+   "vanDerWaals": 210
+  },
+  "ionizationEnergy": 7.98,
+  "electronAffinity": 0.815,
+  "oxidationStates": [
+   "+6"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 3695,
+  "boilingPoint": 5828,
+  "density": 19.3,
+  "crustalAbundance": 1.25,
+  "oceanicAbundance": 0.0001,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "1783",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/tungsten.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/tungsten",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=74",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/74"
+  }
+ },
+ {
+  "atomicNumber": 75,
+  "symbol": "Re",
+  "nameEn": "Rhenium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 186.21,
+   "display": "186.21",
+   "uncertainty": "0.01",
+   "standard": "186.207(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.9,
+  "radii": {
+   "covalent": 151,
+   "empirical": 135,
+   "vanDerWaals": 217
+  },
+  "ionizationEnergy": 7.88,
+  "electronAffinity": 0.15,
+  "oxidationStates": [
+   "+7",
+   "+6",
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 3459,
+  "boilingPoint": 5869,
+  "density": 20.8,
+  "crustalAbundance": 0.0007,
+  "oceanicAbundance": 0.000004,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "1925",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/rhenium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/rhenium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=75",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/75"
+  }
+ },
+ {
+  "atomicNumber": 76,
+  "symbol": "Os",
+  "nameEn": "Osmium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 190.23,
+   "display": "190.23",
+   "uncertainty": "0.03",
+   "standard": "190.23(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 144,
+   "empirical": 130,
+   "vanDerWaals": 216
+  },
+  "ionizationEnergy": 8.7,
+  "electronAffinity": 1.1,
+  "oxidationStates": [
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 3306,
+  "boilingPoint": 5285,
+  "density": 22.57,
+  "crustalAbundance": 0.0015,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1803",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/osmium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/osmium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=76",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/76"
+  }
+ },
+ {
+  "atomicNumber": 77,
+  "symbol": "Ir",
+  "nameEn": "Iridium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 192.22,
+   "display": "192.22",
+   "uncertainty": "0.01",
+   "standard": "192.217(2)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d7",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 141,
+   "empirical": 135,
+   "vanDerWaals": 202
+  },
+  "ionizationEnergy": 9.1,
+  "electronAffinity": 1.565,
+  "oxidationStates": [
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2719,
+  "boilingPoint": 4701,
+  "density": 22.42,
+  "crustalAbundance": 0.001,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1803",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/iridium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/iridium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=77",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/77"
+  }
+ },
+ {
+  "atomicNumber": 78,
+  "symbol": "Pt",
+  "nameEn": "Platinum",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 195.08,
+   "display": "195.08",
+   "uncertainty": "0.02",
+   "standard": "195.084(9)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s1 4f14 5d9",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.28,
+  "radii": {
+   "covalent": 136,
+   "empirical": 135,
+   "vanDerWaals": 209
+  },
+  "ionizationEnergy": 9,
+  "electronAffinity": 2.128,
+  "oxidationStates": [
+   "+4",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2041.55,
+  "boilingPoint": 4098,
+  "density": 21.46,
+  "crustalAbundance": 0.005,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 5,
+  "pubchemYearDiscovered": "1735",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/platinum.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/platinum",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=78",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/78"
+  }
+ },
+ {
+  "atomicNumber": 79,
+  "symbol": "Au",
+  "nameEn": "Gold",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 196.97,
+   "display": "196.97",
+   "uncertainty": "0.01",
+   "standard": "196.966 570(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s1 4f14 5d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.54,
+  "radii": {
+   "covalent": 136,
+   "empirical": 135,
+   "vanDerWaals": 166
+  },
+  "ionizationEnergy": 9.226,
+  "electronAffinity": 2.309,
+  "oxidationStates": [
+   "+3",
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1337.33,
+  "boilingPoint": 3129,
+  "density": 19.282,
+  "crustalAbundance": 0.004,
+  "oceanicAbundance": 0.000004,
+  "stableIsotopeCount": 1,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/gold.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/gold",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=79",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/79"
+  }
+ },
+ {
+  "atomicNumber": 80,
+  "symbol": "Hg",
+  "nameEn": "Mercury",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 200.59,
+   "display": "200.59",
+   "uncertainty": "0.01",
+   "standard": "200.592(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2,
+  "radii": {
+   "covalent": 132,
+   "empirical": 150,
+   "vanDerWaals": 209
+  },
+  "ionizationEnergy": 10.438,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2",
+   "+1"
+  ],
+  "standardState": "liquid",
+  "standardStatePredicted": false,
+  "meltingPoint": 234.32,
+  "boilingPoint": 629.88,
+  "density": 13.5336,
+  "crustalAbundance": 0.085,
+  "oceanicAbundance": 0.00003,
+  "stableIsotopeCount": 7,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/mercury.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/mercury",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=80",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/80"
+  }
+ },
+ {
+  "atomicNumber": 81,
+  "symbol": "Tl",
+  "nameEn": "Thallium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 204.38,
+   "display": "204.38",
+   "uncertainty": "0.01",
+   "standard": "[204.382, 204.385]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.62,
+  "radii": {
+   "covalent": 145,
+   "empirical": 190,
+   "vanDerWaals": 196
+  },
+  "ionizationEnergy": 6.108,
+  "electronAffinity": 0.2,
+  "oxidationStates": [
+   "+3",
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 577,
+  "boilingPoint": 1746,
+  "density": 11.8,
+  "crustalAbundance": 0.85,
+  "oceanicAbundance": 0.000019,
+  "stableIsotopeCount": 2,
+  "pubchemYearDiscovered": "1861",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/thallium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/thallium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=81",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/81"
+  }
+ },
+ {
+  "atomicNumber": 82,
+  "symbol": "Pb",
+  "nameEn": "Lead",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 207.2,
+   "display": "207.2",
+   "uncertainty": "1.1",
+   "standard": "[206.14, 207.94]",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.33,
+  "radii": {
+   "covalent": 146,
+   "empirical": 180,
+   "vanDerWaals": 202
+  },
+  "ionizationEnergy": 7.417,
+  "electronAffinity": 0.36,
+  "oxidationStates": [
+   "+4",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 600.61,
+  "boilingPoint": 2022,
+  "density": 11.342,
+  "crustalAbundance": 14,
+  "oceanicAbundance": 0.00003,
+  "stableIsotopeCount": 4,
+  "pubchemYearDiscovered": "Ancient",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/lead.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/lead",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=82",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/82"
+  }
+ },
+ {
+  "atomicNumber": 83,
+  "symbol": "Bi",
+  "nameEn": "Bismuth",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 208.98,
+   "display": "208.98",
+   "uncertainty": "0.01",
+   "standard": "208.980 40(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.02,
+  "radii": {
+   "covalent": 148,
+   "empirical": 160,
+   "vanDerWaals": 207
+  },
+  "ionizationEnergy": 7.289,
+  "electronAffinity": 0.946,
+  "oxidationStates": [
+   "+5",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 544.55,
+  "boilingPoint": 1837,
+  "density": 9.807,
+  "crustalAbundance": 0.0085,
+  "oceanicAbundance": 0.00002,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1753",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/bismuth.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/bismuth",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=83",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/83"
+  }
+ },
+ {
+  "atomicNumber": 84,
+  "symbol": "Po",
+  "nameEn": "Polonium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 209,
+   "display": "[209]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 209,
+    "halfLifeText": "124(3) a",
+    "halfLife": {
+     "value": 124,
+     "unit": "y",
+     "seconds": 3913058824,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2,
+  "radii": {
+   "covalent": 140,
+   "empirical": 190,
+   "vanDerWaals": 197
+  },
+  "ionizationEnergy": 8.417,
+  "electronAffinity": 1.9,
+  "oxidationStates": [
+   "+4",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 527,
+  "boilingPoint": 1235,
+  "density": 9.32,
+  "crustalAbundance": 2e-10,
+  "oceanicAbundance": 1.5e-14,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1898",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/polonium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=84",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/84"
+  }
+ },
+ {
+  "atomicNumber": 85,
+  "symbol": "At",
+  "nameEn": "Astatine",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 210,
+   "display": "[210]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 210,
+    "halfLifeText": "8.1(4) h",
+    "halfLife": {
+     "value": 8.1,
+     "unit": "h",
+     "seconds": 29160,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 2.2,
+  "radii": {
+   "covalent": 150,
+   "empirical": null,
+   "vanDerWaals": 202
+  },
+  "ionizationEnergy": 9.5,
+  "electronAffinity": 2.8,
+  "oxidationStates": [
+   "7",
+   "5",
+   "3",
+   "1",
+   "-1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 575,
+  "boilingPoint": null,
+  "density": 7,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1940",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/astatine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=85",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/85"
+  }
+ },
+ {
+  "atomicNumber": 86,
+  "symbol": "Rn",
+  "nameEn": "Radon",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 222,
+   "display": "[222]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 222,
+    "halfLifeText": "3.8215(2) d",
+    "halfLife": {
+     "value": 3.8215,
+     "unit": "d",
+     "seconds": 330177.6,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Xe]6s2 4f14 5d10 6p6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": 150,
+   "empirical": null,
+   "vanDerWaals": 220
+  },
+  "ionizationEnergy": 10.745,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "0"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": false,
+  "meltingPoint": 202,
+  "boilingPoint": 211.45,
+  "density": 0.00973,
+  "crustalAbundance": 4e-13,
+  "oceanicAbundance": 6e-16,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1900",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/radon",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=86",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/86"
+  }
+ },
+ {
+  "atomicNumber": 87,
+  "symbol": "Fr",
+  "nameEn": "Francium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 223,
+   "display": "[223]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 223,
+    "halfLifeText": "22.00(7) min",
+    "halfLife": {
+     "value": 22,
+     "unit": "m",
+     "seconds": 1320,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.7,
+  "radii": {
+   "covalent": 260,
+   "empirical": null,
+   "vanDerWaals": 348
+  },
+  "ionizationEnergy": 3.9,
+  "electronAffinity": 0.47,
+  "oxidationStates": [
+   "+1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 300,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1939",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/francium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=87",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/87"
+  }
+ },
+ {
+  "atomicNumber": 88,
+  "symbol": "Ra",
+  "nameEn": "Radium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 226,
+   "display": "[226]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 226,
+    "halfLifeText": "1600(7) a",
+    "halfLife": {
+     "value": 1.6,
+     "unit": "ky",
+     "seconds": 50491081600,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 0.9,
+  "radii": {
+   "covalent": 221,
+   "empirical": 215,
+   "vanDerWaals": 283
+  },
+  "ionizationEnergy": 5.279,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 973,
+  "boilingPoint": 1413,
+  "density": 5,
+  "crustalAbundance": 9e-7,
+  "oceanicAbundance": 8.9e-11,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1898",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/radium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=88",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/88"
+  }
+ },
+ {
+  "atomicNumber": 89,
+  "symbol": "Ac",
+  "nameEn": "Actinium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 227,
+   "display": "[227]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 227,
+    "halfLifeText": "21.772(3) a",
+    "halfLife": {
+     "value": 21.772,
+     "unit": "y",
+     "seconds": 687057392.872,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.1,
+  "radii": {
+   "covalent": 215,
+   "empirical": 195,
+   "vanDerWaals": 260
+  },
+  "ionizationEnergy": 5.17,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1324,
+  "boilingPoint": 3471,
+  "density": 10.07,
+  "crustalAbundance": 5.5e-10,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1899",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/actinium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=89",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/89"
+  }
+ },
+ {
+  "atomicNumber": 90,
+  "symbol": "Th",
+  "nameEn": "Thorium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 232.04,
+   "display": "232.04",
+   "uncertainty": "0.01",
+   "standard": "232.0377(4)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Rn]7s2 6d2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": 206,
+   "empirical": 180,
+   "vanDerWaals": 237
+  },
+  "ionizationEnergy": 6.08,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 2023,
+  "boilingPoint": 5061,
+  "density": 11.72,
+  "crustalAbundance": 9.6,
+  "oceanicAbundance": 0.000001,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1828",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/thorium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/thorium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=90",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/90"
+  }
+ },
+ {
+  "atomicNumber": 91,
+  "symbol": "Pa",
+  "nameEn": "Protactinium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 231.04,
+   "display": "231.04",
+   "uncertainty": "0.01",
+   "standard": "231.035 88(1)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Rn]7s2 5f2 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.5,
+  "radii": {
+   "covalent": 200,
+   "empirical": 180,
+   "vanDerWaals": 243
+  },
+  "ionizationEnergy": 5.89,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+5",
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1845,
+  "boilingPoint": null,
+  "density": 15.37,
+  "crustalAbundance": 0.0000014,
+  "oceanicAbundance": 5e-11,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1913",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/protactinium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/protactinium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=91",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/91"
+  }
+ },
+ {
+  "atomicNumber": 92,
+  "symbol": "U",
+  "nameEn": "Uranium",
+  "atomicWeight": {
+   "kind": "standard",
+   "value": 238.03,
+   "display": "238.03",
+   "uncertainty": "0.01",
+   "standard": "238.028 91(3)",
+   "source": "ciaaw-abridged-2024"
+  },
+  "electronConfiguration": "[Rn]7s2 5f3 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.38,
+  "radii": {
+   "covalent": 196,
+   "empirical": 175,
+   "vanDerWaals": 240
+  },
+  "ionizationEnergy": 6.194,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+6",
+   "+5",
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1408,
+  "boilingPoint": 4404,
+  "density": 18.95,
+  "crustalAbundance": 2.7,
+  "oceanicAbundance": 0.0032,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1789",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/uranium.htm",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/uranium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=92",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/92"
+  }
+ },
+ {
+  "atomicNumber": 93,
+  "symbol": "Np",
+  "nameEn": "Neptunium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 237,
+   "display": "[237]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 237,
+    "halfLifeText": "2144(7) ka",
+    "halfLife": {
+     "value": 2.144,
+     "unit": "My",
+     "seconds": 67658049344000.01,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f4 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.36,
+  "radii": {
+   "covalent": 190,
+   "empirical": 175,
+   "vanDerWaals": 221
+  },
+  "ionizationEnergy": 6.266,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+6",
+   "+5",
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 917,
+  "boilingPoint": 4175,
+  "density": 20.25,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1940",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/neptunium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=93",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/93"
+  }
+ },
+ {
+  "atomicNumber": 94,
+  "symbol": "Pu",
+  "nameEn": "Plutonium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 244,
+   "display": "[244]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 244,
+    "halfLifeText": "81.3(3) Ma",
+    "halfLife": {
+     "value": 81.3,
+     "unit": "My",
+     "seconds": 2565578083800000,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.28,
+  "radii": {
+   "covalent": 187,
+   "empirical": 175,
+   "vanDerWaals": 243
+  },
+  "ionizationEnergy": 6.06,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+6",
+   "+5",
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 913,
+  "boilingPoint": 3501,
+  "density": 19.84,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1940",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/plutonium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=94",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/94"
+  }
+ },
+ {
+  "atomicNumber": 95,
+  "symbol": "Am",
+  "nameEn": "Americium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 243,
+   "display": "[243]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 243,
+    "halfLifeText": "7.350(9) ka",
+    "halfLife": {
+     "value": 7.35,
+     "unit": "ky",
+     "seconds": 231943406100,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f7",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": 180,
+   "empirical": 175,
+   "vanDerWaals": 244
+  },
+  "ionizationEnergy": 5.993,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+6",
+   "+5",
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1449,
+  "boilingPoint": 2284,
+  "density": 13.69,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1944",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/americium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=95",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/95"
+  }
+ },
+ {
+  "atomicNumber": 96,
+  "symbol": "Cm",
+  "nameEn": "Curium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 247,
+   "display": "[247]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 247,
+    "halfLifeText": "15.6(5) Ma",
+    "halfLife": {
+     "value": 15.6,
+     "unit": "My",
+     "seconds": 492288045600000,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f7 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": 169,
+   "empirical": null,
+   "vanDerWaals": 245
+  },
+  "ionizationEnergy": 6.02,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1618,
+  "boilingPoint": 3400,
+  "density": 13.51,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1944",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/curium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=96",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/96"
+  }
+ },
+ {
+  "atomicNumber": 97,
+  "symbol": "Bk",
+  "nameEn": "Berkelium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 247,
+   "display": "[247]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 247,
+    "halfLifeText": "1.38(25) ka",
+    "halfLife": {
+     "value": 1.38,
+     "unit": "ky",
+     "seconds": 43548557880,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f9",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": 244
+  },
+  "ionizationEnergy": 6.23,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+4",
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1323,
+  "boilingPoint": null,
+  "density": 14,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1949",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/berkelium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=97",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/97"
+  }
+ },
+ {
+  "atomicNumber": 98,
+  "symbol": "Cf",
+  "nameEn": "Californium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 251,
+   "display": "[251]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 251,
+    "halfLifeText": "898(44) a",
+    "halfLife": {
+     "value": 898,
+     "unit": "y",
+     "seconds": 28338119548,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f10",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": 245
+  },
+  "ionizationEnergy": 6.3,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1173,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1950",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/californium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=98",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/98"
+  }
+ },
+ {
+  "atomicNumber": 99,
+  "symbol": "Es",
+  "nameEn": "Einsteinium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 252,
+   "display": "[252]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 252,
+    "halfLifeText": "471.7(1.9) d",
+    "halfLife": {
+     "value": 471.7,
+     "unit": "d",
+     "seconds": 40754880,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f11",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": 245
+  },
+  "ionizationEnergy": 6.42,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1133,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1952",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/einsteinium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=99",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/99"
+  }
+ },
+ {
+  "atomicNumber": 100,
+  "symbol": "Fm",
+  "nameEn": "Fermium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 257,
+   "display": "[257]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 257,
+    "halfLifeText": "100.5(2) d",
+    "halfLife": {
+     "value": 100.5,
+     "unit": "d",
+     "seconds": 8683200,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn] 5f12 7s2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": 6.5,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1800,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1952",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/fermium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=100",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/100"
+  }
+ },
+ {
+  "atomicNumber": 101,
+  "symbol": "Md",
+  "nameEn": "Mendelevium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 258,
+   "display": "[258]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 258,
+    "halfLifeText": "51.6(3) d",
+    "halfLife": {
+     "value": 51.59,
+     "unit": "d",
+     "seconds": 4457376,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f13",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": 6.58,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1100,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1955",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/mendelevium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=101",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/101"
+  }
+ },
+ {
+  "atomicNumber": 102,
+  "symbol": "No",
+  "nameEn": "Nobelium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 259,
+   "display": "[259]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 259,
+    "halfLifeText": "58(5) min",
+    "halfLife": {
+     "value": 58,
+     "unit": "m",
+     "seconds": 3480,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": 6.65,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3",
+   "+2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1100,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1957",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/nobelium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=102",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/102"
+  }
+ },
+ {
+  "atomicNumber": 103,
+  "symbol": "Lr",
+  "nameEn": "Lawrencium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 266,
+   "display": "[266]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 266,
+    "halfLifeText": "22(14) h",
+    "halfLife": {
+     "value": 22,
+     "unit": "h",
+     "seconds": 79200,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 262,
+     "halfLifeText": "approx. 4 h",
+     "halfLife": {
+      "value": 4,
+      "unit": "h",
+      "seconds": 14400,
+      "approximate": true
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d1",
+  "electronConfigurationPredicted": false,
+  "electronegativity": 1.3,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": 1900,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1961",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/lawrencium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=103",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/103"
+  }
+ },
+ {
+  "atomicNumber": 104,
+  "symbol": "Rf",
+  "nameEn": "Rutherfordium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 267,
+   "display": "[267]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 267,
+    "halfLifeText": "2.5(1.5) h",
+    "halfLife": {
+     "value": 2.5,
+     "unit": "h",
+     "seconds": 9000,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d2",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": 150,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+4"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1964",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/rutherfordium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=104",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/104"
+  }
+ },
+ {
+  "atomicNumber": 105,
+  "symbol": "Db",
+  "nameEn": "Dubnium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 268,
+   "display": "[268]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 268,
+    "halfLifeText": "29(3) h",
+    "halfLife": {
+     "value": 29,
+     "unit": "h",
+     "seconds": 104400,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d3",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": 139,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "5",
+   "4",
+   "3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1967",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/dubnium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=105",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/105"
+  }
+ },
+ {
+  "atomicNumber": 106,
+  "symbol": "Sg",
+  "nameEn": "Seaborgium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 269,
+   "display": "[269]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 269,
+    "halfLifeText": "5(2) min",
+    "halfLife": {
+     "value": 5,
+     "unit": "m",
+     "seconds": 300,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 271,
+     "halfLifeText": "2.2(1.1) min",
+     "halfLife": {
+      "value": 2.2,
+      "unit": "m",
+      "seconds": 132,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d4",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "6",
+   "5",
+   "4",
+   "3",
+   "0"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1974",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/seaborgium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=106",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/106"
+  }
+ },
+ {
+  "atomicNumber": 107,
+  "symbol": "Bh",
+  "nameEn": "Bohrium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 270,
+   "display": "[270]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 270,
+    "halfLifeText": "3.8(3.0) min",
+    "halfLife": {
+     "value": 3.8,
+     "unit": "m",
+     "seconds": 228,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 274,
+     "halfLifeText": "57(27) s",
+     "halfLife": {
+      "value": 57,
+      "unit": "s",
+      "seconds": 57,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d5",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "7",
+   "5",
+   "4",
+   "3"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1976",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/bohrium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=107",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/107"
+  }
+ },
+ {
+  "atomicNumber": 108,
+  "symbol": "Hs",
+  "nameEn": "Hassium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 269,
+   "display": "[269]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 269,
+    "halfLifeText": "15(7) s",
+    "halfLife": {
+     "value": 15,
+     "unit": "s",
+     "seconds": 15,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 270,
+     "halfLifeText": "9(4) s",
+     "halfLife": {
+      "value": 9,
+      "unit": "s",
+      "seconds": 9,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d6",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": 126,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "8",
+   "6",
+   "5",
+   "4",
+   "3",
+   "2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1984",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/hassium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=108",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/108"
+  }
+ },
+ {
+  "atomicNumber": 109,
+  "symbol": "Mt",
+  "nameEn": "Meitnerium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 277,
+   "display": "[277]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 277,
+    "halfLifeText": "9(6) s",
+    "halfLife": {
+     "value": 9,
+     "unit": "s",
+     "seconds": 9,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 278,
+     "halfLifeText": "6(3) s",
+     "halfLife": {
+      "value": 6,
+      "unit": "s",
+      "seconds": 6,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d7 (calculated)",
+  "electronConfigurationPredicted": false,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "9",
+   "8",
+   "6",
+   "4",
+   "3",
+   "1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": false,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1982",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/meitnerium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=109",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/109"
+  }
+ },
+ {
+  "atomicNumber": 110,
+  "symbol": "Ds",
+  "nameEn": "Darmstadtium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 281,
+   "display": "[281]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 281,
+    "halfLifeText": "14(3) s",
+    "halfLife": {
+     "value": 14,
+     "unit": "s",
+     "seconds": 14,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d8",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "8",
+   "6",
+   "4",
+   "2",
+   "0"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1994",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/darmstadtium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=110",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/110"
+  }
+ },
+ {
+  "atomicNumber": 111,
+  "symbol": "Rg",
+  "nameEn": "Roentgenium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 282,
+   "display": "[282]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 282,
+    "halfLifeText": "130(50) s",
+    "halfLife": {
+     "value": 130,
+     "unit": "s",
+     "seconds": 130,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d9",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "5",
+   "3",
+   "1",
+   "-1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1994",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/roentgenium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=111",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/111"
+  }
+ },
+ {
+  "atomicNumber": 112,
+  "symbol": "Cn",
+  "nameEn": "Copernicium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 285,
+   "display": "[285]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 285,
+    "halfLifeText": "30(8) s",
+    "halfLife": {
+     "value": 30,
+     "unit": "s",
+     "seconds": 30,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "2",
+   "1",
+   "0"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1996",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/copernicium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=112",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/112"
+  }
+ },
+ {
+  "atomicNumber": 113,
+  "symbol": "Nh",
+  "nameEn": "Nihonium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 286,
+   "display": "[286]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 286,
+    "halfLifeText": "12(5) s",
+    "halfLife": {
+     "value": 12,
+     "unit": "s",
+     "seconds": 12,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 285,
+     "halfLifeText": "4.6(1.1) s",
+     "halfLife": {
+      "value": 4.6,
+      "unit": "s",
+      "seconds": 4.6,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]5f14 6d10 7s2 7p1",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "2004",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/nihonium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=113",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/113"
+  }
+ },
+ {
+  "atomicNumber": 114,
+  "symbol": "Fl",
+  "nameEn": "Flerovium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 290,
+   "display": "[290]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 290,
+    "halfLifeText": "80(60) s",
+    "halfLife": {
+     "value": 80,
+     "unit": "s",
+     "seconds": 80,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 289,
+     "halfLifeText": "2.1(6) s",
+     "halfLife": {
+      "value": 2.1,
+      "unit": "s",
+      "seconds": 2.1,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 7p2 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "6",
+   "4",
+   "2",
+   "1",
+   "0"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "1998",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/flerovium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=114",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/114"
+  }
+ },
+ {
+  "atomicNumber": 115,
+  "symbol": "Mc",
+  "nameEn": "Moscovium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 290,
+   "display": "[290]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 290,
+    "halfLifeText": "840(360) ms",
+    "halfLife": {
+     "value": 840,
+     "unit": "ms",
+     "seconds": 0.84,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 288,
+     "halfLifeText": "177(20) ms",
+     "halfLife": {
+      "value": 177,
+      "unit": "ms",
+      "seconds": 0.177,
+      "approximate": false
+     }
+    },
+    {
+     "massNumber": 289,
+     "halfLifeText": "410(150) ms",
+     "halfLife": {
+      "value": 410,
+      "unit": "ms",
+      "seconds": 0.41000000000000003,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 7p3 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "3",
+   "1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "2003",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/moscovium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=115",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/115"
+  }
+ },
+ {
+  "atomicNumber": 116,
+  "symbol": "Lv",
+  "nameEn": "Livermorium",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 293,
+   "display": "[293]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 293,
+    "halfLifeText": "70(30) ms",
+    "halfLife": {
+     "value": 70,
+     "unit": "ms",
+     "seconds": 0.07,
+     "approximate": false
+    }
+   },
+   "alternatives": [
+    {
+     "massNumber": 291,
+     "halfLifeText": "26(12) ms",
+     "halfLife": {
+      "value": 26,
+      "unit": "ms",
+      "seconds": 0.026000000000000002,
+      "approximate": false
+     }
+    },
+    {
+     "massNumber": 292,
+     "halfLifeText": "16(6) ms",
+     "halfLife": {
+      "value": 16,
+      "unit": "ms",
+      "seconds": 0.016,
+      "approximate": false
+     }
+    }
+   ]
+  },
+  "electronConfiguration": "[Rn]7s2 7p4 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+4",
+   "+2",
+   "-2"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "2000",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/livermorium",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=116",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/116"
+  }
+ },
+ {
+  "atomicNumber": 117,
+  "symbol": "Ts",
+  "nameEn": "Tennessine",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 294,
+   "display": "[294]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 294,
+    "halfLifeText": "70(30) ms",
+    "halfLife": {
+     "value": 70,
+     "unit": "ms",
+     "seconds": 0.07,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 7p5 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+5",
+   "+3",
+   "+1",
+   "-1"
+  ],
+  "standardState": "solid",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "2010",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/tennessine",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=117",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/117"
+  }
+ },
+ {
+  "atomicNumber": 118,
+  "symbol": "Og",
+  "nameEn": "Oganesson",
+  "atomicWeight": {
+   "kind": "mass-number",
+   "value": 294,
+   "display": "[294]",
+   "uncertainty": null,
+   "standard": null,
+   "source": "ciaaw-radioactive-nubase2020",
+   "referenceIsotope": {
+    "massNumber": 294,
+    "halfLifeText": "0.7(3) ms",
+    "halfLife": {
+     "value": 0.7,
+     "unit": "ms",
+     "seconds": 0.0007,
+     "approximate": false
+    }
+   },
+   "alternatives": []
+  },
+  "electronConfiguration": "[Rn]7s2 7p6 5f14 6d10",
+  "electronConfigurationPredicted": true,
+  "electronegativity": null,
+  "radii": {
+   "covalent": null,
+   "empirical": null,
+   "vanDerWaals": null
+  },
+  "ionizationEnergy": null,
+  "electronAffinity": null,
+  "oxidationStates": [
+   "+6",
+   "+4",
+   "+2",
+   "+1",
+   "0",
+   "-1"
+  ],
+  "standardState": "gas",
+  "standardStatePredicted": true,
+  "meltingPoint": null,
+  "boilingPoint": null,
+  "density": null,
+  "crustalAbundance": null,
+  "oceanicAbundance": null,
+  "stableIsotopeCount": 0,
+  "pubchemYearDiscovered": "2006",
+  "links": {
+   "ciaaw": "https://www.ciaaw.org/",
+   "lanl": "https://www.lanl.gov/science-engineering/periodic-table/element/oganesson",
+   "nist": "https://physics.nist.gov/cgi-bin/Elements/elInfo.pl?element=118",
+   "pubchem": "https://pubchem.ncbi.nlm.nih.gov/element/118"
+  }
+ }
+]
