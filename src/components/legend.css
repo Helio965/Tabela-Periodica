@@ -298,3 +298,62 @@
     animation: none;
   }
 }
+
+/* Recolhido: uma pílula pequena que não cobre a tabela */
+.featured-top-actions {
+  display: flex;
+  gap: 2px;
+}
+
+.featured.is-collapsed {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: auto;
+  padding: 3px 4px 3px 4px;
+  border-radius: 999px;
+  animation: none;
+}
+
+.featured-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--text-2);
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.featured-pill svg {
+  color: var(--warn);
+  flex: none;
+}
+
+.featured-pill strong {
+  color: var(--text);
+}
+
+.featured-pill:hover {
+  color: var(--text);
+}
+
+.featured-pill:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.featured.is-collapsed .featured-close {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+}
+
+.featured.is-collapsed {
+  right: auto;
+  max-width: calc(100% - 24px);
+}

@@ -233,7 +233,10 @@ export function StoreProvider({ children, initial }: { children: ReactNode; init
   const [state, dispatch] = useReducer(reducer, undefined, () => {
     const base = initialState();
     if (typeof window === 'undefined') return { ...base, ...initial };
-    return { ...base, ...loadPersisted(), ...parseHash(window.location.hash), ...initial };
+    // No celular o painel é uma gaveta sobre a cena: começa recolhido para mostrar a tabela
+    // (links como #/modo/... ou #/comparar/... reabrem o painel).
+    const narrow = Boolean(window.matchMedia?.('(max-width: 900px)').matches);
+    return { ...base, ...(narrow ? { panelOpen: false } : {}), ...loadPersisted(), ...parseHash(window.location.hash), ...initial };
   });
 
   useEffect(() => savePersisted(state), [state.favorites, state.recent, state.quality, state.autoRotate]);

@@ -55,6 +55,19 @@ function tableNeighbor(z: number, key: string): number | null {
   return null;
 }
 
+/** Quanto do palco a barra de modos (topo) e a legenda (base) cobrem, para enquadrar a câmera no espaço livre. */
+function measureInsets(mount: HTMLElement | null): { top: number; bottom: number } {
+  const stage = mount?.closest('.stage');
+  if (!mount || !stage) return { top: 0, bottom: 0 };
+  const box = mount.getBoundingClientRect();
+  const toolbar = stage.querySelector('.stb')?.getBoundingClientRect();
+  const legend = stage.querySelector('.legend-bar')?.getBoundingClientRect();
+  return {
+    top: toolbar && toolbar.height ? toolbar.bottom - box.top + 8 : 0,
+    bottom: legend && legend.height ? box.bottom - legend.top + 8 : 0,
+  };
+}
+
 export function PeriodicScene(props: PeriodicSceneProps) {
   const { layout, visuals, quality, autoRotate, groupFocus, periodFocus, cameraResetToken, pointed } = props;
   const mountRef = useRef<HTMLDivElement>(null);
@@ -73,6 +86,7 @@ export function PeriodicScene(props: PeriodicSceneProps) {
         if (label.kind === 'period' && label.value) callbacks.current.onPeriod(label.value);
       },
       onFrame: () => callbacks.current.onFrame?.(),
+      getInsets: () => measureInsets(mountRef.current),
     });
     engineRef.current = engine;
     setHosts({

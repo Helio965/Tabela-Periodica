@@ -32,8 +32,12 @@ export interface LabelPlacement extends Placement {
 export interface CameraPreset {
   position: Vec3;
   target: Vec3;
-  /** Largura e altura aproximadas do conteúdo, para enquadrar. */
-  bounds: { width: number; height: number };
+  /**
+   * Largura e altura aproximadas do conteúdo, para enquadrar. `depth` é quanto
+   * o conteúdo avança do alvo em direção à câmera (ex.: o raio do cilindro):
+   * os cartões da frente ficam mais perto e, portanto, maiores na tela.
+   */
+  bounds: { width: number; height: number; depth?: number };
 }
 
 export interface LayoutResult {
@@ -130,7 +134,7 @@ function cylinderLayout(elements: ChemicalElement[]): LayoutResult {
   for (let p = 1; p <= 7; p++) {
     labels.push({ id: `cyl-p${p}`, kind: 'axis', text: `Período ${p}`, position: [0, -(p - 4) * 160, 0], lookAt: null });
   }
-  return { placements, labels, camera: { position: [0, 380, 2500], target: [0, 0, 0], bounds: { width: 1700, height: 1300 } } };
+  return { placements, labels, camera: { position: [0, 380, 2500], target: [0, 0, 0], bounds: { width: 2 * r + CARD_W, height: 6 * 160 + CARD_H, depth: r } } };
 }
 
 // ---------------------------------------------------------------------------
@@ -138,6 +142,7 @@ function cylinderLayout(elements: ChemicalElement[]): LayoutResult {
 // ---------------------------------------------------------------------------
 function helixLayout(elements: ChemicalElement[]): LayoutResult {
   const r = 760;
+  const n = elements.length;
   const placements = new Map<number, Placement>();
   elements.forEach((el, i) => {
     const theta = i * 0.24 + Math.PI;
@@ -146,7 +151,7 @@ function helixLayout(elements: ChemicalElement[]): LayoutResult {
     const z = r * Math.cos(theta);
     placements.set(el.z, { position: [x, y, z], lookAt: [x * 2, y, z * 2] });
   });
-  return { placements, labels: [], camera: { position: [0, 200, 2600], target: [0, 0, 0], bounds: { width: 1700, height: 1400 } } };
+  return { placements, labels: [], camera: { position: [0, 200, 2600], target: [0, 0, 0], bounds: { width: 2 * r + CARD_W, height: (n - 1) * 9.5 + CARD_H, depth: r } } };
 }
 
 // ---------------------------------------------------------------------------
@@ -180,13 +185,24 @@ function layersLayout(elements: ChemicalElement[]): LayoutResult {
 function gridLayout(elements: ChemicalElement[]): LayoutResult {
   const placements = new Map<number, Placement>();
   const layers = Math.ceil(elements.length / 25);
+  const [gx, gy, gz] = [260, 230, 620];
   elements.forEach((el, i) => {
-    const x = ((i % 5) - 2) * 230;
-    const y = (2 - (Math.floor(i / 5) % 5)) * 200;
-    const z = (Math.floor(i / 25) - (layers - 1) / 2) * 560;
+    const x = ((i % 5) - 2) * gx;
+    const y = (2 - (Math.floor(i / 5) % 5)) * gy;
+    // A primeira camada (H…Mn) fica na frente; as seguintes, cada vez mais ao fundo.
+    const z = ((layers - 1) / 2 - Math.floor(i / 25)) * gz;
     placements.set(el.z, { position: [x, y, z], lookAt: null });
   });
-  return { placements, labels: [], camera: { position: [1400, 700, 2600], target: [0, 0, 0], bounds: { width: 1400, height: 1200 } } };
+  return {
+    placements,
+    labels: [],
+    camera: {
+      // Quase de frente: as camadas de trás aparecem pelos vãos, como num túnel.
+      position: [260, 180, 3600],
+      target: [0, 0, 400],
+      bounds: { width: 4 * gx + CARD_W + 500, height: 4 * gy + CARD_H + 260, depth: ((layers - 1) / 2) * gz - 400 },
+    },
+  };
 }
 
 // ---------------------------------------------------------------------------

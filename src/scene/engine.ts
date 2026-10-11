@@ -16,6 +16,8 @@ export interface EngineCallbacks {
   onLabelActivate: (label: LabelPlacement) => void;
   /** Chamado a cada quadro renderizado (útil para posicionar tooltips). */
   onFrame?: () => void;
+  /** Faixas do palco cobertas por controles (barra de modos no topo, legenda embaixo), em px. */
+  getInsets?: () => { top: number; bottom: number };
 }
 
 interface CardEntry {
@@ -177,19 +179,34 @@ export class SceneEngine {
   // -------------------------------------------------------------------------
   // Layouts e câmera
   // -------------------------------------------------------------------------
-  /** Distância da câmera para enquadrar uma área (largura × altura). */
+  /** Faixas cobertas pelos controles do palco, limitadas para não sumir com a cena. */
+  private insets(): { top: number; bottom: number } {
+    const h = this.container.clientHeight;
+    const raw = this.callbacks.getInsets?.() ?? { top: 0, bottom: 0 };
+    const top = Math.min(Math.max(raw.top, 0), h * 0.3);
+    const bottom = Math.min(Math.max(raw.bottom, 0), h * 0.2);
+    return { top, bottom };
+  }
+
+  /**
+   * Distância da câmera para enquadrar uma área (largura × altura) na parte
+   * livre do palco. Para formas com profundidade, soma-se o quanto elas
+   * avançam em direção à câmera, para que os cartões da frente também caibam.
+   */
   fitDistance(bounds: CameraPreset['bounds'], allowCropOnSmall: boolean): number {
     const { clientWidth: w, clientHeight: h } = this.container;
-    const aspect = Math.max(w, 1) / Math.max(h, 1);
+    const { top, bottom } = this.insets();
+    const freeH = Math.max(h - top - bottom, 1);
     const tan = Math.tan(((FOV / 2) * Math.PI) / 180);
-    const byHeight = bounds.height / 2 / tan;
-    const byWidth = bounds.width / 2 / (tan * aspect);
-    let dist = Math.max(byHeight, byWidth) * 1.06;
+    // A altura visível no alvo é 2·d·tan; só a fração livre (freeH / h) pode ser usada.
+    const byHeight = ((bounds.height / 2) * (h / freeH)) / tan;
+    const byWidth = bounds.width / 2 / (tan * (Math.max(w, 1) / Math.max(h, 1)));
+    let dist = Math.max(byHeight, byWidth) * 1.06 + (bounds.depth ?? 0);
     if (allowCropOnSmall) {
       // Em telas estreitas, não reduz os cartões a ponto de ficarem ilegíveis:
-      // o usuário arrasta a tabela para ver o resto.
+      // o usuário arrasta a tabela para ver o resto. A altura, porém, sempre cabe.
       const maxDist = ((h / 2) * 110) / (MIN_CARD_PX * tan);
-      dist = Math.min(dist, maxDist);
+      dist = Math.max(Math.min(dist, maxDist), Math.min(byHeight * 1.06, maxDist * 1.6));
     }
     return dist;
   }
@@ -252,11 +269,21 @@ export class SceneEngine {
     const dist = this.fitDistance(preset.bounds, flat);
     const target = new Vector3(...preset.target);
     const dir = new Vector3(...preset.position).sub(target).normalize();
-    const toPos = target.clone().add(dir.multiplyScalar(dist));
-    // Em telas estreitas a tabela começa pelo lado esquerdo (grupo 1).
-    if ((this.layout === 'table' || this.layout === 'timeline') && this.container.clientWidth < 700) {
-      const tan = Math.tan(((FOV / 2) * Math.PI) / 180);
-      const halfVisibleW = dist * tan * (this.container.clientWidth / Math.max(this.container.clientHeight, 1));
+    const toPos = target.clone().add(dir.clone().multiplyScalar(dist));
+    const { clientWidth: w, clientHeight: h } = this.container;
+    const tan = Math.tan(((FOV / 2) * Math.PI) / 180);
+    const worldPerPx = (2 * dist * tan) / Math.max(h, 1);
+    // Centraliza o conteúdo na parte livre do palco (entre a barra de modos e a legenda):
+    // desloca câmera e alvo juntos ao longo do "para cima" da tela.
+    const { top, bottom } = this.insets();
+    const up = new Vector3(0, 1, 0).sub(dir.clone().multiplyScalar(dir.y)).normalize();
+    const lift = ((top - bottom) / 2) * worldPerPx;
+    target.addScaledVector(up, lift);
+    toPos.addScaledVector(up, lift);
+    // Quando a tabela (ou a linha do tempo) não cabe na largura, começa pelo lado esquerdo
+    // (grupo 1 / Antiguidade); o resto é visto arrastando.
+    if (this.layout === 'table' || this.layout === 'timeline') {
+      const halfVisibleW = (w / 2) * worldPerPx;
       const shift = Math.max(0, preset.bounds.width / 2 - halfVisibleW);
       target.x -= shift;
       toPos.x -= shift;
