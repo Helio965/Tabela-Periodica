@@ -15,7 +15,8 @@
     "validate": "vitest run src/data/validate.test.ts",
     "data:fetch": "node scripts/fetch-sources.mjs",
     "data:build": "node scripts/build-data.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "test:e2e": "playwright test"
   },
   "engines": {
     "node": ">=22"
