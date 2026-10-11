@@ -42,22 +42,29 @@ const PRESETS: Preset[] = [
     id: 'gases-nobres',
     label: 'Gases nobres',
     symbols: ['He', 'Ne', 'Ar', 'Kr'],
-    tip: 'Todos são gases a 25 °C. Descendo o grupo, o raio atômico e o ponto de ebulição aumentam e a energia de ionização diminui. Hélio, neônio e argônio não têm eletronegatividade de Pauling tabelada, pois praticamente não formam ligações químicas.',
+    tip: 'Todos são gases a 25 °C. Descendo o grupo, o raio atômico e o ponto de ebulição aumentam e a energia de ionização diminui. Hélio, neônio e argônio não têm eletronegatividade de Pauling tabelada, pois quase não formam compostos (já o Kr forma alguns, como o KrF₂).',
   },
 ];
 
 const zOf = (symbols: string[]) => symbols.flatMap((s) => ELEMENT_BY_SYMBOL.get(s.toLowerCase())?.z ?? []);
 const sameSet = (a: number[], b: number[]) => a.length === b.length && a.every((z) => b.includes(z));
+
+/** No meio de uma frase, nomes de elementos são substantivos comuns: "carbono, silício e germânio". */
 const listNames = (els: ChemicalElement[]) => {
-  const names = els.map((e) => e.name);
+  const names = els.map((e) => e.name.toLocaleLowerCase('pt-BR'));
   return names.length <= 1 ? names.join('') : `${names.slice(0, -1).join(', ')} e ${names[names.length - 1]}`;
 };
+const capitalize = (text: string) => text.charAt(0).toLocaleUpperCase('pt-BR') + text.slice(1);
 
 /** Hifens opcionais (soft hyphen) para rótulos longos caberem na coluna fixa da tabela. */
 const breakable = (label: string) => label.replace('Eletronegatividade', 'Eletro\u00adnegatividade');
 
-/** Espaço não separável antes das unidades: "1.538 °C" nunca quebra entre o número e "°C". */
-const keepUnits = (value: string) => value.replace(/ (°C|K\)|g\/cm³|g\/L|pm|eV)/g, '\u00a0$1');
+/**
+ * Espaço não separável antes das unidades curtas: "1.538 °C" nunca quebra entre o
+ * número e "°C". Densidades ("0,534 g/cm³") podem quebrar antes da unidade; senão
+ * não cabem nas colunas estreitas e invadem a célula vizinha.
+ */
+const keepUnits = (value: string) => value.replace(/ (°C|K\)|pm|eV)/g, '\u00a0$1');
 
 /** "[Ar] 3d10 4s2" → "[Ar] 3d¹⁰ 4s²" (os elétrons de cada subnível em sobrescrito). */
 const prettyConfig = (config: string) => config.replace(/(\d)([spdf])(\d+)/g, (_, n: string, l: string, e: string) => `${n}${l}${superscript(e)}`);
@@ -66,25 +73,67 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
   const { state, dispatch } = useStore();
   const pickerId = useId();
   const chipsRef = useRef<HTMLUListElement>(null);
-  /** Índice do chip removido, para devolver o foco a um vizinho. */
-  const pendingFocus = useRef<number | null>(null);
+  const fullRef = useRef<HTMLParagraphElement>(null);
+  const manualLinkRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  /**
+   * Para onde levar o foco depois que a seleção mudar: índice do chip vizinho
+   * ao removido, ou o aviso de limite (o campo de busca fica desativado).
+   */
+  const pendingFocus = useRef<number | 'full' | null>(null);
   const [manualLink, setManualLink] = useState<string | null>(null);
+  /** A tabela é mais larga que o painel? Há colunas escondidas à direita? */
+  const [scrollState, setScrollState] = useState({ overflow: false, moreRight: false });
 
   const elements = useMemo(() => state.compare.map(getElement), [state.compare]);
+  const hasTable = elements.length >= MIN_COMPARE;
   const rows = useMemo(() => (elements.length >= MIN_COMPARE ? compareRows(elements) : []), [elements]);
   const full = elements.length >= MAX_COMPARE;
   const activePreset = PRESETS.find((p) => sameSet(zOf(p.symbols), state.compare));
 
   useEffect(() => {
-    if (pendingFocus.current === null) return;
-    const buttons = chipsRef.current?.querySelectorAll<HTMLButtonElement>('button');
-    const target = buttons?.length ? buttons[Math.min(pendingFocus.current, buttons.length - 1)] : document.getElementById(pickerId);
+    const target = pendingFocus.current;
+    if (target === null) return;
     pendingFocus.current = null;
-    target?.focus();
+    if (target === 'full') {
+      fullRef.current?.focus();
+      return;
+    }
+    const buttons = chipsRef.current?.querySelectorAll<HTMLButtonElement>('button');
+    (buttons?.length ? buttons[Math.min(target, buttons.length - 1)] : document.getElementById(pickerId))?.focus();
   }, [state.compare, pickerId]);
 
   // O link copiado manualmente deixa de valer se a seleção mudar.
   useEffect(() => setManualLink(null), [state.compare]);
+
+  // Se a cópia automática falhar, o campo com o link recebe o foco já selecionado.
+  useEffect(() => {
+    if (manualLink) manualLinkRef.current?.focus();
+  }, [manualLink]);
+
+  // Ao fechar o painel, remove o destaque deixado por hover/foco nos chips ou cabeçalhos.
+  useEffect(() => () => pointElement(null), [pointElement]);
+
+  // Indica visualmente quando há colunas fora da área visível (rolagem horizontal).
+  useEffect(() => {
+    const box = scrollRef.current;
+    if (!hasTable || !box) return;
+    const update = () => {
+      const overflow = box.scrollWidth - box.clientWidth > 1;
+      const moreRight = overflow && box.scrollLeft + box.clientWidth < box.scrollWidth - 1;
+      setScrollState((s) => (s.overflow === overflow && s.moreRight === moreRight ? s : { overflow, moreRight }));
+    };
+    update();
+    box.addEventListener('scroll', update, { passive: true });
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(update);
+    observer?.observe(box);
+    const table = box.querySelector('table');
+    if (table) observer?.observe(table);
+    return () => {
+      box.removeEventListener('scroll', update);
+      observer?.disconnect();
+    };
+  }, [hasTable]);
 
   function add(z: number) {
     const el = getElement(z);
@@ -92,23 +141,29 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
       announce(`Compare no máximo ${MAX_COMPARE} elementos`);
       return;
     }
+    // Com o 4º elemento o campo é desativado; o foco vai para o aviso de limite.
+    if (elements.length + 1 >= MAX_COMPARE) pendingFocus.current = 'full';
     dispatch({ type: 'toggleCompare', z });
     announce(`${el.name} adicionado à comparação`);
   }
 
   function remove(z: number, index: number) {
     pendingFocus.current = index;
+    // O botão removido não recebe "pointerleave": limpa o destaque aqui.
+    pointElement(null);
     dispatch({ type: 'toggleCompare', z });
     announce(`${getElement(z).name} removido da comparação`);
   }
 
   function clear() {
     pendingFocus.current = 0;
+    pointElement(null);
     dispatch({ type: 'setCompare', z: [] });
     announce('Comparação limpa');
   }
 
   function applyPreset(p: Preset) {
+    pointElement(null);
     dispatch({ type: 'setCompare', z: zOf(p.symbols) });
     announce(`Comparando ${p.label}: ${p.symbols.join(', ')}`);
   }
@@ -144,7 +199,7 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
           onPick={add}
         />
         {full ? (
-          <p className="info-box cmp-full" role="note">
+          <p className="info-box cmp-full" role="note" ref={fullRef} tabIndex={-1}>
             Você já escolheu {MAX_COMPARE} elementos, o máximo. Remova um deles para adicionar outro.
           </p>
         ) : null}
@@ -218,53 +273,66 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
         <p className="info-box">Escolha pelo menos mais um elemento para ver a comparação.</p>
       ) : null}
 
-      {elements.length >= MIN_COMPARE ? (
+      {hasTable ? (
         <section className="panel-section" aria-labelledby={`${pickerId}-table`}>
           <h3 className="section-title" id={`${pickerId}-table`}>
             Comparação
           </h3>
-          <div
-            className="table-scroll cmp-scroll"
-            role="region"
-            aria-label="Tabela de comparação (role horizontalmente para ver todas as colunas)"
-            tabIndex={0}
-          >
-            <table className="data-table cmp-table" style={{ '--cmp-cols': elements.length } as CSSProperties}>
-              <caption className="sr-only">Comparação entre {listNames(elements)}</caption>
-              <thead>
-                <tr>
-                  <th scope="col" className="cmp-prop">
-                    Propriedade
-                  </th>
-                  {elements.map((el) => (
-                    <th scope="col" key={el.z} className="cmp-head">
-                      <button
-                        type="button"
-                        className="cmp-tile"
-                        style={{ '--cat': CATEGORY_BY_ID[el.category].color } as CSSProperties}
-                        onClick={() => openElement(el.z)}
-                        onPointerEnter={() => pointElement(el.z)}
-                        onPointerLeave={() => pointElement(null)}
-                        onFocus={() => pointElement(el.z)}
-                        onBlur={() => pointElement(null)}
-                        aria-label={`${el.name} (${el.symbol}): abrir ficha`}
-                        title={`Abrir ficha de ${el.name}`}
-                      >
-                        <span className="cmp-tile-z">{el.z}</span>
-                        <span className="cmp-tile-sym">{el.symbol}</span>
-                        <span className="cmp-tile-name">{el.name}</span>
-                        <span className="cmp-tile-code">{CATEGORY_BY_ID[el.category].code}</span>
-                      </button>
+          {scrollState.overflow ? (
+            <p className="cmp-scroll-hint small muted" aria-hidden="true">
+              Role a tabela para o lado para ver todas as colunas
+              <Icon name="chevronRight" size={14} />
+            </p>
+          ) : null}
+          <div className={`cmp-scroll-wrap${scrollState.moreRight ? ' has-more' : ''}`}>
+            <div
+              ref={scrollRef}
+              className="table-scroll cmp-scroll"
+              role="region"
+              aria-label={
+                scrollState.overflow
+                  ? 'Tabela de comparação (role horizontalmente para ver todas as colunas)'
+                  : 'Tabela de comparação'
+              }
+              tabIndex={0}
+            >
+              <table className="data-table cmp-table" style={{ '--cmp-cols': elements.length } as CSSProperties}>
+                <caption className="sr-only">Comparação entre {listNames(elements)}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" className="cmp-prop">
+                      Propriedade
                     </th>
+                    {elements.map((el) => (
+                      <th scope="col" key={el.z} className="cmp-head">
+                        <button
+                          type="button"
+                          className="cmp-tile"
+                          style={{ '--cat': CATEGORY_BY_ID[el.category].color } as CSSProperties}
+                          onClick={() => openElement(el.z)}
+                          onPointerEnter={() => pointElement(el.z)}
+                          onPointerLeave={() => pointElement(null)}
+                          onFocus={() => pointElement(el.z)}
+                          onBlur={() => pointElement(null)}
+                          aria-label={`${el.name} (${el.symbol}): abrir ficha`}
+                          title={`Abrir ficha de ${el.name}`}
+                        >
+                          <span className="cmp-tile-z">{el.z}</span>
+                          <span className="cmp-tile-sym">{el.symbol}</span>
+                          <span className="cmp-tile-name">{el.name}</span>
+                          <span className="cmp-tile-code">{CATEGORY_BY_ID[el.category].code}</span>
+                        </button>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <CompareTableRow key={row.key} row={row} />
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <CompareTableRow key={row.key} row={row} />
-                ))}
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <CompareNotes elements={elements} />
@@ -281,7 +349,13 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
           {manualLink ? (
             <label className="field cmp-manual-link">
               Copie este link:
-              <input className="input mono" readOnly value={manualLink} onFocus={(e) => e.currentTarget.select()} />
+              <input
+                ref={manualLinkRef}
+                className="input mono"
+                readOnly
+                value={manualLink}
+                onFocus={(e) => e.currentTarget.select()}
+              />
             </label>
           ) : null}
         </section>
@@ -293,6 +367,9 @@ export default function ComparePanel({ openElement, pointElement }: PanelProps) 
 /** Uma linha da tabela: valores, selos "maior"/"menor" e barras proporcionais. */
 function CompareTableRow({ row }: { row: CompareRow }) {
   const ext = row.numeric ? extremes(row.numeric) : null;
+  // Valores empatados no extremo recebem o mesmo selo (ex.: K e Rb, ambos com 0,82).
+  const maxValue = ext ? row.numeric?.[ext.max] ?? null : null;
+  const minValue = ext ? row.numeric?.[ext.min] ?? null : null;
   const valid = row.numeric?.filter((v): v is number => v !== null) ?? [];
   const max = valid.length ? Math.max(...valid) : 0;
   const isConfig = row.key === 'config';
@@ -305,8 +382,8 @@ function CompareTableRow({ row }: { row: CompareRow }) {
       {row.values.map((value, i) => {
         const n = row.numeric?.[i] ?? null;
         const pct = n !== null && max > 0 && n >= 0 ? (n / max) * 100 : null;
-        const isMax = ext?.max === i;
-        const isMin = ext?.min === i;
+        const isMax = n !== null && n === maxValue;
+        const isMin = n !== null && n === minValue;
         const missing = value === 'não disponível';
         const classes = ['cmp-cell'];
         if (isMax) classes.push('is-max');
@@ -364,7 +441,7 @@ function CompareNotes({ elements }: { elements: ChemicalElement[] }) {
   const predicted = elements.filter((e) => ONLY_PREDICTED_BULK.has(e.z));
   if (predicted.length) {
     notes.push(
-      `${listNames(predicted)}: densidade e pontos de fusão e ebulição, quando aparecem, são estimativas teóricas — ${predicted.length === 1 ? 'o elemento nunca foi obtido' : 'esses elementos nunca foram obtidos'} em quantidade visível.`,
+      `${capitalize(listNames(predicted))}: densidade e pontos de fusão e ebulição, quando aparecem, são estimativas teóricas — ${predicted.length === 1 ? 'o elemento nunca foi obtido' : 'esses elementos nunca foram obtidos'} em quantidade visível.`,
     );
   }
   const predictedConfig = elements.filter((e) => e.props.electronConfigurationPredicted);

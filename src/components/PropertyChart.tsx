@@ -12,34 +12,45 @@ import {
 import { ELEMENTS, ONLY_PREDICTED_BULK } from '../data/elements';
 import { CATEGORIES, CATEGORY_BY_ID } from '../data/categories';
 import type { ChemicalElement } from '../data/types';
-import { formatNumber, superscript } from '../lib/format';
+import { formatMass, formatNumber, superscript } from '../lib/format';
 import type { TrendDef, TrendId } from '../lib/trends';
 import '../panels/trends.css';
 
-/** Propriedades macroscópicas: para elementos nunca obtidos em quantidade visível são só estimativas. */
-const BULK_TRENDS = new Set<TrendId>(['density', 'melting', 'boiling']);
+/**
+ * Propriedades que, para elementos nunca obtidos em quantidade visível, são só
+ * estimativas: as macroscópicas (densidade, fusão, ebulição) e a
+ * eletronegatividade de Pauling, que depende de dados termoquímicos de
+ * compostos que não existem para esses elementos.
+ */
+const ESTIMATED_FOR_PREDICTED = new Set<TrendId>(['density', 'melting', 'boiling', 'electronegativity']);
 
 /** O valor exibido é uma estimativa teórica (não foi medido)? */
 export function isEstimated(trend: TrendDef, el: ChemicalElement): boolean {
-  return BULK_TRENDS.has(trend.id) && ONLY_PREDICTED_BULK.has(el.z);
+  return ESTIMATED_FOR_PREDICTED.has(trend.id) && ONLY_PREDICTED_BULK.has(el.z);
 }
 
 /** Ressalvas de pressão: valores que não correspondem ao comportamento a 1 atm. */
 const PRESSURE_NOTES: Partial<Record<TrendId, Record<number, string>>> = {
   melting: {
     2: 'medido sob pressão; a 1 atm não solidifica',
-    6: 'medido sob pressão; a 1 atm sublima',
+    6: 'não vale a 1 atm: o grafite sublima',
     33: 'medido sob pressão; a 1 atm sublima',
   },
   boiling: {
-    6: 'a 1 atm sublima, sem passar a líquido',
+    6: 'temperatura de sublimação a 1 atm',
     33: 'temperatura de sublimação a 1 atm',
   },
 };
 
-/** Observação curta que acompanha o valor (estimativa ou ressalva de pressão). */
+/** Valor formatado; a massa segue a notação da tabela ("1,0080", "[294]"). */
+export function formatTrendValue(trend: TrendDef, el: ChemicalElement, value: number): string {
+  return trend.id === 'mass' ? `${formatMass(el.atomicMassDisplay)} u` : trend.format(value);
+}
+
+/** Observação curta que acompanha o valor (estimativa, número de massa ou ressalva de pressão). */
 export function valueNote(trend: TrendDef, el: ChemicalElement): string | undefined {
   if (isEstimated(trend, el)) return 'valor estimado (nunca medido)';
+  if (trend.id === 'mass' && el.massIsMassNumber) return 'número de massa do isótopo de vida mais longa';
   return PRESSURE_NOTES[trend.id]?.[el.z];
 }
 
@@ -142,6 +153,8 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
   const uid = useId();
   const titleId = `${uid}-title`;
   const descId = `${uid}-desc`;
+  const svgRef = useRef<SVGSVGElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState<number | null>(null);
   const hoverRef = useRef<number | null>(null);
   const onPointRef = useRef(onPoint);
@@ -182,7 +195,8 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
     }
 
     const longest = Math.max(...ticks.map((t) => t.label.length));
-    const margin = { top: 40, right: 12, bottom: 40, left: Math.max(30, Math.round(longest * 6.8 + 12)) };
+    // A margem esquerda também precisa caber o rótulo "Período" (≈ 44 px).
+    const margin = { top: 40, right: 12, bottom: 40, left: Math.max(52, Math.round(longest * 6.8 + 12)) };
     const plotW = Math.max(120, width - margin.left - margin.right);
     const plotH = Math.max(100, height - margin.top - margin.bottom);
     // Cada Z ocupa uma "faixa"; o ponto fica no centro dela.
@@ -234,6 +248,45 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
   const { margin, plotW, plotH, byZ } = chart;
   const hovered = hover !== null ? byZ.get(hover) ?? null : null;
 
+  function updateHover(z: number | null) {
+    if (z === hover) return;
+    setHover(z);
+    onPoint?.(z);
+  }
+
+  // Troca de propriedade: se o elemento destacado não tem dado na nova, solta o destaque.
+  useEffect(() => {
+    if (hover !== null && !byZ.has(hover)) {
+      setHover(null);
+      onPointRef.current?.(null);
+    }
+  }, [byZ, hover]);
+
+  // No toque não existe "pointerleave": um toque fora do gráfico fecha o balão.
+  useEffect(() => {
+    if (hover === null) return;
+    const onDocumentDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && svgRef.current?.contains(event.target)) return;
+      setHover(null);
+      onPointRef.current?.(null);
+    };
+    document.addEventListener('pointerdown', onDocumentDown);
+    return () => document.removeEventListener('pointerdown', onDocumentDown);
+  }, [hover]);
+
+  // Posição do balão: centrado acima do ponto, mas sempre dentro da área do gráfico
+  // (medido depois de renderizar, pois a largura depende do texto).
+  useLayoutEffect(() => {
+    const tip = tooltipRef.current;
+    if (!tip || !hovered) return;
+    const w = tip.offsetWidth;
+    const h = tip.offsetHeight;
+    const left = Math.min(Math.max(0, hovered.x - w / 2), Math.max(0, width - w));
+    const above = hovered.y - h - 12;
+    const top = above >= 0 ? above : hovered.y + 14;
+    tip.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
+  }, [hovered, width]);
+
   /** Elemento com dado mais próximo (na horizontal) do ponteiro. */
   function nearest(clientX: number, svg: SVGSVGElement): number | null {
     const rect = svg.getBoundingClientRect();
@@ -248,12 +301,6 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
       }
     }
     return null;
-  }
-
-  function updateHover(z: number | null) {
-    if (z === hover) return;
-    setHover(z);
-    onPoint?.(z);
   }
 
   function handleMove(event: ReactPointerEvent<SVGSVGElement>) {
@@ -279,29 +326,58 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
     updateHover(null);
   }
 
-  // Posição do balão: acima do ponto, virando para os lados perto das bordas.
-  let tooltipStyle: CSSProperties | undefined;
-  let tooltipClass = 'pc-tooltip';
-  if (hovered) {
-    tooltipStyle = { left: hovered.x, top: hovered.y };
-    if (hovered.x < width * 0.3) tooltipClass += ' is-start';
-    else if (hovered.x > width * 0.7) tooltipClass += ' is-end';
-    if (hovered.y < margin.top + 56) tooltipClass += ' is-below';
-  }
+  // Pontos e tabela só mudam com a propriedade/tamanho, não a cada movimento do mouse.
+  const marks = useMemo(
+    () =>
+      chart.points.map((p) => (
+        <circle
+          key={p.el.z}
+          className={p.estimated ? 'pc-point is-estimated' : 'pc-point'}
+          cx={p.x}
+          cy={p.y}
+          r={chart.radius}
+          style={{ '--pc-color': CATEGORY_BY_ID[p.el.category].color } as CSSProperties}
+        />
+      )),
+    [chart],
+  );
+
+  const tableRows = useMemo(
+    () =>
+      ELEMENTS.map((el) => {
+        const p = chart.byZ.get(el.z);
+        return (
+          <tr key={el.z}>
+            <td className="mono">{el.z}</td>
+            <td>
+              <button type="button" className="pc-link" onClick={() => onOpen?.(el.z)}>
+                {el.name} ({el.symbol})
+              </button>
+            </td>
+            <td className={p ? 'mono' : 'muted'}>
+              {p ? formatTrendValue(trend, el, p.value) : 'não disponível'}
+              {p?.note ? <span className="pc-table-note muted small">{p.note}</span> : null}
+            </td>
+          </tr>
+        );
+      }),
+    [chart, trend, onOpen],
+  );
 
   const unitTitle = `${trend.label} (${trend.unit}${trend.log ? ', escala logarítmica' : ''})`;
   const description =
     chart.highest && chart.lowest
       ? `Valores de ${trend.label.toLowerCase()} para os números atômicos de 1 a ${Z_MAX}. ` +
-        `Maior valor: ${chart.highest.el.name}, ${trend.format(chart.highest.value)}. ` +
-        `Menor valor: ${chart.lowest.el.name}, ${trend.format(chart.lowest.value)}. ` +
-        `${chart.missing} elementos sem dado aparecem como lacunas.`
+        `Maior valor: ${chart.highest.el.name}, ${formatTrendValue(trend, chart.highest.el, chart.highest.value)}. ` +
+        `Menor valor: ${chart.lowest.el.name}, ${formatTrendValue(trend, chart.lowest.el, chart.lowest.value)}. ` +
+        (chart.missing > 0 ? `${chart.missing} elementos sem dado aparecem como lacunas.` : '')
       : 'Sem dados para esta propriedade.';
 
   return (
     <figure className="property-chart">
       <div className="pc-plot" ref={wrapRef}>
         <svg
+          ref={svgRef}
           className="pc-svg"
           width={width}
           height={height}
@@ -375,19 +451,7 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
           {/* Dados */}
           <g aria-hidden="true">
             <path className="pc-line" d={chart.path} />
-            {chart.points.map((p) => {
-              const color = CATEGORY_BY_ID[p.el.category].color;
-              return (
-                <circle
-                  key={p.el.z}
-                  className={p.estimated ? 'pc-point is-estimated' : 'pc-point'}
-                  cx={p.x}
-                  cy={p.y}
-                  r={chart.radius}
-                  style={{ '--pc-color': color } as CSSProperties}
-                />
-              );
-            })}
+            {marks}
             {hovered ? (
               <circle
                 className="pc-point-hover"
@@ -401,8 +465,8 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
         </svg>
 
         {hovered ? (
-          <div className={tooltipClass} style={tooltipStyle} aria-hidden="true">
-            <strong className="pc-tt-value">{trend.format(hovered.value)}</strong>
+          <div className="pc-tooltip" ref={tooltipRef} aria-hidden="true">
+            <strong className="pc-tt-value">{formatTrendValue(trend, hovered.el, hovered.value)}</strong>
             <span className="pc-tt-name">
               <span className="pc-tt-key" style={{ '--pc-color': CATEGORY_BY_ID[hovered.el.category].color } as CSSProperties} />
               {hovered.el.name} ({hovered.el.symbol}) · Z = {hovered.el.z}
@@ -432,7 +496,8 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
           {chart.missing > 0
             ? `${chart.missing} ${chart.missing === 1 ? 'elemento sem dado não aparece' : 'elementos sem dado não aparecem'} (lacunas na linha). `
             : ''}
-          Passe o mouse ou toque em um ponto para ver o valor; clique (ou toque de novo) para abrir a ficha.
+          Passe o mouse ou toque em um ponto para ver o valor; clique (ou toque de novo) para abrir a ficha. A tabela abaixo
+          traz todos os valores.
         </p>
       </figcaption>
 
@@ -440,7 +505,7 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
         <summary>Ver todos os valores em tabela</summary>
         <div className="table-scroll pc-table-scroll">
           <table className="data-table">
-            <caption className="sr-only">{`${trend.label} de cada elemento`}</caption>
+            <caption className="sr-only">{`${unitTitle} de cada elemento`}</caption>
             <thead>
               <tr>
                 <th scope="col">Z</th>
@@ -448,25 +513,7 @@ export function PropertyChart({ trend, onPoint, onOpen, height = 248 }: Property
                 <th scope="col">Valor</th>
               </tr>
             </thead>
-            <tbody>
-              {ELEMENTS.map((el) => {
-                const p = byZ.get(el.z);
-                return (
-                  <tr key={el.z}>
-                    <td className="mono">{el.z}</td>
-                    <td>
-                      <button type="button" className="pc-link" onClick={() => onOpen?.(el.z)}>
-                        {el.name} ({el.symbol})
-                      </button>
-                    </td>
-                    <td className={p ? 'mono' : 'muted'}>
-                      {p ? trend.format(p.value) : 'não disponível'}
-                      {p?.note ? <span className="muted small"> ({p.note})</span> : null}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
+            <tbody>{tableRows}</tbody>
           </table>
         </div>
       </details>

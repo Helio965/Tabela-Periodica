@@ -86,16 +86,16 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
   /** Pontos em jogo (ou ganhos, depois de acertar): dependem de quantas pistas foram vistas. */
   const potential = pointsFor(revealed);
 
-  // Depois de responder, o foco vai para "Próxima pergunta"; numa nova pergunta, para o título dela.
+  // Depois de responder, o foco vai para "Próxima pergunta"; numa nova pergunta
+  // (ou ao zerar o placar, cujo botão some), para o título da pergunta.
   useEffect(() => {
     if (answered) nextRef.current?.focus();
   }, [answered]);
   useEffect(() => {
-    if (focusTitle.current) {
-      focusTitle.current = false;
-      titleRef.current?.focus();
-    }
-  }, [question]);
+    if (!focusTitle.current) return;
+    focusTitle.current = false;
+    titleRef.current?.focus();
+  });
 
   // Ao sair do quiz, remove o destaque do elemento na cena.
   useEffect(() => () => pointElement(null), [pointElement]);
@@ -117,6 +117,8 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
     setDifficulty(d);
     // Pergunta sem resposta é apenas trocada, sem perder pontos nem a sequência.
     startQuestion(POOLS[d], false);
+    const label = DIFFICULTIES.find((x) => x.id === d)?.label ?? '';
+    announce(`Dificuldade: ${label}. Nova pergunta.`);
   }
 
   function revealClue() {
@@ -153,6 +155,9 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
 
   function resetScore() {
     setScore(EMPTY_SCORE);
+    // Recomeça a contagem: uma pergunta já respondida é trocada por uma nova (que será a pergunta 1).
+    if (answered) startQuestion(POOLS[difficulty], true);
+    else focusTitle.current = true;
     setNumber(1);
     announce('Placar zerado');
   }
@@ -164,8 +169,8 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
   return (
     <div className="quiz-panel">
       <p className="panel-lead">
-        Descubra o elemento a partir das pistas. Acertando só com a primeira pista você ganha 4 pontos; cada pista extra vale 1
-        ponto a menos (mínimo 1).
+        Descubra o elemento a partir das pistas. Acertando só com a primeira pista, você ganha 4 pontos; cada pista extra
+        desconta 1 ponto (mínimo de 1 ponto por acerto).
       </p>
 
       <section className="panel-section" aria-labelledby={`${ids}-dif`}>
@@ -234,7 +239,7 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
           ))}
         </ol>
         {shownClues.some((c) => c.includes('▢')) ? (
-          <p className="muted small">O símbolo ▢ esconde o nome do elemento.</p>
+          <p className="muted small">Os quadradinhos (▢) escondem o nome ou o símbolo do elemento.</p>
         ) : null}
 
         {!answered ? (
@@ -323,8 +328,12 @@ export default function QuizPanel({ openElement, pointElement }: PanelProps) {
                 </strong>
               </p>
               <p className="muted small">
-                Número atômico {answer.z} · massa atômica {formatMass(answer.atomicMassDisplay)}
-                {answer.massIsMassNumber ? '' : ' u'} · {cat.label}
+                Número atômico {answer.z} ·{' '}
+                {/* Entre colchetes não é massa atômica: é o número de massa de um isótopo de referência. */}
+                {answer.massIsMassNumber
+                  ? `número de massa do isótopo de referência ${formatMass(answer.atomicMassDisplay)}`
+                  : `massa atômica ${formatMass(answer.atomicMassDisplay)} u`}{' '}
+                · {cat.label}
               </p>
             </div>
           </div>

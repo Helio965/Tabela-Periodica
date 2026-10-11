@@ -34,8 +34,10 @@ const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** Esconde o nome (e símbolos de duas letras) do elemento dentro de uma pista. */
 export function maskElement(text: string, el: ChemicalElement): string {
   let out = text;
+  // O nome só é escondido no início de uma palavra (inclui derivados como
+  // "ferroso"), para não mutilar palavras como "período", que contém "iodo".
   for (const n of [el.name, ...(el.aliases ?? [])]) {
-    out = out.replace(new RegExp(escapeRe(n), 'gi'), '▢▢▢');
+    out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}_])${escapeRe(n)}`, 'giu'), '▢▢▢');
   }
   // `\b` só reconhece letras ASCII: "Na" seria escondido dentro de "Nações".
   // As verificações abaixo tratam letras acentuadas como parte da palavra.

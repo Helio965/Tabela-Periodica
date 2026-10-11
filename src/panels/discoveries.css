@@ -1,0 +1,710 @@
+/* ==========================================================================
+   Painel "Descobertas": linha do tempo, reprodução da evolução e explorador
+   ========================================================================== */
+
+.disc-panel {
+  /* Diâmetro do marcador do controle deslizante: o histograma e os marcos
+     usam a mesma margem para ficarem alinhados ao centro do marcador. */
+  --thumb: 18px;
+  --glow: rgba(94, 234, 212, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   Destaque: ano atual + elementos conhecidos
+   -------------------------------------------------------------------------- */
+.disc-hero {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  margin: 4px 0 6px;
+  padding: 16px 18px 14px;
+  border-radius: var(--radius-l);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(94, 234, 212, 0.16), transparent 60%),
+    radial-gradient(100% 120% at 100% 100%, rgba(125, 211, 252, 0.12), transparent 55%),
+    var(--surface);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 26px rgba(94, 234, 212, 0.07);
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.disc-hero.is-playing {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 30px rgba(94, 234, 212, 0.2);
+}
+
+.disc-hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.disc-hero-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 9vw, 3.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'tnum';
+  background: linear-gradient(100deg, #ffffff 5%, var(--accent) 55%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(94, 234, 212, 0.35));
+  animation: disc-year-in 0.45s ease;
+}
+
+.disc-hero-count {
+  font-size: 0.95rem;
+  color: var(--text-2);
+}
+
+.disc-hero-count strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.disc-hero-meter {
+  display: block;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: rgba(150, 172, 225, 0.14);
+  overflow: hidden;
+}
+
+.disc-hero-meter > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--f) * 100%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 10px var(--accent);
+  transition: width 0.5s ease;
+}
+
+@keyframes disc-year-in {
+  from {
+    opacity: 0.15;
+    transform: translateY(6px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Linha do tempo: histograma, controle deslizante e marcos
+   -------------------------------------------------------------------------- */
+.disc-timeline {
+  position: relative;
+  padding-top: 2px;
+}
+
+.disc-hist {
+  display: block;
+  width: calc(100% - var(--thumb));
+  height: 56px;
+  margin: 0 calc(var(--thumb) / 2);
+  overflow: visible;
+}
+
+.disc-bar {
+  fill: rgba(150, 172, 225, 0.24);
+  transition:
+    fill 0.3s,
+    fill-opacity 0.3s;
+}
+
+.disc-bar.is-empty {
+  fill: rgba(150, 172, 225, 0.16);
+}
+
+.disc-bar.is-reached {
+  fill: var(--accent);
+  fill-opacity: 0.78;
+}
+
+.disc-bar.is-reached.is-empty {
+  fill-opacity: 0.45;
+}
+
+.disc-bar.is-current {
+  fill: #c4fff5;
+  fill-opacity: 1;
+}
+
+.disc-slider {
+  position: relative;
+  height: 28px;
+  margin-top: 6px;
+}
+
+/* Trilho base e trilho de progresso (com brilho) ficam atrás do <input>. */
+.disc-slider::before,
+.disc-slider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.disc-slider::before {
+  right: 0;
+  background: rgba(150, 172, 225, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(150, 172, 225, 0.08);
+}
+
+.disc-slider::after {
+  width: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--f));
+  background: linear-gradient(90deg, rgba(125, 211, 252, 0.55), var(--accent));
+  box-shadow:
+    0 0 8px var(--glow),
+    0 0 22px rgba(94, 234, 212, 0.3);
+}
+
+.disc-range {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 28px;
+  min-height: 28px;
+  margin: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.disc-range:focus-visible {
+  /* O anel de foco vai no próprio marcador (abaixo). */
+  box-shadow: none;
+}
+
+.disc-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.disc-range::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.disc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((6px - var(--thumb)) / 2);
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: #effffb;
+  box-shadow:
+    0 0 0 4px rgba(94, 234, 212, 0.18),
+    0 0 16px var(--glow);
+  transition: transform 0.15s;
+}
+
+.disc-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: #effffb;
+  box-shadow:
+    0 0 0 4px rgba(94, 234, 212, 0.18),
+    0 0 16px var(--glow);
+}
+
+.disc-range:active::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+
+.disc-range:focus-visible::-webkit-slider-thumb {
+  box-shadow:
+    0 0 0 3px var(--bg-0),
+    0 0 0 5px #ffffff,
+    0 0 16px var(--glow);
+}
+
+.disc-range:focus-visible::-moz-range-thumb {
+  box-shadow:
+    0 0 0 3px var(--bg-0),
+    0 0 0 5px #ffffff,
+    0 0 16px var(--glow);
+}
+
+/* Marcos clicáveis: anos na linha de cima, extremos (Antiguidade/Hoje) embaixo. */
+.disc-ticks {
+  position: relative;
+  height: 48px;
+  margin-top: 4px;
+}
+
+.disc-tick {
+  position: absolute;
+  left: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--t));
+  padding: 2px 4px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.disc-tick:hover {
+  color: var(--accent);
+}
+
+.disc-tick.is-reached {
+  color: var(--text-2);
+}
+
+.disc-tick.row-years {
+  top: 6px;
+}
+
+.disc-tick.row-ends {
+  top: 26px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.disc-tick.align-start {
+  transform: translateX(-4px);
+}
+
+.disc-tick.align-center {
+  transform: translateX(-50%);
+}
+
+.disc-tick.align-end {
+  transform: translateX(calc(-100% + 4px));
+}
+
+/* Traço vertical do marco (só nos anos). */
+.disc-tick.row-years::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  width: 1px;
+  height: 5px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.disc-tick.row-years.align-start::before {
+  left: 4px;
+}
+
+.disc-tick.row-years.align-center::before {
+  left: 50%;
+}
+
+.disc-timeline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Reprodução
+   -------------------------------------------------------------------------- */
+.disc-player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.disc-play {
+  flex: 1 1 170px;
+  min-height: 40px;
+}
+
+.disc-play.is-playing {
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 0 18px rgba(94, 234, 212, 0.45);
+  animation: disc-pulse 1.8s ease-in-out infinite;
+}
+
+.disc-step {
+  width: 40px;
+  min-height: 40px;
+}
+
+.disc-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+
+.disc-speed .select {
+  min-height: 36px;
+  padding: 6px 10px;
+}
+
+.disc-player-status {
+  margin: 8px 0 0;
+}
+
+.disc-views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.disc-views .btn[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Marca de seleção visível (não depende só da cor). */
+.disc-views .btn[aria-pressed='true']::after {
+  content: '✓';
+  content: '✓' / '';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@keyframes disc-pulse {
+  50% {
+    box-shadow:
+      0 0 0 1px var(--accent),
+      0 0 28px rgba(94, 234, 212, 0.7);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Listas de elementos: ano à esquerda, descobridores abaixo do nome
+   -------------------------------------------------------------------------- */
+.disc-list .element-row {
+  grid-template-columns: 46px 36px minmax(0, 1fr);
+  column-gap: 8px;
+  row-gap: 0;
+}
+
+.disc-list .element-row .er-pos,
+.disc-list .element-row .er-sym {
+  grid-row: span 2;
+}
+
+.disc-list .element-row .er-pos {
+  font-size: 0.74rem;
+  line-height: 1.2;
+}
+
+.disc-list .element-row .er-pos abbr {
+  text-decoration: none;
+}
+
+.disc-list .element-row .er-value {
+  grid-column: 3;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+
+.disc-latest {
+  animation: disc-fade-in 0.4s ease;
+}
+
+.disc-more {
+  margin-top: 6px;
+}
+
+.disc-more-icon {
+  transition: transform 0.2s;
+}
+
+.disc-more[aria-expanded='true'] .disc-more-icon {
+  transform: rotate(180deg);
+}
+
+@keyframes disc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cartões das eras
+   -------------------------------------------------------------------------- */
+.disc-eras {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.disc-eras > li {
+  display: flex;
+}
+
+.disc-era {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'label count'
+    'range count'
+    'bar bar'
+    'here here';
+  align-content: start;
+  gap: 2px 8px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.55);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.disc-era:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+.disc-era.is-current {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 18px rgba(94, 234, 212, 0.18);
+}
+
+.disc-era-label {
+  grid-area: label;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.disc-era-range {
+  grid-area: range;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+.disc-era-count {
+  grid-area: count;
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.disc-era-bar {
+  grid-area: bar;
+  display: block;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: rgba(150, 172, 225, 0.14);
+  overflow: hidden;
+}
+
+.disc-era-bar > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--w) * 100%);
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+}
+
+.disc-era-here {
+  grid-area: here;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Explorador agrupado
+   -------------------------------------------------------------------------- */
+.disc-groupby {
+  margin-bottom: 6px;
+}
+
+.disc-groups-count {
+  margin: 4px 0 8px;
+}
+
+.disc-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.disc-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.45);
+}
+
+.disc-group[open] {
+  border-color: var(--border-strong);
+  background: rgba(14, 22, 44, 0.6);
+}
+
+.disc-group > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  list-style: none;
+  cursor: pointer;
+}
+
+.disc-group > summary::-webkit-details-marker,
+.disc-disputes > summary::-webkit-details-marker {
+  display: none;
+}
+
+.disc-group > summary:hover {
+  background: var(--surface-hover);
+}
+
+.disc-group-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.disc-group-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.disc-group-bar {
+  display: block;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: rgba(150, 172, 225, 0.12);
+  overflow: hidden;
+}
+
+.disc-group-bar > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--w) * 100%);
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+}
+
+.disc-group-count {
+  flex: none;
+}
+
+.disc-group-chevron {
+  flex: none;
+  color: var(--text-3);
+  transition: transform 0.2s;
+}
+
+details[open] > summary .disc-group-chevron {
+  transform: rotate(180deg);
+}
+
+.disc-group-body {
+  padding: 0 8px 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Disputas de atribuição
+   -------------------------------------------------------------------------- */
+.disc-disputes > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  border-radius: var(--radius-s);
+  list-style: none;
+  color: var(--accent-2);
+  cursor: pointer;
+}
+
+.disc-disputes > summary:hover {
+  color: var(--accent);
+}
+
+.disc-disputes[open] > summary {
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Acessibilidade: movimento reduzido e alto contraste
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .disc-hero-year,
+  .disc-latest,
+  .disc-play.is-playing {
+    animation: none;
+  }
+
+  .disc-hero-meter > span,
+  .disc-bar {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .disc-hero-year {
+    background: none;
+    color: CanvasText;
+    filter: none;
+  }
+
+  .disc-bar.is-reached {
+    fill: Highlight;
+  }
+
+  .disc-bar {
+    fill: GrayText;
+  }
+}

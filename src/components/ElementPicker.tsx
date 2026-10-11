@@ -62,9 +62,10 @@ export function ElementPicker({
   const activeResult = expanded && active >= 0 ? results[active] : undefined;
 
   // Mantém a opção ativa visível quando a lista tem rolagem.
+  // (`scrollIntoView` pode não existir em ambientes de teste como o jsdom.)
   useEffect(() => {
     if (!expanded || active < 0) return;
-    listRef.current?.querySelector<HTMLElement>(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' });
+    listRef.current?.querySelector<HTMLElement>(`[data-index="${active}"]`)?.scrollIntoView?.({ block: 'nearest' });
   }, [active, expanded]);
 
   // Se o campo for desativado (ex.: comparação cheia), fecha a lista.
@@ -172,6 +173,8 @@ export function ElementPicker({
             setActive(-1);
           }}
           onFocus={() => setOpen(true)}
+          // Reabre a lista ao clicar no campo já focado (ex.: depois de fechá-la com Esc).
+          onClick={() => setOpen(true)}
           onBlur={() => setOpen(false)}
           onKeyDown={onKeyDown}
         />

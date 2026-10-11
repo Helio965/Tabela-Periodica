@@ -1,10 +1,10 @@
 import { useEffect, useId, useMemo, useState } from 'react';
 import type { PanelProps } from '../components/SidePanel';
 import { ElementRow } from '../components/ElementRow';
-import { ELEMENTS, ELEMENT_BY_SYMBOL, ONLY_PREDICTED_BULK, STATE_REFERENCE } from '../data/elements';
+import { ELEMENTS, getElement, ONLY_PREDICTED_BULK, STATE_REFERENCE } from '../data/elements';
 import type { ChemicalElement, StateOfMatter } from '../data/types';
 import { formatNumber, formatTemperature, kelvinToCelsius } from '../lib/format';
-import { STATE_LABELS, stateAt } from '../lib/temperature';
+import { STATE_LABELS, stateAt, sublimesAtOneAtm } from '../lib/temperature';
 import { useStore } from '../state/store';
 import './trends.css';
 
@@ -23,17 +23,21 @@ const PRESETS: Array<{ label: string; kelvin: number }> = [
 
 /** Mesmos símbolos dos cartões (ElementCard), para não depender só da cor. */
 const STATE_ORDER: Array<{ id: StateOfMatter; glyph: string; plural: string }> = [
-  { id: 'solid', glyph: '■', plural: 'sólidos' },
-  { id: 'liquid', glyph: '≈', plural: 'líquidos' },
-  { id: 'gas', glyph: '○', plural: 'gasosos' },
-  { id: 'unknown', glyph: '?', plural: 'desconhecidos' },
+  { id: 'solid', glyph: '■', plural: 'Sólidos' },
+  { id: 'liquid', glyph: '≈', plural: 'Líquidos' },
+  { id: 'gas', glyph: '○', plural: 'Gasosos' },
+  { id: 'unknown', glyph: '?', plural: 'Desconhecidos' },
 ];
 
-const celsius = (k: number) => `${formatNumber(kelvinToCelsius(k), 1)} °C`;
-const bySymbol = (symbol: string) => ELEMENT_BY_SYMBOL.get(symbol.toLowerCase()) as ChemicalElement;
-const HELIUM = bySymbol('He');
-const CARBON = bySymbol('C');
-const ARSENIC = bySymbol('As');
+/** "84 sólidos", "1 líquido" */
+const stateCountLabel = (id: StateOfMatter, n: number) =>
+  n === 1 ? STATE_LABELS[id] : (STATE_ORDER.find((s) => s.id === id)?.plural ?? STATE_LABELS[id]);
+
+/** "58,8 °C" com espaço não separável, para o número não se separar da unidade ao quebrar a linha. */
+const celsius = (k: number) => `${formatNumber(kelvinToCelsius(k), 1)}\u00a0°C`;
+const HELIUM = getElement(2);
+const CARBON = getElement(6);
+const ARSENIC = getElement(33);
 
 /** Nomes dos elementos sem estado conhecido: "astato, frâncio e todos a partir do férmio (Z = 100)". */
 function predictedNames(): string {
@@ -64,12 +68,13 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
     return g;
   }, [kelvin]);
 
-  // Resumo para leitores de tela, anunciado só quando o controle para de mexer.
+  // Resumo para leitores de tela, anunciado só quando o controle para de mexer
+  // (começa igual ao resumo atual para não ser lido ao abrir o painel).
   const summary = `A ${formatTemperature(kelvin)}: ${STATE_ORDER.map((s) => {
     const n = groups[s.id].length;
-    return `${n} ${n === 1 ? STATE_LABELS[s.id].toLowerCase() : s.plural}`;
+    return `${n} ${stateCountLabel(s.id, n).toLowerCase()}`;
   }).join(', ')}.`;
-  const [liveSummary, setLiveSummary] = useState('');
+  const [liveSummary, setLiveSummary] = useState(summary);
   useEffect(() => {
     const id = window.setTimeout(() => setLiveSummary(summary), 700);
     return () => window.clearTimeout(id);
@@ -77,9 +82,6 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
 
   const setTemperature = (k: number) => dispatch({ type: 'setTemperature', kelvin: Math.min(MAX_K, Math.max(0, k)) });
 
-  // Avisos que dependem da temperatura escolhida (limitações dos dados a 1 atm).
-  const heliumAsSolid = stateAt(HELIUM, kelvin) === 'solid';
-  const carbonAsLiquid = stateAt(CARBON, kelvin) === 'liquid';
   const unknownForLackOfData = groups.unknown.filter((e) => e.state !== 'unknown');
 
   const renderList = (kind: 'liquid' | 'gas') => {
@@ -93,14 +95,15 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
         <ul className="element-list">
           {shown.map((e) => {
             const { meltingPoint: mp, boilingPoint: bp } = e.props;
-            const sublimes = mp !== null && bp !== null && bp < mp;
             let value = '';
             let detail: string | undefined;
             if (kind === 'liquid') {
               value = bp !== null ? `ferve a ${celsius(bp)}` : '';
-              detail = mp !== null ? `funde a ${celsius(mp)}` : undefined;
+              // Hélio: líquido até o zero absoluto a 1 atm (o ponto de fusão dos dados vale sob pressão).
+              if (stateAt(e, 0) === 'liquid') detail = 'não solidifica a 1 atm';
+              else if (mp !== null) detail = `funde a ${celsius(mp)}`;
             } else if (bp !== null) {
-              value = `${sublimes ? 'sublima' : 'ferve'} a ${celsius(bp)}`;
+              value = `${sublimesAtOneAtm(e) ? 'sublima' : 'ferve'} a ${celsius(bp)}`;
             }
             return (
               <li key={e.z}>
@@ -126,7 +129,7 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
   return (
     <div className="states-panel">
       <p className="panel-lead">
-        Na tabela, o estado físico padrão de cada elemento é o observado a {STATE_REFERENCE.celsius} °C e{' '}
+        Na tabela, o estado físico padrão de cada elemento é o que ele tem a {STATE_REFERENCE.celsius} °C e{' '}
         {STATE_REFERENCE.pressure}. Mude a temperatura para ver quem derrete, ferve ou continua sólido — sempre à pressão de
         1 atm.
       </p>
@@ -184,7 +187,7 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
               </span>
               <span className="states-count-text">
                 <strong className="states-count-n mono">{groups[s.id].length}</strong>
-                <span className="states-count-label">{STATE_LABELS[s.id]}</span>
+                <span className="states-count-label">{stateCountLabel(s.id, groups[s.id].length)}</span>
               </span>
             </li>
           ))}
@@ -212,34 +215,24 @@ export default function StatesPanel({ openElement, pointElement }: PanelProps) {
         <h3 className="section-title" id="states-notes-title">
           Para entender
         </h3>
-        {heliumAsSolid ? (
-          <p className="info-box warn">
-            <strong>Atenção:</strong> abaixo de {formatTemperature(HELIUM.props.meltingPoint)} a tabela mostra o hélio como
-            sólido, mas esse ponto de fusão só vale sob pressão. A 1 atm o hélio continuaria líquido.
-          </p>
-        ) : null}
-        {carbonAsLiquid ? (
-          <p className="info-box warn">
-            <strong>Atenção:</strong> nesta faixa a tabela mostra o carbono como líquido, mas a 1 atm o grafite sublima
-            (passa direto de sólido a gás). O carbono líquido só existe sob pressão elevada.
-          </p>
-        ) : null}
         <ul className="states-notes small">
           <li>
-            <strong>Hélio:</strong> é o único elemento que não solidifica à pressão de 1 atm, nem perto do zero absoluto. O
-            ponto de fusão registrado nos dados, {formatTemperature(HELIUM.props.meltingPoint)}, foi medido sob pressão.
+            <strong>Hélio:</strong> é o único elemento que não solidifica à pressão de 1 atm, nem perto do zero absoluto; por
+            isso aparece líquido até 0 K. O ponto de fusão registrado nos dados,{' '}
+            {formatTemperature(HELIUM.props.meltingPoint)}, foi medido sob pressão.
           </li>
           <li>
-            <strong>Arsênio e carbono:</strong> a 1 atm eles sublimam, passando direto de sólido a gás. O arsênio sublima a{' '}
-            {formatTemperature(ARSENIC.props.boilingPoint)}; seu ponto de fusão,{' '}
-            {formatTemperature(ARSENIC.props.meltingPoint)}, só é alcançado sob pressão. O mesmo vale para o ponto de fusão
-            do carbono, {formatTemperature(CARBON.props.meltingPoint)}.
+            <strong>Arsênio e carbono:</strong> a 1 atm eles sublimam, passando direto de sólido a gás, e nunca aparecem
+            como líquidos aqui. O arsênio sublima a {formatTemperature(ARSENIC.props.boilingPoint)}; seu ponto de fusão,{' '}
+            {formatTemperature(ARSENIC.props.meltingPoint)}, só é alcançado sob pressão. O carbono (grafite) sublima a{' '}
+            {formatTemperature(CARBON.props.boilingPoint)}; carbono líquido só existe sob pressão elevada, então o ponto de
+            fusão listado nos dados, {formatTemperature(CARBON.props.meltingPoint)}, não vale a 1 atm.
           </li>
           <li>
             <strong>Desconhecido:</strong> {PREDICTED_NAMES} nunca foram obtidos em quantidade visível, então seu estado
             físico real não é conhecido (existem apenas previsões teóricas).
             {unknownForLackOfData.length > 0
-              ? ` Nesta temperatura, ${joinNames(unknownForLackOfData)} também ${unknownForLackOfData.length === 1 ? 'aparece' : 'aparecem'} como desconhecido${unknownForLackOfData.length === 1 ? '' : 's'} por falta de dados (temperatura de ebulição não medida).`
+              ? ` Nesta temperatura, ${joinNames(unknownForLackOfData)} também ${unknownForLackOfData.length === 1 ? 'aparece' : 'aparecem'} como desconhecido${unknownForLackOfData.length === 1 ? '' : 's'} por falta de dados (as fontes usadas não trazem a temperatura de ebulição).`
               : null}
           </li>
           <li>

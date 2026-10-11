@@ -1,7 +1,7 @@
 import { useMemo, useRef, type KeyboardEvent } from 'react';
 import type { PanelProps } from '../components/SidePanel';
 import { ElementRow } from '../components/ElementRow';
-import { PropertyChart, valueNote } from '../components/PropertyChart';
+import { formatTrendValue, PropertyChart, valueNote } from '../components/PropertyChart';
 import { ELEMENTS } from '../data/elements';
 import type { ChemicalElement } from '../data/types';
 import { TREND_BY_ID, TRENDS, trendScale, type TrendId } from '../lib/trends';
@@ -54,8 +54,8 @@ export default function TrendsPanel({ openElement, pointElement }: PanelProps) {
     <li key={r.el.z}>
       <ElementRow
         element={r.el}
-        lead={i + 1}
-        value={trend.format(r.value)}
+        lead={`${i + 1}º`}
+        value={formatTrendValue(trend, r.el, r.value)}
         detail={valueNote(trend, r.el)}
         onClick={openElement}
         onHover={pointElement}
@@ -109,7 +109,7 @@ export default function TrendsPanel({ openElement, pointElement }: PanelProps) {
           className="trend-gradient"
           style={{ background: GRADIENT }}
           role="img"
-          aria-label={`Escala de cores: do azul-violeta escuro (menor valor, ${trend.format(scale.min)}) ao amarelo claro (maior valor, ${trend.format(scale.max)})`}
+          aria-label={`Escala de cores${trend.log ? ' logarítmica' : ''}: do azul-violeta escuro (menor valor, ${trend.format(scale.min)}) ao amarelo (maior valor, ${trend.format(scale.max)})`}
         />
         <div className="trend-scale-labels">
           <span>

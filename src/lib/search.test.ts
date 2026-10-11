@@ -55,17 +55,35 @@ describe('searchElements', () => {
     expect(sodium.reason).toBe('em inglês: Sodium');
   });
 
-  it('busca por descobridor devolve os elementos com o motivo', () => {
+  it('busca por "curie" devolve polônio, rádio e cúrio, cada um com o motivo', () => {
     const results = searchElements('curie');
     const bySymbol = new Map(results.map((r) => [r.element.symbol, r]));
-    expect(bySymbol.has('Po')).toBe(true);
-    expect(bySymbol.has('Ra')).toBe(true);
+    expect([...bySymbol.keys()].sort()).toEqual(['Cm', 'Po', 'Ra']);
+    // Polônio e rádio foram descobertos pelos Curie…
     expect(bySymbol.get('Po')!.reason).toMatch(/^descoberto por .*Curie/);
     expect(bySymbol.get('Ra')!.reason).toMatch(/^descoberto por .*Curie/);
-    // O cúrio homenageia os Curie, mas foi descoberto por Seaborg, James e Ghiorso.
+    // …e o cúrio, descoberto por Seaborg, James e Ghiorso, homenageia o casal.
+    expect(bySymbol.get('Cm')!.reason).toBe('nome em homenagem a Marie e Pierre Curie');
     const seaborg = searchElements('seaborg', ELEMENTS, 20);
     const curium = seaborg.find((r) => r.element.symbol === 'Cm');
     expect(curium?.reason).toMatch(/descoberto por Glenn T\. Seaborg/);
+  });
+
+  it('a homenagem no nome vem antes dos resultados por descobridor', () => {
+    // Oganessian participou da descoberta de vários superpesados, mas só o oganessônio leva seu nome.
+    const results = searchElements('oganessian', ELEMENTS, 10);
+    expect(results[0].element.symbol).toBe('Og');
+    expect(results[0].reason).toBe('nome em homenagem a Yuri Oganessian');
+    expect(results.slice(1).every((r) => r.reason?.startsWith('descoberto por'))).toBe(true);
+    // Pessoas cujo nome difere da grafia do elemento também são encontradas.
+    expect(symbols('lawrence')[0]).toBe('Lr');
+    expect(symbols('rontgen')[0]).toBe('Rg');
+    expect(symbols('gadolin')[0]).toBe('Gd');
+    const [sm] = searchElements('samarsky');
+    expect(sm.element.symbol).toBe('Sm');
+    expect(sm.reason).toBe('nome em homenagem a Vasili Samarsky-Bykhovets (pelo mineral samarskita)');
+    // Só o nome da pessoa conta: "mineral" não deve trazer samário nem gadolínio.
+    expect(symbols('mineral')).toEqual([]);
   });
 
   it('o próprio nome vem antes dos resultados por descobridor', () => {

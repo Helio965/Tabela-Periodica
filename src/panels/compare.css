@@ -196,6 +196,38 @@
   border: 1px solid var(--border);
 }
 
+.cmp-scroll-hint {
+  margin: -2px 0 6px;
+}
+
+.cmp-scroll-hint svg {
+  margin-left: 2px;
+  vertical-align: -3px;
+}
+
+/* Esmaecimento na borda direita quando há colunas escondidas (o texto acima explica). */
+.cmp-scroll-wrap {
+  position: relative;
+}
+
+.cmp-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 32px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(to right, transparent, rgba(4, 7, 13, 0.85));
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.cmp-scroll-wrap.has-more::after {
+  opacity: 1;
+}
+
 .cmp-table {
   table-layout: fixed;
   min-width: calc(100px + var(--cmp-cols, 2) * 86px);
@@ -298,7 +330,8 @@
   color: var(--text-2);
 }
 
-.cmp-cell {
+.cmp-table td.cmp-cell {
+  padding-inline: 6px;
   font-size: 0.82rem;
   font-variant-numeric: tabular-nums;
 }
@@ -408,7 +441,8 @@
 }
 
 .quiz-score > div {
-  padding: 8px 6px;
+  min-width: 0;
+  padding: 8px 4px;
   border: 1px solid var(--border);
   border-radius: var(--radius-s);
   background: rgba(10, 16, 32, 0.5);
@@ -418,7 +452,8 @@
 .quiz-score dt {
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  /* Espaçamento contido: "SEQUÊNCIA" precisa caber na caixa em telas de 360 px. */
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--text-3);
 }
@@ -720,6 +755,7 @@
 
   .cmp-tile,
   .cmp-chip-x,
+  .cmp-scroll-wrap::after,
   .quiz-option {
     transition: none;
   }

@@ -15,11 +15,11 @@
 
 .trend-option {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0 6px;
-  min-height: 36px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  min-height: 44px;
   padding: 7px 10px;
   border: 0;
   border-radius: 7px;
@@ -45,6 +45,7 @@
 .trend-option-unit {
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 400;
   opacity: 0.75;
   white-space: nowrap;
 }
@@ -201,14 +202,17 @@
   pointer-events: none;
 }
 
+/* Posicionado via transform pelo componente (centrado no ponto e mantido dentro do gráfico). */
 .pc-tooltip {
-  --tx: -50%;
-  --ty: calc(-100% - 12px);
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  width: max-content;
+  max-width: min(250px, 100%);
   padding: 7px 10px;
   border-radius: var(--radius-s);
   background: var(--surface-strong);
@@ -216,21 +220,7 @@
   box-shadow: var(--shadow-soft);
   font-size: 0.8rem;
   line-height: 1.35;
-  white-space: nowrap;
   pointer-events: none;
-  transform: translate(var(--tx), var(--ty));
-}
-
-.pc-tooltip.is-start {
-  --tx: -12px;
-}
-
-.pc-tooltip.is-end {
-  --tx: calc(-100% + 12px);
-}
-
-.pc-tooltip.is-below {
-  --ty: 14px;
 }
 
 .pc-tt-value {
@@ -348,6 +338,11 @@
   color: var(--accent);
 }
 
+.pc-table-note {
+  display: block;
+  font-family: var(--font-sans);
+}
+
 /* --- Estado da matéria ---------------------------------------------------- */
 .states-readout {
   display: flex;
@@ -458,10 +453,6 @@
   margin-top: 6px;
 }
 
-.states-panel .info-box {
-  margin: 0 0 10px;
-}
-
 .states-notes {
   margin: 0;
   padding-left: 18px;
@@ -479,7 +470,16 @@
 @media (forced-colors: active) {
   .pc-point,
   .pc-point-hover,
-  .pc-legend-dot {
+  .pc-legend-dot,
+  .trend-gradient,
+  .trend-nodata-swatch,
+  .state-swatch {
     forced-color-adjust: none;
+  }
+
+  /* Sem cores de fundo, a opção escolhida precisa de outra marca visível. */
+  .trend-option[aria-checked='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
   }
 }

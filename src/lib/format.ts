@@ -1,7 +1,29 @@
 import type { DecayMode, HalfLife } from '../data/types';
 
-const nf = (maxFrac: number, minFrac = 0) =>
-  new Intl.NumberFormat('pt-BR', { maximumFractionDigits: maxFrac, minimumFractionDigits: minFrac });
+const formatters = new Map<string, Intl.NumberFormat>();
+
+/** Reaproveita os formatadores (criar um Intl.NumberFormat é relativamente caro). */
+function intl(maxFrac: number, minFrac: number): Intl.NumberFormat {
+  const key = `${maxFrac}:${minFrac}`;
+  let f = formatters.get(key);
+  if (!f) {
+    f = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: maxFrac, minimumFractionDigits: minFrac });
+    formatters.set(key, f);
+  }
+  return f;
+}
+
+/**
+ * Formatador pt-BR. Um valor negativo que arredonda para zero (ex.: -0,001
+ * com 2 casas, ou -1e-13 vindo de 273,15 − 273,15) apareceria como "-0";
+ * aqui ele vira "0".
+ */
+const nf = (maxFrac: number, minFrac = 0) => ({
+  format: (value: number) => {
+    const text = intl(maxFrac, minFrac).format(value);
+    return /^[-\u2212]0(,0+)?$/.test(text) ? text.slice(1) : text;
+  },
+});
 
 export function formatNumber(value: number | null | undefined, maxFrac = 2): string {
   if (value === null || value === undefined || !Number.isFinite(value)) return 'não disponível';
@@ -39,27 +61,42 @@ export const superscript = (s: string | number) => String(s).split('').map((c) =
 /** Número em notação científica legível: 2,25 × 10²⁴ */
 export function formatScientific(value: number, digits = 3): string {
   if (value === 0) return '0';
-  const exp = Math.floor(Math.log10(Math.abs(value)));
+  let exp = Math.floor(Math.log10(Math.abs(value)));
   if (exp >= -3 && exp < 6) return nf(digits).format(value);
-  const mantissa = value / 10 ** exp;
+  let mantissa = value / 10 ** exp;
+  // 9,999 × 10⁻⁵ arredondaria para "10 × 10⁻⁵": ajusta para "1 × 10⁻⁴".
+  if (Math.abs(Math.round(mantissa * 100) / 100) >= 10) {
+    mantissa /= 10;
+    exp += 1;
+  }
   return `${nf(2).format(mantissa)} × 10${superscript(exp)}`;
 }
 
 const HALF_LIFE_UNITS: Record<string, string> = {
-  ys: 'ys', zs: 'zs', as: 'as', fs: 'fs', ps: 'ps', ns: 'ns', us: 'µs', ms: 'ms', s: 's', m: 'min', h: 'h', d: 'dias',
+  ys: 'ys', zs: 'zs', as: 'as', fs: 'fs', ps: 'ps', ns: 'ns', us: 'µs', ms: 'ms', s: 's', m: 'min', h: 'h',
 };
 
 const YEAR_SCALE: Record<string, number> = { y: 1, ky: 1e3, My: 1e6, Gy: 1e9, Ty: 1e12, Py: 1e15, Ey: 1e18, Zy: 1e21, Yy: 1e24 };
+
+/**
+ * Número seguido de uma palavra que concorda com ele: singular abaixo de 2,
+ * como pede a norma ("1,25 bilhão de anos", "1,5 dia", "2 dias").
+ */
+function counted(value: number, maxFrac: number, singular: string, plural: string): string {
+  const rounded = Number(value.toFixed(maxFrac));
+  return `${nf(maxFrac).format(value)} ${Math.abs(rounded) < 2 ? singular : plural}`;
+}
 
 export function formatHalfLife(h: HalfLife | null): string {
   if (!h) return 'estável';
   const prefix = h.approximate ? '≈ ' : '';
   if (HALF_LIFE_UNITS[h.unit]) return `${prefix}${nf(4).format(h.value)} ${HALF_LIFE_UNITS[h.unit]}`;
+  if (h.unit === 'd') return prefix + counted(h.value, 4, 'dia', 'dias');
   const years = h.value * (YEAR_SCALE[h.unit] ?? 1);
-  if (years < 1e3) return `${prefix}${nf(2).format(years)} anos`;
+  if (years < 1e3) return prefix + counted(years, 2, 'ano', 'anos');
   if (years < 1e6) return `${prefix}${nf(1).format(years / 1e3)} mil anos`;
-  if (years < 1e9) return `${prefix}${nf(2).format(years / 1e6)} milhões de anos`;
-  if (years < 1e12) return `${prefix}${nf(3).format(years / 1e9)} bilhões de anos`;
+  if (years < 1e9) return prefix + counted(years / 1e6, 2, 'milhão de anos', 'milhões de anos');
+  if (years < 1e12) return prefix + counted(years / 1e9, 3, 'bilhão de anos', 'bilhões de anos');
   return `${prefix}${formatScientific(years)} anos`;
 }
 
