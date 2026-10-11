@@ -52,7 +52,8 @@ aprender os conceitos da química — sempre com dados de fontes científicas co
   recomenda o CIAAW.
 
 ### Histórico das descobertas
-- Linha do tempo da Antiguidade até hoje: ao mover o controle, só os elementos já conhecidos naquele ano aparecem.
+- Linha do tempo da Antiguidade até hoje: ao mover o controle, os elementos ainda não descobertos naquele ano ficam
+  apagados (em 1869, ano da tabela de Mendeleev, eram 63 os elementos conhecidos).
 - **"Ver evolução da tabela"** com Play, Pausa, Voltar e Avançar: os elementos surgem ano a ano, com o nome anunciado.
 - Agrupamento por ano, descobridor, país, período histórico e método de descoberta.
 - Em cada ficha: quem descobriu, quando, onde, como foi descoberto (contexto, experimento e confirmação) e **disputas de
@@ -147,16 +148,27 @@ GitHub Pages).
 
 ```bash
 npm test               # testes unitários + validação da integridade dos 118 elementos
-npm run test:e2e       # testes no navegador (Playwright)
-npm run typecheck      # TypeScript
+npm run test:e2e       # testes no navegador (Playwright), no desktop e no celular
+npm run typecheck      # TypeScript (aplicação e testes e2e)
 npm run check:links    # confere se os links das fontes respondem
+npm run screenshots    # regenera docs/screenshots/ (com o app rodando; veja BASE_URL no script)
 npm run data:fetch     # baixa novamente as fontes primárias para .cache/
 npm run data:build     # regenera src/data/generated/*.json
 ```
 
-A validação automática confere, entre outras coisas: exatamente 118 elementos; números atômicos de 1 a 118 sem
-duplicatas; símbolos e nomes únicos; posições corretas na tabela; configurações eletrônicas que somam Z elétrons;
-categorias cadastradas; coerência entre radioatividade e isótopos; e conteúdo educativo completo para todos os elementos.
+Para os testes no navegador, instale antes o Chromium do Playwright (`npx playwright install chromium`) ou aponte
+`CHROMIUM_PATH` para um Chromium já instalado.
+
+- **Validação dos dados** (`src/data/validate.ts`): exatamente 118 elementos; números atômicos de 1 a 118 sem
+  duplicatas; símbolos e nomes únicos; posições corretas na tabela; configurações eletrônicas que somam Z elétrons;
+  categorias cadastradas; coerência entre radioatividade e isótopos; conteúdo educativo completo para todos os elementos.
+- **Testes unitários** (Vitest, 237 testes): busca, filtros, rankings, comparação, tendências, linha do tempo, estado
+  físico em função da temperatura, quiz, formatação em português, estado global e rotas, e as 7 disposições 3D (todos os
+  cartões posicionados, sem sobreposição).
+- **Testes no navegador** (Playwright, 13 cenários × desktop e celular): ficha, pesquisa, filtros combinados, ranking,
+  troca de disposição 3D, comparação por link, evolução da tabela, todos os painéis, teclado e vista em lista — cada
+  teste falha se aparecer qualquer erro no console.
+- **Integração contínua** (GitHub Actions): testes, tipos, build e testes no navegador a cada push.
 
 ## Estrutura do projeto
 
@@ -165,6 +177,7 @@ scripts/
   fetch-sources.mjs      baixa as fontes primárias (CIAAW, NUBASE2020, NIST, PubChem)
   build-data.mjs         gera os dados numéricos a partir delas
   check-links.mjs        verifica os links externos
+  screenshots.mjs        gera as capturas de tela do README
 src/
   data/
     generated/           propriedades e isótopos gerados (JSON)
@@ -181,6 +194,7 @@ src/
   panels/                painéis: Explorar, Descobertas, Tendências, Estados, Comparar, Aprender, História, Fontes, Quiz
   sheet/                 ficha completa do elemento, modelo atômico e tabela de isótopos
 e2e/                     testes Playwright
+docs/screenshots/        capturas de tela usadas neste README
 ```
 
 ## Acessibilidade
