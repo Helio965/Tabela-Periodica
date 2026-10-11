@@ -1,0 +1,40 @@
+/* Cabeçalho do painel lateral (no celular funciona como alça da gaveta). */
+.side-panel-head {
+  flex: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.side-panel-grip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.side-panel-grip .grip-icon {
+  transition: transform 0.2s;
+}
+
+.app.panel-closed .side-panel-grip .grip-icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 901px) {
+  .side-panel-grip {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .side-panel-grip .grip-icon {
+    display: none;
+  }
+}
