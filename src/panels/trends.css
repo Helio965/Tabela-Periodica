@@ -1,0 +1,485 @@
+/* ==========================================================================
+   Tendências periódicas, gráfico de propriedade e estado da matéria
+   ========================================================================== */
+
+/* --- Seleção da propriedade (grupo de rádio) ----------------------------- */
+.trend-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--radius);
+  background: rgba(4, 8, 18, 0.6);
+  border: 1px solid var(--border);
+}
+
+.trend-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trend-option:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.trend-option[aria-checked='true'] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.trend-option-unit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.trend-explanation {
+  margin: 12px 0 0;
+}
+
+/* --- Legenda da escala de cores ------------------------------------------ */
+.trend-gradient {
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+}
+
+.trend-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+.trend-scale-labels > span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.trend-scale-labels > span.is-end {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.trend-scale-labels strong {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.trend-note {
+  margin: 10px 0 0;
+}
+
+.trend-nodata {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.86rem;
+  color: var(--text-2);
+}
+
+.trend-nodata-swatch {
+  width: 30px;
+  height: 16px;
+  flex: none;
+  border-radius: 4px;
+  border: 1px dashed rgba(150, 172, 225, 0.45);
+  background: repeating-linear-gradient(135deg, #10172a 0 6px, #0b1120 6px 12px);
+}
+
+/* --- Gráfico de propriedade × número atômico ------------------------------ */
+.property-chart {
+  --pc-surface: #101930;
+  margin: 0;
+}
+
+.pc-plot {
+  position: relative;
+  width: 100%;
+}
+
+.pc-svg {
+  display: block;
+  max-width: 100%;
+  overflow: visible;
+  /* Arrastar na horizontal percorre os pontos; na vertical, rola o painel. */
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pc-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.pc-axis {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.pc-period-line {
+  stroke: rgba(150, 172, 225, 0.26);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.pc-tick,
+.pc-period-label,
+.pc-period-title {
+  fill: var(--text-3);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pc-period-label {
+  fill: var(--text-2);
+  font-weight: 600;
+}
+
+.pc-axis-title {
+  fill: var(--text-2);
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+}
+
+.pc-line {
+  fill: none;
+  stroke: rgba(179, 191, 219, 0.34);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.pc-point {
+  fill: var(--pc-color);
+  stroke: var(--pc-surface);
+  stroke-width: 1;
+}
+
+/* Estimativas teóricas: ponto vazado, para não parecer medida. */
+.pc-point.is-estimated {
+  fill: var(--pc-surface);
+  stroke: var(--pc-color);
+  stroke-width: 1.5;
+}
+
+.pc-point-hover {
+  fill: var(--pc-color);
+  stroke: var(--text);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.pc-crosshair {
+  stroke: var(--text-3);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+  pointer-events: none;
+}
+
+/* Posicionado via transform pelo componente (centrado no ponto e mantido dentro do gráfico). */
+.pc-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: max-content;
+  max-width: min(250px, 100%);
+  padding: 7px 10px;
+  border-radius: var(--radius-s);
+  background: var(--surface-strong);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.pc-tt-value {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.pc-tt-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+}
+
+.pc-tt-key {
+  width: 12px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--pc-color);
+  flex: none;
+}
+
+.pc-tt-cat {
+  padding-left: 18px;
+  color: var(--text-3);
+}
+
+.pc-tt-note {
+  color: var(--text-3);
+  font-style: italic;
+}
+
+.pc-caption {
+  margin-top: 8px;
+}
+
+.pc-legend {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 0.76rem;
+  color: var(--text-2);
+}
+
+.pc-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pc-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pc-color);
+  flex: none;
+}
+
+.pc-legend-dot.is-estimated {
+  background: transparent;
+  border: 1.5px solid var(--text-2);
+}
+
+.pc-caption p {
+  margin: 0;
+}
+
+.pc-table {
+  margin-top: 10px;
+}
+
+.pc-table summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--accent-2);
+  font-size: 0.86rem;
+  cursor: pointer;
+  border-radius: var(--radius-s);
+}
+
+.pc-table summary:hover {
+  color: var(--accent);
+}
+
+.pc-table-scroll {
+  max-height: 320px;
+  overflow: auto;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+}
+
+.pc-table-scroll .data-table th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-strong);
+}
+
+.pc-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline dotted rgba(150, 172, 225, 0.5);
+  text-underline-offset: 3px;
+}
+
+.pc-link:hover {
+  color: var(--accent);
+}
+
+.pc-table-note {
+  display: block;
+  font-family: var(--font-sans);
+}
+
+/* --- Estado da matéria ---------------------------------------------------- */
+.states-readout {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0 0 6px;
+}
+
+.states-readout-c {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.states-readout-k {
+  color: var(--text-2);
+  font-size: 1rem;
+}
+
+.states-scale {
+  display: flex;
+  justify-content: space-between;
+  margin: -2px 0 10px;
+}
+
+.states-presets .chip {
+  font-size: 0.8rem;
+}
+
+.states-counts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.states-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--border);
+  background: rgba(10, 16, 32, 0.5);
+}
+
+.states-count-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.states-count-label {
+  color: var(--text-2);
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+
+.states-count-n {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+/* Amostras iguais aos cartões (.element-card.state-* em scene.css). */
+.state-swatch {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 6px;
+  border: 1.5px solid;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.state-swatch-solid {
+  background: linear-gradient(160deg, #3a4a6b 0%, #1a2238 100%);
+  border-color: #8ea2c9;
+}
+
+.state-swatch-liquid {
+  background: linear-gradient(160deg, #0e5f86 0%, #08304a 100%);
+  border-color: #38bdf8;
+}
+
+.state-swatch-gas {
+  background: linear-gradient(160deg, #7a5a12 0%, #3b2b08 100%);
+  border-color: #fbbf24;
+}
+
+.state-swatch-unknown {
+  background: repeating-linear-gradient(135deg, #121a2e 0 6px, #0c1222 6px 12px);
+  border-color: rgba(150, 172, 225, 0.45);
+  border-style: dashed;
+  color: var(--text-2);
+}
+
+.states-more {
+  margin-top: 6px;
+}
+
+.states-notes {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-2);
+}
+
+.states-notes li + li {
+  margin-top: 8px;
+}
+
+.states-notes strong {
+  color: var(--text);
+}
+
+@media (forced-colors: active) {
+  .pc-point,
+  .pc-point-hover,
+  .pc-legend-dot,
+  .trend-gradient,
+  .trend-nodata-swatch,
+  .state-swatch {
+    forced-color-adjust: none;
+  }
+
+  /* Sem cores de fundo, a opção escolhida precisa de outra marca visível. */
+  .trend-option[aria-checked='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}

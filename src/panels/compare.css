@@ -1,0 +1,762 @@
+/* ==========================================================================
+   Comparação de elementos, quiz e seletor de elementos (combobox)
+   Prefixos: .picker-* (ElementPicker), .cmp-* (ComparePanel), .quiz-* (QuizPanel)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ElementPicker
+   -------------------------------------------------------------------------- */
+.picker {
+  position: relative;
+}
+
+.picker-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+
+.picker-control {
+  position: relative;
+}
+
+.picker-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.picker-input {
+  width: 100%;
+  padding-left: 36px;
+}
+
+.picker-input:focus-visible {
+  border-color: var(--accent);
+}
+
+.picker.is-disabled .picker-input {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.picker-list,
+.picker-empty {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: #111b35;
+  box-shadow: var(--shadow);
+}
+
+.picker-list {
+  list-style: none;
+  padding: 4px;
+  max-height: min(320px, 45vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.picker-empty {
+  padding: 10px 12px;
+  color: var(--text-3);
+  font-size: 0.86rem;
+}
+
+.picker-option {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+}
+
+/* A opção ativa ganha fundo e uma barra lateral (não depende só da cor). */
+.picker-option:hover,
+.picker-option.is-active {
+  background: var(--surface-hover);
+}
+
+.picker-option.is-active {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.picker-option.is-excluded {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.picker-option.is-excluded:hover {
+  background: transparent;
+}
+
+.picker-sym {
+  display: grid;
+  place-items: center;
+  height: 34px;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--cat, var(--accent));
+  background: color-mix(in srgb, var(--cat, var(--accent)) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat, var(--accent)) 45%, transparent);
+}
+
+.picker-text {
+  min-width: 0;
+}
+
+.picker-name {
+  display: block;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.picker-meta {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-3);
+}
+
+.picker-reason {
+  color: var(--accent-2);
+}
+
+.picker-hint {
+  margin: 6px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Comparar elementos
+   -------------------------------------------------------------------------- */
+.cmp-panel {
+  /* Fundo opaco equivalente ao do painel, para a coluna fixa da tabela. */
+  --cmp-sticky-bg: #0f182f;
+}
+
+.cmp-full {
+  margin: 10px 0 0;
+}
+
+.cmp-selected-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 34px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+.cmp-selected-head .section-title {
+  margin: 0;
+}
+
+.cmp-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cmp-chip {
+  padding-right: 8px;
+  color: var(--text);
+}
+
+.cmp-chip-sym {
+  font-family: var(--font-display);
+}
+
+.cmp-chip-x {
+  color: var(--text-3);
+  transition: color 0.15s;
+}
+
+.cmp-chip:hover .cmp-chip-x,
+.cmp-chip:focus-visible .cmp-chip-x {
+  color: var(--danger);
+}
+
+.cmp-tip {
+  margin: 10px 0 0;
+}
+
+.cmp-scroll {
+  border: 1px solid var(--border);
+}
+
+.cmp-scroll-hint {
+  margin: -2px 0 6px;
+}
+
+.cmp-scroll-hint svg {
+  margin-left: 2px;
+  vertical-align: -3px;
+}
+
+/* Esmaecimento na borda direita quando há colunas escondidas (o texto acima explica). */
+.cmp-scroll-wrap {
+  position: relative;
+}
+
+.cmp-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 32px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(to right, transparent, rgba(4, 7, 13, 0.85));
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.cmp-scroll-wrap.has-more::after {
+  opacity: 1;
+}
+
+.cmp-table {
+  table-layout: fixed;
+  min-width: calc(100px + var(--cmp-cols, 2) * 86px);
+}
+
+.cmp-table .cmp-prop {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 100px;
+  background: var(--cmp-sticky-bg);
+  box-shadow: inset -1px 0 0 var(--border-strong);
+}
+
+.cmp-table tbody .cmp-prop {
+  hyphens: manual;
+  overflow-wrap: break-word;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cmp-table thead th {
+  vertical-align: bottom;
+}
+
+.cmp-table thead .cmp-prop {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+.cmp-table .cmp-head {
+  padding: 6px 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cmp-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.cmp-tile {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'z code'
+    'sym sym'
+    'name name';
+  width: 100%;
+  padding: 5px 6px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--cat) 55%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--cat) 28%, #0b1426) 0%, color-mix(in srgb, var(--cat) 8%, #060a14) 100%);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.2s;
+}
+
+.cmp-tile:hover {
+  border-color: color-mix(in srgb, var(--cat) 90%, white);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--cat) 35%, transparent);
+}
+
+.cmp-tile-z {
+  grid-area: z;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+.cmp-tile-code {
+  grid-area: code;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--cat) 80%, white);
+}
+
+.cmp-tile-sym {
+  grid-area: sym;
+  justify-self: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.cmp-tile-name {
+  grid-area: name;
+  justify-self: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.cmp-table td.cmp-cell {
+  padding-inline: 6px;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cmp-value {
+  display: block;
+  color: var(--text);
+}
+
+.cmp-cell.is-missing .cmp-value {
+  color: var(--text-3);
+  font-style: italic;
+}
+
+.cmp-cell.is-config .cmp-value {
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+.cmp-badge {
+  margin-top: 4px;
+  padding: 1px 6px;
+  font-size: 0.68rem;
+}
+
+.cmp-badge.is-max {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: rgba(94, 234, 212, 0.4);
+}
+
+.cmp-badge.is-min {
+  color: var(--accent-2);
+  background: rgba(125, 211, 252, 0.1);
+  border-color: rgba(125, 211, 252, 0.35);
+}
+
+.cmp-bar {
+  display: block;
+  height: 4px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: rgba(150, 172, 225, 0.12);
+  overflow: hidden;
+}
+
+.cmp-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--text-3);
+}
+
+.cmp-cell.is-max .cmp-bar > span {
+  background: var(--accent);
+}
+
+.cmp-cell.is-min .cmp-bar > span {
+  background: var(--accent-2);
+}
+
+.cmp-notes {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.cmp-notes li + li {
+  margin-top: 4px;
+}
+
+.cmp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.cmp-manual-link {
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Quiz
+   -------------------------------------------------------------------------- */
+.quiz-dif-desc {
+  margin: 8px 0 0;
+}
+
+.quiz-score-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+  margin-bottom: 6px;
+}
+
+.quiz-score-head .section-title {
+  margin: 0;
+}
+
+.quiz-score {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 6px;
+  margin: 0;
+}
+
+.quiz-score > div {
+  min-width: 0;
+  padding: 8px 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  background: rgba(10, 16, 32, 0.5);
+  text-align: center;
+}
+
+.quiz-score dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  /* Espaçamento contido: "SEQUÊNCIA" precisa caber na caixa em telas de 360 px. */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.quiz-score dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.quiz-score-of {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.quiz-title {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.quiz-clues {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-clues li {
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  background: rgba(94, 234, 212, 0.06);
+  font-size: 0.9rem;
+  animation: quiz-in 0.25s ease;
+}
+
+.quiz-clues li.is-extra {
+  border-left-color: var(--border-strong);
+  background: transparent;
+  color: var(--text-2);
+}
+
+.quiz-clue-n {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.quiz-clues li.is-extra .quiz-clue-n {
+  color: var(--text-3);
+}
+
+.quiz-clue-unused {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.quiz-clue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.quiz-clue-actions .btn[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quiz-potential {
+  color: var(--text-2);
+}
+
+.quiz-potential strong {
+  color: var(--accent);
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.6);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, opacity 0.2s;
+}
+
+.quiz-option:not([aria-disabled='true']):hover {
+  background: var(--surface-hover);
+  border-color: color-mix(in srgb, var(--cat) 70%, white);
+}
+
+.quiz-option[aria-disabled='true'] {
+  cursor: default;
+}
+
+.quiz-sym {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cat, var(--accent));
+  background: color-mix(in srgb, var(--cat, var(--accent)) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cat, var(--accent)) 45%, transparent);
+}
+
+.quiz-opt-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-opt-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+
+.quiz-mark {
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.quiz-option.is-correct {
+  border: 2px solid var(--ok);
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.quiz-option.is-correct .quiz-mark {
+  color: var(--ok);
+}
+
+.quiz-option.is-wrong {
+  border: 2px dashed var(--danger);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.quiz-option.is-wrong .quiz-mark {
+  color: var(--danger);
+}
+
+.quiz-option.is-faded {
+  opacity: 0.5;
+}
+
+.quiz-feedback {
+  margin-top: 4px;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  animation: quiz-in 0.3s ease;
+}
+
+.quiz-feedback.is-correct {
+  border-color: rgba(74, 222, 128, 0.45);
+  background: rgba(74, 222, 128, 0.07);
+}
+
+.quiz-feedback.is-wrong {
+  border-color: rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.07);
+}
+
+.quiz-verdict {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.quiz-verdict-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: var(--bg-0);
+}
+
+.quiz-feedback.is-correct .quiz-verdict-icon {
+  background: var(--ok);
+}
+
+.quiz-feedback.is-wrong .quiz-verdict-icon {
+  background: var(--danger);
+}
+
+.quiz-reveal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.quiz-reveal p {
+  margin: 0;
+}
+
+.quiz-reveal-tile {
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'z code'
+    'sym sym';
+  width: 70px;
+  height: 74px;
+  padding: 5px 7px;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--cat) 60%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--cat) 30%, #0b1426) 0%, color-mix(in srgb, var(--cat) 9%, #060a14) 100%);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--cat) 30%, transparent);
+}
+
+.quiz-reveal-z {
+  grid-area: z;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.quiz-reveal-code {
+  grid-area: code;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--cat) 80%, white);
+}
+
+.quiz-reveal-sym {
+  grid-area: sym;
+  align-self: center;
+  justify-self: center;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quiz-reveal-name {
+  font-size: 1rem;
+}
+
+.quiz-highlight {
+  color: var(--text-2);
+}
+
+.quiz-feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@keyframes quiz-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-clues li,
+  .quiz-feedback {
+    animation: none;
+  }
+
+  .cmp-tile,
+  .cmp-chip-x,
+  .cmp-scroll-wrap::after,
+  .quiz-option {
+    transition: none;
+  }
+}

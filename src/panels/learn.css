@@ -1,0 +1,485 @@
+/* ==========================================================================
+   Painéis Aprender, História da Tabela Periódica e Fontes científicas
+   ========================================================================== */
+
+/* --- Aprender: busca -------------------------------------------------- */
+.learn-toolbar {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 10px;
+}
+
+.learn-search-box {
+  position: relative;
+}
+
+.learn-search-box .input {
+  width: 100%;
+  padding-left: 34px;
+}
+
+.learn-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.learn-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.learn-count {
+  margin: 0;
+}
+
+.learn-empty {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.learn-empty p {
+  margin: 0;
+}
+
+/* --- Aprender: acordeão ----------------------------------------------- */
+.learn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.learn-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.45);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.learn-item.is-open {
+  border-color: var(--border-strong);
+  background: var(--surface-raised);
+}
+
+.learn-q {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.learn-q button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.learn-q button:hover {
+  color: var(--accent);
+}
+
+.learn-q button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.learn-num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.learn-q-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.learn-chevron {
+  flex: none;
+  color: var(--text-3);
+  transition: transform 0.2s;
+}
+
+.learn-item.is-open .learn-chevron {
+  transform: rotate(180deg);
+}
+
+.learn-answer {
+  padding: 0 14px 14px 48px;
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+
+.learn-answer p {
+  margin: 0 0 0.7em;
+}
+
+.learn-example {
+  margin: 10px 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  background: var(--accent-soft);
+}
+
+.learn-example p {
+  margin: 0;
+  color: var(--text);
+}
+
+.learn-example-label {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* --- Atalhos para elementos e botão "Ver na tabela" ------------------- */
+.learn-elements {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 4px;
+}
+
+.learn-elements-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.learn-chip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.learn-el-chip strong {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.learn-el-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.learn-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.learn-focus-btn {
+  text-align: left;
+}
+
+.learn-focus-desc {
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.btn-primary .learn-focus-desc {
+  color: inherit;
+  opacity: 0.8;
+}
+
+/* --- Links externos ---------------------------------------------------- */
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  overflow-wrap: anywhere;
+}
+
+.ext-link svg {
+  flex: none;
+  opacity: 0.75;
+}
+
+/* --- História ---------------------------------------------------------- */
+.hist-p {
+  color: var(--text-2);
+  font-size: 0.92rem;
+  margin: 0 0 0.75em;
+}
+
+.hist-subtitle {
+  margin: 16px 0 6px;
+  font-size: 1rem;
+}
+
+.hist-preds {
+  display: grid;
+  gap: 12px;
+  margin: 10px 0 12px;
+}
+
+.hist-pred {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.45);
+}
+
+.hist-pred-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.hist-pred-head p {
+  margin: 2px 0 0;
+}
+
+.hist-pred-name {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.hist-pred-table th[scope='row'] {
+  color: var(--text-2);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.hist-star {
+  margin-left: 2px;
+  color: var(--warn);
+  cursor: help;
+}
+
+.hist-pred-note {
+  margin: 8px 0 0;
+  color: var(--text-2);
+}
+
+.hist-caveat p {
+  margin: 0;
+}
+
+.hist-source-note {
+  margin: 10px 0 0;
+}
+
+/* Linha do tempo vertical */
+.hist-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.hist-timeline::before {
+  content: '';
+  position: absolute;
+  left: 39px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(var(--accent), rgba(94, 234, 212, 0.1));
+  opacity: 0.5;
+}
+
+.hist-event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  padding-bottom: 18px;
+}
+
+.hist-year {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  justify-self: center;
+  max-width: 80px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--bg-1);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.hist-body {
+  min-width: 0;
+}
+
+.hist-title {
+  margin: 1px 0 6px;
+  font-size: 1rem;
+}
+
+.hist-people {
+  margin: 0 0 4px;
+}
+
+.hist-people-label {
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.hist-actions {
+  margin-top: 6px;
+}
+
+/* Inversões de massa (Moseley) */
+.hist-inversion {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 6px;
+}
+
+.hist-inversion-sign {
+  color: var(--warn);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.hist-inversion .element-row {
+  min-width: 0;
+}
+
+/* --- Fontes ------------------------------------------------------------ */
+.src-method {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 0.9rem;
+}
+
+.src-method strong {
+  color: var(--text);
+}
+
+.src-each p {
+  margin: 0;
+}
+
+.src-count {
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.src-kind-desc {
+  margin: -2px 0 8px;
+}
+
+.src-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.src-item {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10, 16, 32, 0.45);
+}
+
+.src-item p {
+  margin: 0;
+}
+
+.src-title {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.src-item .small {
+  margin-top: 3px;
+}
+
+.src-citation {
+  color: var(--text-3);
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+.src-used {
+  color: var(--text-2);
+}
+
+/* --- Telas estreitas --------------------------------------------------- */
+@media (max-width: 480px) {
+  .learn-answer {
+    padding-left: 14px;
+  }
+
+  .hist-timeline::before {
+    left: 27px;
+  }
+
+  .hist-event {
+    grid-template-columns: 56px 1fr;
+    gap: 8px;
+  }
+
+  .hist-year {
+    max-width: 56px;
+    padding: 3px 4px;
+    font-size: 0.68rem;
+  }
+
+  .hist-inversion {
+    grid-template-columns: 1fr;
+  }
+
+  .hist-inversion-sign {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learn-item,
+  .learn-chevron {
+    transition: none;
+  }
+}

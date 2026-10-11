@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Cena 3D (CSS3DRenderer), cartões dos elementos e rótulos
+   ========================================================================== */
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, rgba(38, 64, 140, 0.32) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 120%, rgba(94, 234, 212, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #060a16 0%, #04060c 100%);
+}
+
+.scene-renderer {
+  position: absolute !important;
+  inset: 0;
+  touch-action: none;
+  cursor: grab;
+}
+
+.scene-renderer:active {
+  cursor: grabbing;
+}
+
+.card-host,
+.label-host {
+  /* O CSS3DRenderer aplica a transformação neste elemento. */
+  pointer-events: auto;
+}
+
+.label-host {
+  transition: opacity 0.45s ease;
+}
+
+.label-host.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Cartão
+   -------------------------------------------------------------------------- */
+.element-card {
+  --cat: #888;
+  --tint: color-mix(in srgb, var(--cat) 26%, #0a1122);
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  width: 110px;
+  height: 132px;
+  padding: 7px 8px 6px;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--cat) 55%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--cat) 30%, #0b1426) 0%, color-mix(in srgb, var(--cat) 9%, #060a14) 100%);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    opacity 0.35s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease,
+    filter 0.35s ease;
+  overflow: hidden;
+}
+
+/* "Iluminação" simulada: cartões voltados para longe da câmera escurecem. */
+.element-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #02040a;
+  opacity: calc((1 - clamp(-1, var(--facing, 1), 1)) * 0.38);
+  pointer-events: none;
+}
+
+.scene[data-quality='high'] .element-card {
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--cat) 22%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.element-card:hover,
+.element-card:focus-visible {
+  transform: scale(1.07);
+  border-color: color-mix(in srgb, var(--cat) 90%, white);
+  z-index: 2;
+  box-shadow:
+    0 0 26px color-mix(in srgb, var(--cat) 45%, transparent),
+    var(--focus-ring);
+}
+
+.ec-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1;
+}
+
+.ec-z {
+  font-weight: 600;
+}
+
+.ec-rank {
+  margin-left: auto;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.ec-rad {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(250, 204, 21, 0.55);
+}
+
+.ec-rank + .ec-rad {
+  margin-left: 2px;
+}
+
+.ec-rad.is-on {
+  color: var(--radiation);
+  font-size: 15px;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+}
+
+.ec-symbol {
+  align-self: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  color: color-mix(in srgb, var(--cat) 70%, white);
+  letter-spacing: -0.02em;
+}
+
+.ec-name {
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.ec-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.ec-mass {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ec-code {
+  font-size: 9.5px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat) 22%, transparent);
+  color: color-mix(in srgb, var(--cat) 70%, white);
+  font-weight: 700;
+}
+
+.ec-fav {
+  position: absolute;
+  right: 6px;
+  bottom: 18px;
+  font-size: 11px;
+  color: var(--warn);
+}
+
+/* Estados visuais ---------------------------------------------------------- */
+.element-card.is-predicted {
+  border-style: dashed;
+}
+
+.element-card.is-dim {
+  opacity: 0.14;
+  filter: saturate(0.25);
+}
+
+.element-card.is-dim:hover,
+.element-card.is-dim:focus-visible {
+  opacity: 0.75;
+}
+
+.element-card.is-emphasis {
+  border-color: color-mix(in srgb, var(--cat) 85%, white);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--cat) 70%, transparent),
+    0 0 26px color-mix(in srgb, var(--cat) 40%, transparent);
+}
+
+.element-card.is-compare {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+}
+
+.element-card.is-undiscovered {
+  opacity: 0.06;
+  border-style: dashed;
+  filter: grayscale(1);
+}
+
+.element-card.is-undiscovered:hover {
+  opacity: 0.35;
+}
+
+.element-card.is-fresh {
+  animation: fresh-pop 1.4s ease-out;
+}
+
+@keyframes fresh-pop {
+  0% {
+    transform: scale(1.6);
+    box-shadow: 0 0 60px var(--accent);
+    border-color: var(--accent);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Tendências: escala sequencial (azul-violeta → verde → amarelo). */
+.element-card.has-trend {
+  --t: var(--trend, 0);
+  background: hsl(calc(255 - var(--t) * 200) 68% calc(20% + var(--t) * 32%));
+  border-color: hsl(calc(255 - var(--t) * 200) 80% calc(40% + var(--t) * 30%));
+}
+
+.element-card.has-trend .ec-symbol,
+.element-card.has-trend .ec-name,
+.element-card.has-trend .ec-bottom,
+.element-card.has-trend .ec-top {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+.element-card.has-trend.no-data {
+  background: repeating-linear-gradient(135deg, #10172a 0 6px, #0b1120 6px 12px);
+  border-color: rgba(150, 172, 225, 0.25);
+  border-style: dashed;
+}
+
+.element-card.has-trend.no-data .ec-symbol {
+  color: var(--text-3);
+}
+
+/* Estado da matéria */
+.element-card.state-solid {
+  background: linear-gradient(160deg, #3a4a6b 0%, #1a2238 100%);
+  border-color: #8ea2c9;
+}
+
+.element-card.state-liquid {
+  background: linear-gradient(160deg, #0e5f86 0%, #08304a 100%);
+  border-color: #38bdf8;
+}
+
+.element-card.state-gas {
+  background: linear-gradient(160deg, #7a5a12 0%, #3b2b08 100%);
+  border-color: #fbbf24;
+}
+
+.element-card.state-unknown {
+  background: repeating-linear-gradient(135deg, #121a2e 0 6px, #0c1222 6px 12px);
+  border-color: rgba(150, 172, 225, 0.3);
+  border-style: dashed;
+}
+
+.element-card.state-solid .ec-symbol,
+.element-card.state-liquid .ec-symbol,
+.element-card.state-gas .ec-symbol {
+  color: #fff;
+}
+
+/* Variante compacta (listas, grade acessível) ----------------------------- */
+.element-card.is-compact {
+  width: 100%;
+  height: auto;
+  min-height: 104px;
+  aspect-ratio: 110 / 132;
+}
+
+/* --------------------------------------------------------------------------
+   Rótulos na cena
+   -------------------------------------------------------------------------- */
+.scene-label {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.label-group .scene-label,
+.label-period .scene-label {
+  min-width: 40px;
+  height: 34px;
+  padding: 0 10px;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-2);
+  border: 1px solid transparent;
+}
+
+.scene-label.is-clickable {
+  cursor: pointer;
+}
+
+.scene-label.is-clickable:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(20, 30, 56, 0.7);
+}
+
+.scene-label.is-active {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.label-placeholder .scene-label {
+  width: 110px;
+  height: 132px;
+  justify-content: center;
+  gap: 6px;
+  border: 1px dashed rgba(150, 172, 225, 0.35);
+  border-radius: 9px;
+  font-size: 15px;
+  color: var(--text-2);
+  background: rgba(10, 16, 32, 0.4);
+}
+
+.label-placeholder .sl-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.label-series .scene-label {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.label-block .scene-label {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.label-block .sl-sub {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.label-axis .scene-label {
+  font-size: 15px;
+  color: var(--text-2);
+}

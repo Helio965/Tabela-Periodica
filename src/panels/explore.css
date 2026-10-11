@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Painel "Explorar elementos"
+   ========================================================================== */
+.explore p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contagem de destacados + botão "Limpar seleção" */
+.explore-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 4px 0 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: rgba(4, 8, 18, 0.55);
+  border: 1px solid var(--border);
+}
+
+.explore .explore-count {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-2);
+  min-width: 0;
+}
+
+.explore-count strong {
+  color: var(--accent);
+  font-size: 1.15rem;
+  margin-right: 2px;
+}
+
+.explore-selection {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+
+.explore-empty {
+  margin: 0 0 12px;
+}
+
+/* Subtítulos dentro das seções */
+.explore-subtitle {
+  margin: 12px 0 6px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.explore-hint {
+  margin-top: 10px;
+}
+
+/* Filtros ---------------------------------------------------------------- */
+.explore-all {
+  margin-top: 10px;
+}
+
+.explore-filter-group .chips {
+  gap: 6px;
+}
+
+.explore .chip-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-3);
+  padding-left: 2px;
+}
+
+.explore .chip[aria-pressed='true'] .chip-count {
+  color: var(--accent);
+}
+
+.explore .chip-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--radiation);
+}
+
+.explore .chip-rad[aria-pressed='true'] {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: var(--radiation);
+}
+
+.explore .chip-rad[aria-pressed='true'] .chip-count {
+  color: var(--radiation);
+}
+
+.explore-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.explore-box-title {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  color: var(--radiation);
+}
+
+.explore-radiation p {
+  margin: 0 0 0.7em;
+}
+
+.explore-radiation-list {
+  margin: 0 0 0.8em;
+  padding-left: 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explore-radiation-list li::marker {
+  color: var(--radiation);
+}
+
+.explore .explore-radiation-uses {
+  margin: 0;
+  color: var(--text-3);
+}
+
+/* Ranking ---------------------------------------------------------------- */
+.explore-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.explore-ranking {
+  margin-top: 4px;
+}
+
+.explore .info-box p {
+  margin: 0 0 0.5em;
+}
+
+.explore .info-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Grupos e períodos ------------------------------------------------------ */
+.explore-numbers {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.explore-num {
+  min-width: 0;
+  height: 34px;
+  padding: 0;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--border-strong);
+  background: rgba(10, 16, 32, 0.6);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.explore-num:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+  border-color: rgba(150, 172, 225, 0.5);
+}
+
+.explore-num[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.explore-focus-note {
+  margin-top: 12px;
+}
+
+/* Legenda completa ------------------------------------------------------- */
+.explore-legend {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.explore-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding: 9px 12px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--chip-color, var(--accent));
+  background: rgba(10, 16, 32, 0.5);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.explore-cat:hover {
+  background: var(--surface-hover);
+}
+
+.explore-cat[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--chip-color) 14%, rgba(10, 16, 32, 0.7));
+  border-color: color-mix(in srgb, var(--chip-color) 60%, transparent);
+  border-left-color: var(--chip-color);
+}
+
+.explore-cat-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+
+.explore-cat-head .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--chip-color, var(--accent));
+  flex: none;
+}
+
+.explore-cat-label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.explore-cat-code {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0 5px;
+  border-radius: 4px;
+  color: color-mix(in srgb, var(--chip-color) 70%, white);
+  background: color-mix(in srgb, var(--chip-color) 20%, transparent);
+}
+
+.explore-cat-count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-3);
+}
+
+.explore-cat[aria-pressed='true'] .explore-cat-count::before {
+  /* Indicação textual do estado fixado (além da cor). */
+  content: '✓ fixada · ';
+  color: var(--accent);
+  font-family: var(--font-sans);
+}
+
+.explore-cat-desc {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.45;
+}
+
+/* Favoritos e recentes --------------------------------------------------- */
+.explore-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.explore-section-head .section-title {
+  margin: 0;
+}
+
+@media (max-width: 420px) {
+  .explore-numbers {
+    gap: 3px;
+  }
+
+  .explore-num {
+    height: 32px;
+    font-size: 0.8rem;
+  }
+}
