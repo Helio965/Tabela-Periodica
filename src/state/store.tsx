@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, type Dispatch, type ReactNode } from 'react';
 import { ELEMENT_BY_SLUG, ELEMENT_BY_SYMBOL, ELEMENT_BY_Z, ELEMENTS } from '../data/elements';
 import { MAX_COMPARE } from '../lib/compare';
+import { slugify } from '../lib/text';
 import type { Action, AppState, LayoutId, PanelMode, Quality } from './types';
 
 const STORAGE_KEY = 'tabela-periodica:prefs:v1';
 const MAX_RECENT = 12;
+const QUALITIES: Quality[] = ['auto', 'low', 'medium', 'high'];
 
 export const PANEL_SLUGS: Record<PanelMode, string> = {
   explore: 'explorar',
@@ -103,7 +105,7 @@ export function reducer(state: AppState, action: Action): AppState {
     }
     case 'toggleCompare': {
       if (state.compare.includes(action.z)) return { ...state, compare: state.compare.filter((z) => z !== action.z) };
-      if (state.compare.length >= MAX_COMPARE) return state;
+      if (state.compare.length >= MAX_COMPARE || !ELEMENT_BY_Z.has(action.z)) return state;
       return { ...state, compare: [...state.compare, action.z] };
     }
     case 'setCompare':
@@ -147,7 +149,8 @@ function loadPersisted(): Partial<AppState> {
     return {
       favorites: valid(data.favorites),
       recent: valid(data.recent).slice(0, MAX_RECENT),
-      quality: data.quality ?? 'auto',
+      // Valor desconhecido (armazenamento antigo ou corrompido) volta para "auto".
+      quality: data.quality && QUALITIES.includes(data.quality) ? data.quality : 'auto',
       autoRotate: Boolean(data.autoRotate),
     };
   } catch {
@@ -167,22 +170,39 @@ function savePersisted(state: AppState) {
 // ---------------------------------------------------------------------------
 // Rotas por hash: #/elemento/uranio · #/comparar/c,si,ge · #/modo/descobertas
 // ---------------------------------------------------------------------------
+/** Decodifica um trecho da URL sem lançar exceção (ex.: "%E0%A4%A" malformado). */
+function safeDecode(part: string): string {
+  try {
+    return decodeURIComponent(part);
+  } catch {
+    return part;
+  }
+}
+
+/** Aceita símbolo ("u"), nome com ou sem acento ("urânio", "uranio") ou número atômico ("92"). */
+function elementFromHashPart(part: string) {
+  const key = part.trim().toLowerCase();
+  return ELEMENT_BY_SYMBOL.get(key) ?? ELEMENT_BY_SLUG.get(slugify(key)) ?? (/^\d+$/.test(key) ? ELEMENT_BY_Z.get(Number(key)) : undefined);
+}
+
 export function parseHash(hash: string): Partial<AppState> {
-  const parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent);
+  const parts = hash.replace(/^#\/?/, '').split('/').map(safeDecode);
   const [route, arg] = parts;
   if (route === 'elemento' && arg) {
-    const el = ELEMENT_BY_SLUG.get(arg.toLowerCase()) ?? ELEMENT_BY_SYMBOL.get(arg.toLowerCase()) ?? ELEMENT_BY_Z.get(Number(arg));
+    const el = elementFromHashPart(arg);
     return el ? { selected: el.z } : {};
   }
   if (route === 'comparar' && arg) {
     const z = arg
       .split(',')
-      .map((s) => ELEMENT_BY_SYMBOL.get(s.trim().toLowerCase())?.z ?? ELEMENT_BY_SLUG.get(s.trim().toLowerCase())?.z)
+      .map((s) => elementFromHashPart(s)?.z)
       .filter((x): x is number => x !== undefined);
-    return { compare: z.slice(0, MAX_COMPARE), panel: 'compare', panelOpen: true };
+    return { compare: [...new Set(z)].slice(0, MAX_COMPARE), panel: 'compare', panelOpen: true };
   }
-  if (route === 'modo' && arg && PANEL_BY_SLUG[arg]) {
-    return { panel: PANEL_BY_SLUG[arg], panelOpen: true };
+  if (route === 'modo' && arg) {
+    // `hasOwn` evita aceitar chaves herdadas como "constructor".
+    const slug = slugify(arg);
+    if (Object.hasOwn(PANEL_BY_SLUG, slug)) return { panel: PANEL_BY_SLUG[slug], panelOpen: true };
   }
   return {};
 }

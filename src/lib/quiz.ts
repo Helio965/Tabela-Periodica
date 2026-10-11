@@ -37,7 +37,11 @@ export function maskElement(text: string, el: ChemicalElement): string {
   for (const n of [el.name, ...(el.aliases ?? [])]) {
     out = out.replace(new RegExp(escapeRe(n), 'gi'), '▢▢▢');
   }
-  if (el.symbol.length === 2) out = out.replace(new RegExp(`\\b${el.symbol}\\b`, 'g'), '▢▢');
+  // `\b` só reconhece letras ASCII: "Na" seria escondido dentro de "Nações".
+  // As verificações abaixo tratam letras acentuadas como parte da palavra.
+  if (el.symbol.length === 2) {
+    out = out.replace(new RegExp(`(?<![\\p{L}\\p{N}_])${el.symbol}(?![\\p{L}\\p{N}_])`, 'gu'), '▢▢');
+  }
   return out;
 }
 

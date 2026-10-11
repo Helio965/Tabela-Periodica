@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Sobreposições na base do palco: legenda compacta e "Elemento em destaque"
+   ========================================================================== */
+
+/* Distância da base do palco. No celular, a alça da gaveta (46px) ocupa a base. */
+.legend-bar,
+.featured {
+  --overlay-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .legend-bar,
+  .featured {
+    --overlay-bottom: 58px;
+  }
+
+  /* Com a gaveta aberta, as sobreposições ficam cobertas: escondê-las também
+     as tira da ordem de tabulação. */
+  .app:not(.panel-closed) .legend-bar,
+  .app:not(.panel-closed) .featured {
+    visibility: hidden;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Legenda compacta
+   -------------------------------------------------------------------------- */
+.legend-bar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: var(--overlay-bottom);
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  /* O contêiner não bloqueia a cena 3D; só as pílulas recebem eventos. */
+  pointer-events: none;
+}
+
+.legend-track {
+  display: flex;
+  gap: 4px;
+  max-width: 100%;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  border-radius: 999px;
+  background: rgba(8, 13, 28, 0.58);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  backdrop-filter: blur(10px) saturate(1.2);
+  pointer-events: none;
+}
+
+.legend-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bordas esmaecidas indicam que há mais pílulas para rolar (28px = FADE_PX). */
+.legend-track.fade-start {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 28px);
+  mask-image: linear-gradient(to right, transparent 0, #000 28px);
+}
+
+.legend-track.fade-end {
+  -webkit-mask-image: linear-gradient(to left, transparent 0, #000 28px);
+  mask-image: linear-gradient(to left, transparent 0, #000 28px);
+}
+
+.legend-track.fade-start.fade-end {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+}
+
+.legend-track li {
+  flex: none;
+  display: flex;
+}
+
+.chip.legend-pill {
+  pointer-events: auto;
+  min-height: 30px;
+  padding: 3px 10px 3px 9px;
+  gap: 6px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-2);
+}
+
+.chip.legend-pill:hover {
+  background: rgba(52, 72, 120, 0.4);
+  border-color: color-mix(in srgb, var(--chip-color) 45%, transparent);
+  color: var(--text);
+}
+
+.chip.legend-pill[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--chip-color) 22%, rgba(8, 13, 28, 0.8));
+  border-color: var(--chip-color);
+  color: var(--text);
+}
+
+.chip.legend-pill .dot {
+  width: 9px;
+  height: 9px;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--chip-color) 70%, transparent);
+}
+
+.legend-pill-code {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 0 4px;
+  border-radius: 4px;
+  color: color-mix(in srgb, var(--chip-color) 70%, white);
+  background: color-mix(in srgb, var(--chip-color) 18%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Elemento em destaque
+   -------------------------------------------------------------------------- */
+.featured {
+  --cat: var(--accent);
+  position: absolute;
+  left: 12px;
+  bottom: calc(var(--overlay-bottom) + 52px);
+  z-index: 14;
+  width: 320px;
+  max-width: calc(100% - 24px);
+  padding: 10px 12px 12px;
+  border-radius: var(--radius-l);
+  border: 1px solid color-mix(in srgb, var(--cat) 30%, var(--border));
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--cat) 12%, transparent) 0%, transparent 55%),
+    rgba(8, 13, 28, 0.72);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  animation: featured-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both;
+}
+
+@keyframes featured-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+}
+
+.featured-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: -2px -6px 6px 0;
+}
+
+.featured .featured-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.featured-kicker svg {
+  color: var(--warn);
+}
+
+.btn-icon.featured-close {
+  width: 32px;
+  min-height: 32px;
+}
+
+.featured-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featured-tile {
+  flex: none;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 58px;
+  height: 64px;
+  padding: 4px 6px;
+  border-radius: 9px;
+  border: 1px solid color-mix(in srgb, var(--cat) 60%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--cat) 34%, #0b1426) 0%, color-mix(in srgb, var(--cat) 10%, #060a14) 100%);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--cat) 25%, transparent);
+  line-height: 1;
+}
+
+.featured-tile-z {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-2);
+}
+
+.featured-tile-symbol {
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--cat) 70%, white);
+}
+
+.featured-tile-code {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--cat) 70%, white);
+}
+
+.featured-id {
+  min-width: 0;
+}
+
+.featured .featured-name {
+  margin: 0 0 2px;
+  font-size: 1.12rem;
+}
+
+.featured .featured-meta {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-2);
+}
+
+.featured-rad {
+  color: var(--radiation);
+}
+
+.featured .featured-text {
+  margin: 10px 0 10px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text-2);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+
+.featured-open {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .featured {
+    right: 12px;
+    width: auto;
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .featured {
+    padding: 8px 10px 10px;
+  }
+
+  .featured .featured-text {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    margin: 8px 0;
+    font-size: 0.84rem;
+  }
+}
+
+/* Telas baixas (celular deitado): cartão mais enxuto. */
+@media (max-height: 560px) {
+  .featured .featured-text {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin: 6px 0 8px;
+  }
+
+  .featured-tile {
+    width: 48px;
+    height: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured {
+    animation: none;
+  }
+}
